@@ -11,14 +11,14 @@ module.exports = function() {
 		passReqToCallback : true
 	}, function(req, username, password, done) {
 		return User.findOne({
-			$or: [ 
-				{ "username": username}, 
+			$or: [
+				{ "username": username},
 				{ "email": username}
 			]
 		}, function(err, user) {
 			if (err)
 				return done(err);
-			
+
 			if (!user)
 				return done(null, false, {
 					message: req.t("UnknowUsernameOrEmail")
@@ -50,7 +50,7 @@ module.exports = function() {
 					});
 
 				else
-					return done(null, user);		
+					return done(null, user);
 
 			});
 		});

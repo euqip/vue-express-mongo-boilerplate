@@ -7,20 +7,20 @@ let redis 		= require("../redis");
 let _ 			= require("lodash");
 /**
  * Cacher factory for memory cache
- * 
+ *
  * 		Similar: https://github.com/mpneuried/nodecache/blob/master/_src/lib/node_cache.coffee
- * 
+ *
  * @class Cacher
  */
 class Cacher {
 
 	/**
 	 * Creates an instance of Cacher.
-	 * 
+	 *
 	 * @param {any} type
 	 * @param {any} prefix
 	 * @param {any} ttl
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	constructor(prefix, ttl) {
@@ -41,33 +41,33 @@ class Cacher {
 
 	/**
 	 * Get data from cache by key
-	 * 
+	 *
 	 * @param {any} key
 	 * @returns {Promise}
-	 *  
+	 *
 	 * @memberOf Cacher
 	 */
 	get(key) {
 		return new Promise((resolve, reject) => {
 			let item = this.cache[this.prefix + key];
-			if (item) { 
+			if (item) {
 				logger.debug(`[Cacher] GET ${this.prefix}${key}`);
 				resolve(item.data);
 				// Update expire time (hold in the cache if we are using it)
 				item.expire = Date.now() + this.ttl * 1000;
 			}
-			else 
+			else
 				resolve(null);
 		});
 	}
 
 	/**
 	 * Save data to cache by key
-	 * 
+	 *
 	 * @param {any} key
 	 * @param {any} data JSON object
 	 * @returns {Promise}
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	set(key, data) {
@@ -81,10 +81,10 @@ class Cacher {
 
 	/**
 	 * Delete a key from cache
-	 * 
+	 *
 	 * @param {any} key
 	 * @returns {Promise}
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	del(key) {
@@ -97,7 +97,7 @@ class Cacher {
 	 * Clean cache. Remove every key by prefix
 	 * @param {any} match Match string for SCAN. Default is "*"
 	 * @returns {Promise}
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	clean(match) {

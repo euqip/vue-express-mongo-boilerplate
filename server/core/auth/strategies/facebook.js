@@ -20,9 +20,9 @@ module.exports = function() {
 			passReqToCallback: true
 		}, function(req, accessToken, refreshToken, profile, done) {
 			//logger.info("Received profile: ", profile);
-			
+
 			helper.linkToSocialAccount({
-				req, 
+				req,
 				accessToken,
 				refreshToken,
 				profile,

@@ -15,7 +15,7 @@ if (config.redis.enabled) {
 	client.on("connect", (err) => {
 		logger.info(chalk.green.bold("Redis client connected!"));
 	});
-	
+
 	client.on("error", (err) => {
 		logger.error(err);
 	});

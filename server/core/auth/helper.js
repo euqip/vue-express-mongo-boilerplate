@@ -6,7 +6,7 @@ let passport 	= require("passport");
 
 let User 		= require("../../models/user");
 
-// TODO response 
+// TODO response
 
 /**
  * Check the request is come from an authenticated user
@@ -21,7 +21,7 @@ module.exports.isAuthenticated = function isAuthenticated(req, res, next) {
 
 /**
  * Try authenticate the requester user with API key.
- * We search `apikey` field in `headers`, `query` and `body` 
+ * We search `apikey` field in `headers`, `query` and `body`
  */
 module.exports.tryAuthenticateWithApiKey = function tryAuthenticatedWithApiKey(req, res, next) {
 	if (!req.isAuthenticated()) {
@@ -48,7 +48,7 @@ module.exports.tryAuthenticateWithApiKey = function tryAuthenticatedWithApiKey(r
 
 /**
  * If not authenticated, we authenticate with API key.
- * We search `apikey` field in `headers`, `query` and `body` 
+ * We search `apikey` field in `headers`, `query` and `body`
  */
 module.exports.isAuthenticatedOrApiKey = function isAuthenticated(req, res, next) {
 	if (req.isAuthenticated())
@@ -57,14 +57,14 @@ module.exports.isAuthenticatedOrApiKey = function isAuthenticated(req, res, next
 		// Try authenticate with API KEY
 		if (req.headers.apikey || req.query.apikey || req.body.apikey) {
 			passport.authenticate("localapikey", (err, user, info) => {
-				if (err) 
+				if (err)
 					return res.sendStatus(500);
 
 				if (!user)
 					return res.status(401).send(info.message || "");
 
 				req.login(user, function(err) {
-					if (err) 
+					if (err)
 						return res.sendStatus(500);
 
 					return next();
@@ -150,9 +150,9 @@ module.exports.linkToSocialAccount = function linkToSocialAccount(opts) {
 				});
 			}
 		});
-		
+
 	} else {
-		
+
 		// No logged in user
 		let search = {};
 		search[`socialLinks.${provider}`] = profile.id;
@@ -165,14 +165,14 @@ module.exports.linkToSocialAccount = function linkToSocialAccount(opts) {
 					req.flash("error", { msg: req.t("UserDisabledOrDeleted")});
 					return done();
 				}
-				
+
 				return done(err, existingUser);
 			}
 
 			if (!email) {
 				// Not provided email address
 				req.flash("error", { msg: req.t("SocialMissingEmailAddress")});
-				return done();				
+				return done();
 			}
 
 			// If come back email address from social provider, search user by email

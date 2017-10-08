@@ -7,18 +7,18 @@ let redis 		= require("../redis");
 let _ 			= require("lodash");
 /**
  * Cacher factory for Redis
- * 
+ *
  * @class Cacher
  */
 class Cacher {
 
 	/**
 	 * Creates an instance of Cacher.
-	 * 
+	 *
 	 * @param {any} type
 	 * @param {any} prefix
 	 * @param {any} ttl
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	constructor(prefix, ttl) {
@@ -29,20 +29,20 @@ class Cacher {
 
 	/**
 	 * Get data from cache by key
-	 * 
+	 *
 	 * @param {any} key
 	 * @returns {Promise}
-	 *  
+	 *
 	 * @memberOf Cacher
 	 */
 	get(key) {
 		return redis.get(this.prefix + key).then((data) => {
 			if (data) {
 				try {
-					return JSON.parse(data);						
+					return JSON.parse(data);
 				} catch (err) {
 					logger.error("Redis result parse error!", err);
-				}				
+				}
 			}
 			return data;
 		});
@@ -50,11 +50,11 @@ class Cacher {
 
 	/**
 	 * Save data to cache by key
-	 * 
+	 *
 	 * @param {any} key
 	 * @param {any} data JSON object
 	 * @returns {Promise}
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	set(key, data) {
@@ -76,10 +76,10 @@ class Cacher {
 
 	/**
 	 * Delete a key from cache
-	 * 
+	 *
 	 * @param {any} key
 	 * @returns {Promise}
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	del(key) {
@@ -97,7 +97,7 @@ class Cacher {
 	 * 		https://github.com/cayasso/cacheman-redis/blob/master/lib/index.js#L125
 	 * @param {any} match Match string for SCAN. Default is "*"
 	 * @returns {Promise}
-	 * 
+	 *
 	 * @memberOf Cacher
 	 */
 	clean(match) {
@@ -123,7 +123,7 @@ class Cacher {
 			if (err)
 				//return reject(err);
 				logger.error("Redis `scanDel` error!", err);
-			
+
 			//resolve();
 		});
 

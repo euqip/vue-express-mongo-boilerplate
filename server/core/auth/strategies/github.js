@@ -28,7 +28,7 @@ module.exports = function() {
 			}
 
 			helper.linkToSocialAccount({
-				req, 
+				req,
 				accessToken,
 				refreshToken,
 				profile,

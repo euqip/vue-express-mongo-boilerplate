@@ -21,7 +21,7 @@ module.exports = function() {
 			//logger.info("Received profile: ", profile);
 
 			helper.linkToSocialAccount({
-				req, 
+				req,
 				accessToken,
 				refreshToken,
 				profile,

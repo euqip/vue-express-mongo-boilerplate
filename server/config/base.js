@@ -69,7 +69,7 @@ module.exports = {
 
 	mailer: {
 		enabled: false, // change this flag to true to turn emailing feature on.
-		
+
 		//if enabled = true make sure to configure one of the methods below
 		from: "noreply@vem-app.com"
 		/*
@@ -133,7 +133,7 @@ module.exports = {
 		twitter: {
 			clientID: null,
 			clientSecret: null
-		}		
+		}
 	},
 
 	logging: {
@@ -172,17 +172,17 @@ module.exports = {
 			token: null,
 			subdomain: null
 		},
-		
+
 		logsene: {
 			enabled: false,
 			token: null
 		},
-		
+
 		logzio: {
 			enabled: false,
 			token: null
 		}
-		
+
 	},
 
 	agendaTimer: "one minute"

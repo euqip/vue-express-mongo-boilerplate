@@ -21,7 +21,7 @@ module.exports = function() {
 				logger.error("Could not connect to MongoDB!");
 				return logger.error(err);
 			}
-		
+
 			mongoose.set("debug", config.isDevMode());
 		});
 
@@ -39,11 +39,11 @@ module.exports = function() {
 		});
 
 		/*
-			Maybe change to 
+			Maybe change to
 				https://github.com/icebob/mongoose-autoincrement
 
 		 */
-		autoIncrement.initialize(db);		
+		autoIncrement.initialize(db);
 
 		mongoose.connection.once("open", function mongoAfterOpen() {
 			logger.info(chalk.yellow.bold("Mongo DB connected."));
@@ -53,21 +53,21 @@ module.exports = function() {
 				logger.warn("Drop test database...");
 				//mongoose.connection.db.dropDatabase((err) => {
 				//	autoIncrement.initialize(db);
-				require("./seed-db")();		
+				require("./seed-db")();
 				//);
 			}
 			else {
 				if (!config.isProduction) {
-					require("./seed-db")();	
+					require("./seed-db")();
 				}
 			}
 		});
 
-		
+
 	} else {
 		logger.info("Mongo already connected.");
 		db = mongoose;
 	}
-	
+
 	return db;
 };

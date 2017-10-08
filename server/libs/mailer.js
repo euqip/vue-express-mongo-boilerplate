@@ -13,18 +13,18 @@ module.exports = {
 
 		// recipients can be a comma separated string or array which will be sent by the 'to' field
 		// recipients can also be an object with to, cc, bcc properties etc. See: 'Common fields' https://community.nodemailer.com/
-		let emailRecipients = {}
+		let emailRecipients = {};
 		if (recipients instanceof Object) {
 			if(recipients instanceof Array) {
-				emailRecipients.to = recipients
+				emailRecipients.to = recipients;
 			}
 			else {
-				emailRecipients = recipients
+				emailRecipients = recipients;
 			}
 		}
 		else {
-			emailRecipients.to = recipients
-		} 
+			emailRecipients.to = recipients;
+		}
 
 		let mailOptions = {
 			from: config.mailer.from,
@@ -64,12 +64,12 @@ module.exports = {
 					logger.warn("Unable to send email: ", err);
 				else
 					logger.info("Email message sent.", info.response);
-				
+
 				if (cb)
 					cb(err, info);
 			});
 		}
-		else 
+		else
 			logger.warn("Unable to send email! Invalid mailer transport: " + config.mailer.transport);
 	}
 };

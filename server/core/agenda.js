@@ -28,7 +28,7 @@ agenda.define("removeUnverifiedAccounts", function(job, done) {
 	logger.debug("Running 'removeUnverifiedAccounts' process...");
 	try {
 
-		User.remove({ 
+		User.remove({
 			createdAt: {
 				$lte: moment().subtract(1, "day").toDate()
 			},
@@ -53,7 +53,7 @@ agenda.on("ready", function() {
 	if (config.isTestMode())
 		return;
 
-	agenda.every("8 hours", "removeUnverifiedAccounts"); 
+	agenda.every("8 hours", "removeUnverifiedAccounts");
 	agenda.start();
 	logger.info(chalk.yellow("Agenda started!"));
 });

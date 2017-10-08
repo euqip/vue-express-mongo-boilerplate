@@ -13,7 +13,7 @@ module.exports = function() {
 		}, function(err, user) {
 			if (err)
 				return done(err);
-			
+
 			if (!user)
 				return done(null, false, {
 					message: req.t("UnknowAPIKey")
@@ -30,7 +30,7 @@ module.exports = function() {
 					message: req.t("UserDisabledOrDeleted")
 				});
 
-			return done(null, user);		
+			return done(null, user);
 		});
 	}));
 };
