@@ -25,8 +25,8 @@ body {
 	margin: 0;
 
 	font-weight: 400;
-	font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
+	//font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	@if $glassTheme {
 		&::before {
@@ -165,7 +165,7 @@ body {
 
 		} // .user-info
 
-		.user-menu {			
+		.user-menu {
 			visibility: hidden;
 			opacity: 0;
 			top: $headerHeight /2;
@@ -265,7 +265,7 @@ body {
 
 		} // ul.icons
 
-		.messages-dropdown, .notification-dropdown {
+		.dropdown {
 			visibility: hidden;
 			opacity: 0;
 			top: $headerHeight /2;
@@ -290,13 +290,18 @@ body {
 			.panel {
 				max-height: 300px;
 			}
-			
+
 		} // .messages-dropdown, .notification-dropdown
 
 		.notification-dropdown {
 			right: 300px;
 		}
-
+    .languages-dropdown{
+      right: 100px;
+      min-width: 190px;
+      width: 150px;
+    }
+  
 	} // .notification-box
 
 	@include clearfix;
@@ -333,7 +338,7 @@ body {
 	.menu {
 		flex: 1;
 		overflow-y: auto;
-		overflow-x: hidden;		
+		overflow-x: hidden;
 
 		.title {
 			padding-left: 0.7em;
@@ -446,7 +451,7 @@ body {
 			} // li
 
 		} // .menu
-		
+
 		.footer {
 			display: none;
 		}

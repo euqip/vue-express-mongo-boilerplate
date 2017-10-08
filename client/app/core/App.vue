@@ -16,16 +16,14 @@
 
 	import PageHeader from "./components/header/index";
 	import Sidebar from "./components/sidebar/index";
-
 	import Service from "./service";
 
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-
 		/**
 		 * Create websocket connection to the root namespace
-		 */		
+		 */
 		//mixins: [ MixinsIO() ],
 
 		/**
@@ -35,25 +33,24 @@
 			PageHeader,
 			Sidebar
 		},
-
 		/**
 		 * Create app data object
-		 * 
+		 *
 		 * TODO: move to vuex state
 		 */
 		data() {
 			return {
 				wsReconnecting: false,
-				miniSidebar: false
+        miniSidebar: false,
 			};
 		},
 
 		watch: {
-			$lng() {
-				console.log("Language updated");
+			lang: function() {
+        console.log("App Language updated");
 				this.update(this);
 			}
-		},
+   },
 
 		/**
 		 * Socket handlers. Every property is an event handler
@@ -84,20 +81,28 @@
 				}
 			}
 		},
+		computed:{
+			...mapGetters("session", [
+				"lang"
+			]),
 
+		},
 		methods: {
 			...mapActions("session", [
 				"getSessionUser"
+			]),
+			...mapGetters("session", [
+				"lang"
 			]),
 
 			update: function(vm) {
 				if (vm == null)
 					return;
-				
+
 				let i = vm._watchers.length;
 				while (i--)
 					vm._watchers[i].update(true);
-				
+
 				let children = vm.$children;
 				i = children.length;
 				while (i--)
@@ -105,7 +110,7 @@
 			},
 
 			toggleSidebar() {
-				this.miniSidebar = !this.miniSidebar;
+        this.miniSidebar = !this.miniSidebar;
 			}
 		},
 
@@ -122,7 +127,7 @@
 			window.postService = new Service("posts", this);
 			window.counterService = new Service("counter", this);
 			window.deviceService = new Service("device", this);
-			
+
 		}
 	};
 </script>

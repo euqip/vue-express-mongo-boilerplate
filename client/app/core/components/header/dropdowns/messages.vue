@@ -1,17 +1,17 @@
 <template lang="pug">
-	.messages-dropdown(:class="{ 'visible': visible }")
+	.messages-dropdown.dropdown(:class="{ 'visible': visible }")
 		.panel
-			.header 
+			.header
 				.left {{ "Messages" | i18n }}
 				.right
-					a.link(href="#") 
+					a.link(href="#")
 						small {{ "MarkAllAsRead" | i18n }}
-			.body 
+			.body
 				.list
 					.item
 						img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/dustin/73.jpg")
 						.body
-							strong Message title 
+							strong Message title
 								small.text-muted John Doe
 							p.text-justify Cupidatat eiusmod commodo excepteur velit magna. Aliqua eu tempor officia officia et ipsum magna sint cillum Lorem reprehenderit.
 						.footer.text-right
@@ -19,7 +19,7 @@
 					.item
 						img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/connor_gaunt/73.jpg")
 						.body
-							strong Message title 
+							strong Message title
 								small.text-muted John Doe
 							p.text-justify Laborum laboris nulla nisi labore.
 						.footer.text-right
@@ -38,7 +38,7 @@
 		]
 
 	};
-	
+
 </script>
 
 <style lang="scss">

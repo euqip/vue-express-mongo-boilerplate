@@ -8,7 +8,7 @@
 ![Webpack 2](https://img.shields.io/badge/webpack-2.6.x-green.svg)
 [![Trace](https://resources.risingstack.com/Monitored+with+Trace+by+RisingStack.svg)](https://trace.risingstack.com/?utm_source=opensource&utm_medium=Icebob)
 
-This is a full stack webapp boilerplate project with VueJS + ExpressJS + MongoDB. NOT an out-of-box project. 
+This is a full stack webapp boilerplate project with VueJS + ExpressJS + MongoDB. NOT an out-of-box project.
 The goal is to create an up-to-date starter repo which contains all important functions (user signup, login, oauth, profile, ...etc) except the business-logic. So when neccessary I can create a new webapp and only need to develop the business logic.
 
 *This is just my personal boilerplate, it may or may not be a good fit for your project(s).*
@@ -124,11 +124,11 @@ $ docker-compose up
 |   |       +---home
 |   |       +---posts
 |   |       +---session
-|   |                   
+|   |
 |   +---frontend
 |   +---images
 |   +---scss
-|                   
+|
 +---data
 +---logs
 +---server
@@ -147,7 +147,7 @@ $ docker-compose up
 |   |       index.js
 |   |       prod.js
 |   |       test.js
-|   |       
+|   |
 |   +---core
 |   +---libs
 |   +---locales

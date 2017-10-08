@@ -8,11 +8,11 @@
 |   |       +---posts
 |   |       +---profile
 |   |       +---session
-|   |                   
+|   |
 |   +---frontend
 |   +---images
 |   +---scss
-|                   
+|
 +---data
 +---logs
 +---server
@@ -34,7 +34,7 @@
 |   |       index.js
 |   |       prod.js
 |   |       test.js
-|   |       
+|   |
 |   +---core
 |   +---libs
 |   +---locales

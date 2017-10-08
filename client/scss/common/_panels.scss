@@ -5,26 +5,26 @@
 		@include bgTranslucentDark(0.2);
 	}
 
-	border: 1px solid $color2-light;
+	border       : 1px solid $color2-light;
 	border-radius: $defaultRadius;
-	position: relative;
-	box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
+	position     : relative;
+	box-shadow   : 0 5px 5px 0 rgba(0,0,0,.25);
 
-	display: flex;
+	display       : flex;
 	flex-direction: column;
 
 	> .header, >.footer {
 		min-height: 2.2em;
 
-		border-radius: $defaultRadius;
-		border-bottom-left-radius: 0;
+		border-radius             : $defaultRadius;
+		border-bottom-left-radius : 0;
 		border-bottom-right-radius: 0;
 
 		background-color: $buttonColor;
-		padding: 0.6em 1.1em;
-		font-family: $fontFamilyHeader;
-		font-weight: $fontLight;
-		font-size: 1.2em;
+		padding         : 0.6em 1.1em;
+		font-family     : $fontFamilyHeader;
+		font-weight     : $fontLight;
+		font-size       : 1.2em;
 
 		color: $textColor;
 
@@ -38,14 +38,14 @@
 	}
 
 	> .footer {
-		border-radius: $defaultRadius;
-		border-top-left-radius: 0;
+		border-radius          : $defaultRadius;
+		border-top-left-radius : 0;
 		border-top-right-radius: 0;
 	}
 
 	> .body {
-		border-radius: $defaultRadius;
-		border-top-left-radius: 0;
+		border-radius          : $defaultRadius;
+		border-top-left-radius : 0;
 		border-top-right-radius: 0;
 
 		padding: 0.8em 1.3em;
@@ -66,7 +66,7 @@
 	// .footer ~ .body {
 	// 	height: calc(100% - 5.2em);
 	// }
-	
+
 
 	&.primary {
 		> .header, > .footer {
@@ -95,9 +95,9 @@
 	&.outline {
 		background-color: transparent;
 		> .header, > .footer {
-			border-bottom: 1px solid $color2-light;
+			border-bottom   : 1px solid $color2-light;
 			background-color: transparent;
 		}
-	}	
+	}
 
 } // .panel

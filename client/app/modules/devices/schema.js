@@ -36,7 +36,7 @@ module.exports = {
 				field: "address"
 			},
 			{
-				title: _("Name"),
+				title: _("Owner"),
 				field: "name"
 			},
 			{

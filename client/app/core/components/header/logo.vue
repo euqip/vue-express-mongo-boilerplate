@@ -1,7 +1,7 @@
 <template lang="pug">
 	.logo
 		a.nav-item(href="#")
-			span 
+			span
 				strong VEM
 				| App
 </template>
@@ -11,7 +11,7 @@
 	export default {
 
 	};
-	
+
 </script>
 
 <style lang="scss">

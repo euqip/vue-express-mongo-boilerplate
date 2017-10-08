@@ -1,10 +1,10 @@
 "use strict";
 
-let logger 			= require("./logger");
-let config 			= require("../config");
+let logger = require("./logger");
+let config = require("../config");
 
-let chalk 			= require("chalk");
-let	Redis 			= require("ioredis");
+let chalk = require("chalk");
+let Redis = require("ioredis");
 
 // Redis client instance
 let client;
@@ -15,7 +15,7 @@ if (config.redis.enabled) {
 	client.on("connect", (err) => {
 		logger.info(chalk.green.bold("Redis client connected!"));
 	});
-	
+
 	client.on("error", (err) => {
 		logger.error(err);
 	});

@@ -1,11 +1,11 @@
 "use strict";
 
-let config    = require("../config");
-let logger    = require("../core/logger");
-let chalk 	  = require("chalk");
-let moment    = require("moment");
-let mongoose  = require("mongoose");
-let agenda    = require("../core/agenda");
+let config   = require("../config");
+let logger   = require("../core/logger");
+let chalk    = require("chalk");
+let moment   = require("moment");
+let mongoose = require("mongoose");
+let agenda   = require("../core/agenda");
 
 let gracefulExit = function() {
 	if (mongoose.connection.readyState === 0) {

@@ -11,7 +11,7 @@
 	import { mapGetters, mapActions } from "vuex";
 
 	export default {
-		
+
 		components: {
 			AdminPage: AdminPage
 		},
@@ -61,11 +61,11 @@
 				 * @param  {Object} res Response object
 				 */
 				removed(res) {
-					this.removed(res.data);	
+					this.removed(res.data);
 					toast.success(this._("DeviceNameDeleted", res), this._("DeviceDeleted"));
 				}
 			}
-		},		
+		},
 
 		methods: {
 			...mapActions("devices", [

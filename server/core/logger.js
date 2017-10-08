@@ -1,28 +1,28 @@
 "use strict";
 
 let winston = require("winston");
-let path = require("path");
-let fs = require("fs");
-let mkdirp = require("mkdirp");
+let path    = require("path");
+let fs      = require("fs");
+let mkdirp  = require("mkdirp");
 
 let config = require("../config");
 
-let	transports = [];
+let transports = [];
 
 /**
  * Console transporter
  */
 transports.push(new winston.transports.Console({
-	level: config.logging.console.level,
-	colorize: true,
-	prettyPrint: true,
+	level           : config.logging.console.level,
+	colorize        : true,
+	prettyPrint     : true,
 	handleExceptions: process.env.NODE_ENV === "production"
 }));
 
 /**
  * Logentries transporter
- * 
- * https://logentries.com/
+ *
+ * https: //logentries.com/
  */
 if (config.logging.logentries.enabled && config.logging.logentries.token) {
 	console.log("Logentries log transport enabled!");
@@ -35,8 +35,8 @@ if (config.logging.logentries.enabled && config.logging.logentries.token) {
 
 /**
  * Papertrail transporter
- * 
- * https://papertrailapp.com/
+ *
+ * https: //papertrailapp.com/
  */
 if (config.logging.papertrail.enabled) {
 	console.log("Papertrail log transport enabled!");
@@ -66,68 +66,68 @@ if (config.logging.file.enabled) {
 	if (!fs.existsSync(logDir)) {
 		mkdirp(logDir);
 	}
-	
+
 	transports.push(new (require("winston-daily-rotate-file"))({
-		filename: path.join(logDir, "server.log"),
-		level: config.logging.file.level || "info",
-		timestamp: true,
-		json: config.logging.file.json || false,
+		filename        : path.join(logDir, "server.log"),
+		level           : config.logging.file.level || "info",
+		timestamp       : true,
+		json            : config.logging.file.json || false,
 		handleExceptions: true
 	}));
-		
+
 	if (config.logging.file.exceptionFile) {
 		transports.push(new winston.transports.File({
-			filename: path.join(logDir, "exceptions.log"),
-			level: "error",
-			timestamp: true,
-			json: config.logging.file.json || false,
-			prettyPrint: true,
-			handleExceptions: true,
+			filename                       : path.join(logDir, "exceptions.log"),
+			level                          : "error",
+			timestamp                      : true,
+			json                           : config.logging.file.json || false,
+			prettyPrint                    : true,
+			handleExceptions               : true,
 			humanReadableUnhandledException: true
 		}));
-	}	
+	}
 }
 
 let logger = new winston.Logger({
-	level: "debug",
-	transports: transports,
+	level      : "debug",
+	transports : transports,
 	exitOnError: false
 });
 
 /**
  * Loggly transporter
- * 
- * https://www.loggly.com/
+ *
+ * https: //www.loggly.com/
  */
 if (config.logging.loggly.enabled && config.logging.loggly.token) {
 	console.log("Loggly log transport enabled!");
 	let loggly = require("winston-loggly-bulk");
 	logger.add(winston.transports.Loggly, {
 		inputToken: config.logging.loggly.token,
-		subdomain: config.logging.loggly.subdomain,
-		tags: ["vem-server"],
-		json:true
+		subdomain : config.logging.loggly.subdomain,
+		tags      : ["vem-server"],
+		json      : true
 	});
 }
 
 /**
  * Logsene transporter
- * 
- * https://sematext.com/logsene/
+ *
+ * https: //sematext.com/logsene/
  */
 if (config.logging.logsene.enabled && config.logging.logsene.token) {
 	console.log("Logsene log transport enabled!");
 	let logsene = require("winston-logsene");
 	logger.add(logsene, {
-		type: "vem-server",
+		type : "vem-server",
 		token: config.logging.logsene.token
 	});
 }
 
 /**
  * Logz.io transporter
- * 
- * https://sematext.com/logsene/
+ *
+ * https: //sematext.com/logsene/
  */
 if (config.logging.logzio.enabled && config.logging.logzio.token) {
 	console.log("Logz.io log transport enabled!");
@@ -139,17 +139,17 @@ if (config.logging.logzio.enabled && config.logging.logzio.token) {
 
 /**
  * Graylog transporter
- * 
- * https://www.graylog.org/
+ *
+ * https: //www.graylog.org/
  */
 if (config.logging.graylog.enabled) {
 	console.log("Graylog log transport enabled! Servers: " + JSON.stringify(config.logging.graylog.servers));
 	let graylog = require("winston-graylog2");
 	logger.add(graylog, {
-		name: "Graylog",
-		level: "debug",
+		name   : "Graylog",
+		level  : "debug",
 		graylog: {
-			servers: config.logging.graylog.servers,
+			servers : config.logging.graylog.servers,
 			facility: "vem"
 		}
 	});

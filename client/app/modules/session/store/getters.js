@@ -13,3 +13,11 @@ export function messages(state) {
 export function searchText(state) {
 	return state.searchText;
 }
+
+export function lang(state) {
+	return state.lng;
+}
+
+export function lng(state) {
+	return state.lng;
+}

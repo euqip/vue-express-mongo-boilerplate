@@ -15,7 +15,6 @@ module.exports = function(app, db) {
 		else
 			res.render("index");
 	});
-
 	// Handle health check routes
 	require("./health")(app, db);
 
@@ -34,5 +33,5 @@ module.exports = function(app, db) {
 	require("./graphql")(app, db);
 
 	// Handle errors
-	require("./errors")(app, db);	
+	require("./errors")(app, db);
 };

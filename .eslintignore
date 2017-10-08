@@ -1,2 +1,4 @@
 server/public/**/*.js
+server/public/**/*.css
 node_modules
+server/bundle.js

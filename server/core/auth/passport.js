@@ -1,22 +1,22 @@
 "use strict";
 
-let logger 			= require("../logger");
-let config 			= require("../../config");
+let logger = require("../logger");
+let config = require("../../config");
 
-let passport 		= require("passport");
-let path 			= require("path");
-let chalk 			= require("chalk");
+let passport = require("passport");
+let path     = require("path");
+let chalk    = require("chalk");
 
 /* global WEBPACK_BUNDLE */
 if (!WEBPACK_BUNDLE) require("require-webpack-compat")(module, require);
 
-let User 			= require("../../models/user");
+let User = require("../../models/user");
 
 module.exports = function(app) {
 
 	// Use passport session
 	app.use(passport.initialize());
-	app.use(passport.session());	
+	app.use(passport.session());
 
 	passport.serializeUser(function(user, done) {
 		return done(null, user.id);
@@ -28,7 +28,7 @@ module.exports = function(app) {
 		}, "-password", function(err, user) {
 			if (err)
 				return done(err);
-			
+
 			// Check that the user is not disabled or deleted
 			if (user.status !== 1)
 				return done(null, false);
@@ -40,7 +40,7 @@ module.exports = function(app) {
 	logger.info("");
 	logger.info(chalk.bold("Search passport strategies..."));
 
-	function requireAll(r) { 
+	function requireAll(r) {
 		return r.keys().map(function(module) {
 			logger.info("  Loading passport strategy file " + path.basename(module) + "...");
 			let strategy = r(module);

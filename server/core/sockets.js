@@ -1,18 +1,16 @@
 "use strict";
 
-let logger 			= require("./logger");
-let config 			= require("../config");
-
-let	path 			= require("path");
-let	fs 				= require("fs");
-let	http 			= require("http");
-let _ 				= require("lodash");
-
-let	cookieParser 	= require("cookie-parser");
-let	passport 		= require("passport");
-let	socketio 		= require("socket.io");
-let	session 		= require("express-session");
-let	MongoStore 		= require("connect-mongo")(session);
+let logger       = require("./logger");
+let config       = require("../config");
+let path         = require("path");
+let fs           = require("fs");
+let http         = require("http");
+let _            = require("lodash");
+let cookieParser = require("cookie-parser");
+let passport     = require("passport");
+let socketio     = require("socket.io");
+let session      = require("express-session");
+let MongoStore   = require("connect-mongo")(session);
 
 let Services; // circular references
 
@@ -22,7 +20,7 @@ let self = {
 	 * We will assign it in `init`
 	 */
 	IO: null,
-	
+
 	/**
 	 * Mongo store instance.
 	 * We will assign it in `init`
@@ -35,16 +33,16 @@ let self = {
 	 */
 	namespaces: {},
 
-	/** 
+	/**
 	 * List of logged in online users/sockets
 	 * @type {Array}
 	 */
 	userSockets: [],
 
 	/**
-	 * Init Socket.IO module and load socket handlers 
+	 * Init Socket.IO module and load socket handlers
 	 * from applogic
-	 * 
+	 *
 	 * @param  {Object} app Express App
 	 * @param  {Object} db  MongoDB connection
 	 */
@@ -52,9 +50,9 @@ let self = {
 		// Create a MongoDB storage object
 		self.mongoStore = new MongoStore({
 			mongooseConnection: db.connection,
-			collection: config.sessions.collection,
-			autoReconnect: true
-		});		
+			collection        : config.sessions.collection,
+			autoReconnect     : true
+		});
 
 		// Create a new HTTP server
 		let server = http.createServer(app);
@@ -62,7 +60,7 @@ let self = {
 		// Create a new Socket.io server
 		let IO = socketio(server);
 
-		app.io = self;
+		app.io  = self;
 		self.IO = IO;
 
 		// Add common handler to the root namespace
@@ -81,7 +79,7 @@ let self = {
 
 	/**
 	 * Create a new Socket.IO namespace
-	 * 
+	 *
 	 * @param {any} ns		name of namespace
 	 * @param {any} role	required role for namespace
 	 * @returns
@@ -98,7 +96,7 @@ let self = {
 
 	/**
 	 * Initialize IO namespace. Apply authentication middleware
-	 * 
+	 *
 	 * @param  {String} ns         		Name of namespace
 	 * @param  {Object} io         		IO instance
 	 * @param  {Object} mongoStore 		Mongo Session store
@@ -137,8 +135,8 @@ let self = {
 								let user = socket.request.user;
 
 								if (roleRequired) {
-									if (user.roles && user.roles.indexOf(roleRequired) !== -1) 
-										next(null, true);	
+									if (user.roles && user.roles.indexOf(roleRequired) !== -1)
+										next(null, true);
 									else {
 										logger.warn(`Websocket user has no access to this namespace '${ns}'!`, user.username);
 										next(new Error(`You have NO access to this namespace '${ns}'!`), false);
@@ -161,7 +159,7 @@ let self = {
 		io.on("connection", function (socket) {
 			if (!Services)
 				Services = require("./services");
-				
+
 			Services.emit("socket:connect", socket);
 			self.addOnlineUser(socket);
 			logger.debug("WS client connected to namespace " + (io.name || "root") + "! User: " + socket.request.user.username);
@@ -178,7 +176,7 @@ let self = {
 
 	/**
 	 * Emit a message to a namespace
-	 * 
+	 *
 	 * @param {any} namespace
 	 * @param {any} command
 	 * @param {any} data
@@ -193,7 +191,7 @@ let self = {
 
 	/**
 	 * Add a socket to the online users list
-	 * 
+	 *
 	 * @param {any} socket
 	 */
 	addOnlineUser(socket) {
@@ -203,7 +201,7 @@ let self = {
 
 	/**
 	 * Remove a socket from the online users
-	 * 
+	 *
 	 * @param {any} socket
 	 */
 	removeSocket(socket) {
@@ -212,7 +210,7 @@ let self = {
 
 	/**
 	 * Remove sockets of user from the online users
-	 * 
+	 *
 	 * @param {any} socket
 	 */
 	removeOnlineUser(socket) {

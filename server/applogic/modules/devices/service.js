@@ -19,10 +19,10 @@ module.exports = {
 		permission: C.PERM_LOGGEDIN,
 		role: "user",
 		collection: Device,
-		
+
 		modelPropFilter: "code type address name description status lastCommunication createdAt updatedAt"
 	},
-	
+
 	actions: {
 		find: {
 			cache: true,
@@ -47,7 +47,7 @@ module.exports = {
 
 		create(ctx) {
 			this.validateParams(ctx, true);
-			
+
 			let device = new Device({
 				address: ctx.params.address,
 				type: ctx.params.type,
@@ -66,7 +66,7 @@ module.exports = {
 			.then((json) => {
 				this.notifyModelChanges(ctx, "created", json);
 				return json;
-			});	
+			});
 		},
 
 		update(ctx) {
@@ -102,7 +102,7 @@ module.exports = {
 			.then((json) => {
 				this.notifyModelChanges(ctx, "updated", json);
 				return json;
-			});								
+			});
 		},
 
 		remove(ctx) {
@@ -115,16 +115,16 @@ module.exports = {
 			.then((json) => {
 				this.notifyModelChanges(ctx, "removed", json);
 				return json;
-			});		
+			});
 		}
 
 	},
-	
+
 	methods: {
 		/**
 		 * Validate params of context.
 		 * We will call it in `create` and `update` actions
-		 * 
+		 *
 		 * @param {Context} ctx 			context of request
 		 * @param {boolean} strictMode 		strictMode. If true, need to exists the required parameters
 		 */
@@ -140,9 +140,9 @@ module.exports = {
 			ctx.validateParam("type").trim().end();
 
 			if (ctx.hasValidationErrors())
-				throw ctx.errorBadRequest(C.ERR_VALIDATION_ERROR, ctx.validationErrors);			
+				throw ctx.errorBadRequest(C.ERR_VALIDATION_ERROR, ctx.validationErrors);
 		}
-	},	
+	},
 
 	init(ctx) {
 		// Fired when start the service

@@ -8,7 +8,6 @@ import counter from "../modules/counter/store";
 import profile from "../modules/profile/store";
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
 	modules: {
 		session,

@@ -12,11 +12,12 @@ function install(Vue, callback, options = {}) {
 		.use(i18NextXHR)
 		.use(i18NextLanguageDetector)
 		.init(defaultsDeep({}, {
-			//lng: "hu",
+			lng: "fr",
 			fallbackLng: "en",
-			whitelist: ["en", "hu"],
-			ns: ["app"],
+			whitelist: ["en", "hu", "fr", "nl"],
+			ns: ["app","sidebar","profile"],
 			defaultNS: "app",
+			debug: false,
 			load: "languageOnly",
 			saveMissing: true,
 			saveMissingTo: "all", // "fallback", "current", "all"
@@ -37,23 +38,23 @@ function install(Vue, callback, options = {}) {
 			},
 
 			detection: {
-				order: ["querystring", "cookie", "htmlTag", "navigator"]
-				/*
+				order: ["querystring", "cookie", "htmlTag", "navigator"],
+
 				// keys or params to lookup language from
-				lookupQuerystring: 'lng',
-				lookupCookie: 'i18next',
-				lookupLocalStorage: 'i18nextLng',
+				lookupQuerystring: "lng",
+				lookupCookie: "i18next",
+				lookupLocalStorage: "i18nextLng",
 
 				// cache user language on
-				caches: ['localStorage', 'cookie']
+				caches: ["localStorage", "cookie"],
 
 				// optional expire and domain for set cookie
 				cookieMinutes: 10,
-				cookieDomain: 'myDomain',
+				cookieDomain: "myDomain",
 
 				// optional htmlTag with lang attribute, the default is:
 				htmlTag: document.documentElement
-				*/
+
 			}
 
 		}), (err, t) => {
@@ -80,7 +81,7 @@ function install(Vue, callback, options = {}) {
 		bind: function(el, binding, vnode) {
 			el.innerHTML = i18next.t(binding.expression);
 		}
-	});	
+	});
 
 	Vue.prototype.$i18n = i18next;
 	Vue.prototype._ = (key, opts) => {

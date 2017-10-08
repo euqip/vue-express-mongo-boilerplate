@@ -1,6 +1,8 @@
 import Vue from "vue";
 import axios from "axios";
-import { ADD_MESSAGE, ADD_NOTIFICATION, SET_USER, SEARCH } from "./types";
+import i18next from "i18next";
+
+import { ADD_MESSAGE, ADD_NOTIFICATION, SET_USER, SEARCH, LANG } from "./types";
 
 export const NAMESPACE= "/api/session";
 
@@ -28,3 +30,11 @@ export const addNotification = ({ commit }, item) => {
 export const searching = ({ commit }, text) => {
 	commit(SEARCH, text);
 };
+
+export const changinglang = ({ commit }, text) => {
+	commit(LANG, text);
+	i18next.changeLanguage (text);
+};
+
+
+

@@ -31,15 +31,15 @@ module.exports = {
 	actions: {
 		/**
 		 * 	Get the value of the counter.
-		 * 	
-		 *	via REST: 
+		 *
+		 *	via REST:
 		 *		GET /counter
 		 *		GET /counter/find
-		 *		
-		 *	via Websocket: 
+		 *
+		 *	via Websocket:
 		 *		/counter/find
-		 *		
-		 *	via GraphQL: 
+		 *
+		 *	via GraphQL:
 		 *		query { counter }
 		 */
 		find: {
@@ -51,21 +51,21 @@ module.exports = {
 
 		/**
 		 * Set a new value to the counter
-		 * 
-		 *	via REST: 
+		 *
+		 *	via REST:
 		 *		POST /counter
 		 *			body: { value: 123 }
-		 *		
+		 *
 		 *		GET /counter/create?value=123
-		 *		
-		 *	via Websocket: 
+		 *
+		 *	via Websocket:
 		 *		/counter/create
 		 *			data: { value: 123 }
-		 *		
-		 *	via GraphQL: 
+		 *
+		 *	via GraphQL:
 		 *		mutation { countercreate(value: 123) }
-		 *		
-		 */		
+		 *
+		 */
 		create(ctx) {
 			if (ctx.params.value) {
 				return this.changeCounter(ctx, parseInt(ctx.params.value));
@@ -76,14 +76,14 @@ module.exports = {
 
 		/**
 		 * Reset the counter
-		 * 
-		 *	via REST: 
+		 *
+		 *	via REST:
 		 *		GET /counter/reset
-		 *		
-		 *	via Websocket: 
+		 *
+		 *	via Websocket:
 		 *		/counter/reset
-		 *		
-		 *	via GraphQL: 
+		 *
+		 *	via GraphQL:
 		 *		mutation { counterReset }
 		 */
 		reset: {
@@ -94,18 +94,18 @@ module.exports = {
 			handler(ctx) {
 				return this.changeCounter(ctx, 0);
 			}
-		},		
+		},
 
 		/**
 		 * Increment the counter
-		 * 
-		 *	via REST: 
+		 *
+		 *	via REST:
 		 *		GET /counter/increment
-		 *		
-		 *	via Websocket: 
+		 *
+		 *	via Websocket:
 		 *		/counter/increment
-		 *		
-		 *	via GraphQL: 
+		 *
+		 *	via GraphQL:
 		 *		mutation { counterIncrement }
 		 */
 		increment(ctx) {
@@ -114,14 +114,14 @@ module.exports = {
 
 		/**
 		 * Decrement the counter
-		 * 
-		 *	via REST: 
+		 *
+		 *	via REST:
 		 *		GET /counter/decrement
-		 *		
-		 *	via Websocket: 
+		 *
+		 *	via Websocket:
 		 *		/counter/decrement
-		 *		
-		 *	via GraphQL: 
+		 *
+		 *	via GraphQL:
 		 *		mutation { counterDecrement }
 		 */
 		decrement(ctx) {
@@ -145,7 +145,7 @@ module.exports = {
 			return Promise.resolve(store.counter);
 		}
 	},
-	
+
 	/**
 	 * Initialize this service. It will be called when server load this service.
 	 * The `ctx` contains the references of `app` and `db`
@@ -166,14 +166,14 @@ module.exports = {
 		// Fired after a new socket connected
 		afterConnection(socket, io) {
 			//logger.info("counter afterConnection");
-			
+
 			// We sent the counter last value to the client
 			socket.emit("/counter/changed", store.counter);
 		}
 	},
 
 	/**
-	 * Define GraphQL queries, types, mutations. 
+	 * Define GraphQL queries, types, mutations.
 	 * This definitions enable to access this service via graphql
 	 */
 	graphql: {
@@ -189,7 +189,7 @@ module.exports = {
 			counterIncrement: Int
 			counterDecrement: Int
 		`,
-		
+
 		resolvers: {
 
 			Query: {

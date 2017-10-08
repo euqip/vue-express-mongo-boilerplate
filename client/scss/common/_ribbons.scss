@@ -1,63 +1,63 @@
 // http://www.cssportal.com/blog/create-corner-ribbon/
-// 
+//
 @mixin ribbon($c, $text: $textColor) {
 	$c2: darken($c, 15%);
 
-	position: absolute;
-	left: -5px; top: -5px;
-	z-index: 1;
-	overflow: hidden;
-	width: 75px; height: 75px;
+	position  : absolute;
+	left      : -5px; top   : -5px;
+	z-index   : 1;
+	overflow  : hidden;
+	width     : 75px; height: 75px;
 	text-align: right;
 
 	span {
-		font-size: 10px;
-		font-weight: bold;
-		color: $text;
+		font-size     : 10px;
+		font-weight   : bold;
+		color         : $text;
 		text-transform: uppercase;
-		text-align: center;
-		line-height: 20px;
-		transform: rotate(-45deg);
-		width: 100px;
-		display: block;
-		background: $c;
-		background: linear-gradient($c 0%, $c2 100%);
-		box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-		position: absolute;
-		top: 19px; 
-		left: -21px;
-	
+		text-align    : center;
+		line-height   : 20px;
+		transform     : rotate(-45deg);
+		width         : 100px;
+		display       : block;
+		background    : $c;
+		background    : linear-gradient($c 0%, $c2 100%);
+		box-shadow    : 0 3px 10px -5px rgba(0, 0, 0, 1);
+		position      : absolute;
+		top           : 19px;
+		left          : -21px;
+
 
 		&::before {
-			content: "";
-			position: absolute; left: 0px; top: 100%;
-			z-index: -1;
-			border-left: 3px solid $c2;
-			border-right: 3px solid transparent;
+			content      : "";
+			position     : absolute; left: 0px; top: 100%;
+			z-index      : -1;
+			border-left  : 3px solid $c2;
+			border-right : 3px solid transparent;
 			border-bottom: 3px solid transparent;
-			border-top: 3px solid $c2;
+			border-top   : 3px solid $c2;
 		}
 
 		&::after {
-			content: "";
-			position: absolute; right: 0px; top: 100%;
-			z-index: -1;
-			border-left: 3px solid transparent;
-			border-right: 3px solid $c2;
+			content      : "";
+			position     : absolute; right: 0px; top: 100%;
+			z-index      : -1;
+			border-left  : 3px solid transparent;
+			border-right : 3px solid $c2;
 			border-bottom: 3px solid transparent;
-			border-top: 3px solid $c2;
+			border-top   : 3px solid $c2;
 		}
 
 	} // span
 
 	&.right {
-		left: initial;
-		right: -5px; 
+		left : initial;
+		right: -5px;
 
 		span {
 			transform: rotate(45deg);
-			left: initial;
-			right: -23px;
+			left     : initial;
+			right    : -23px;
 		}
 	}
 
@@ -80,7 +80,7 @@
 }
 
 .ribbon.green {
-	@include ribbon(#9BC90D);	
+	@include ribbon(#9BC90D);
 }
 
 .ribbon.orange {
@@ -90,4 +90,3 @@
 .ribbon.grey {
 	@include ribbon(#B6BAC9);
 }
- 

@@ -34,7 +34,7 @@ let serverFolder = path.normalize(path.join(config.rootPath, "server"));
 
 /**
  * Initialize local variables
- * 
+ *
  * @param {any} app
  */
 function initLocalVariables(app) {
@@ -53,13 +53,14 @@ function initLocalVariables(app) {
 
 /**
  * Initialize middlewares
- * 
+ *
  * @param {any} app
  */
 function initMiddleware(app) {
 	// Should be placed before express.static
 	app.use(compress({
 		filter: function(req, res) {
+			logger.info("Compress: ", req.url );
 			return /json|text|javascript|css/.test(res.getHeader("Content-Type"));
 		},
 		level: 3,
@@ -75,7 +76,7 @@ function initMiddleware(app) {
 		limit: config.contentMaxLength * 2
 	}));
 	app.use(validator());
-	app.use(bodyParser.json());	
+	app.use(bodyParser.json());
 	app.use(methodOverride());
 
 	if (config.isProductionMode()) {
@@ -89,6 +90,8 @@ function initMiddleware(app) {
 
 		// Setting up static folder
 		app.use(express["static"](path.join(serverFolder, "public")));
+		app.use("/app/styles", express.static("public/app/styles"));
+		logger.info("public path: ", path.join(serverFolder, "public") );
 	}
 
 	// Favicon
@@ -99,7 +102,7 @@ function initMiddleware(app) {
 
 	app.set("etag", true); // other values 'weak', 'strong'
 
-	app.use(flash());	
+	app.use(flash());
 
 	if (config.isDevMode()) {
 		// Init morgan
@@ -109,7 +112,7 @@ function initMiddleware(app) {
 		lmStream.writable = true;
 		lmStream.write = function(data) {
 			return logger.debug(data);
-		};	
+		};
 
 		app.use(morgan("dev", {
 			stream: lmStream
@@ -121,30 +124,45 @@ function initMiddleware(app) {
 
 /**
  * Initialize i18next module for localization
- * 
+ *
  * @param {any} app
  */
 function initI18N(app) {
+  // We're autodetecting the languages in locales directory.
+	const { lstatSync, readdirSync } = require("fs");
+	const isDirectory = source => lstatSync(source).isDirectory();
+	const getDirectories = source => {
+		let result = ["fuk you"];
+		let candidates = readdirSync(source);
+		for (const itr in candidates) {
+		if (isDirectory(path.join(source, candidates[itr]))) {
+		result.push(candidates[itr]);
+	}
+	}
+		return result;
+	};
+	let localesDir = path.join(serverFolder, "locales");
 
 	let conf = {
 		//debug: true,
-		fallbackLng: "en",
-		whitelist: ["en", "hu"],
-		ns: ["app", "frontend"],
+		fallbackLng: "fr",
+		whitelist: getDirectories(localesDir),
+		ns: ["app", "frontend", "sidebar"],
 		defaultNS: "frontend",
+		debug: false,
 		load: "all",
 		saveMissing: true, //config.isDevMode(),
 		saveMissingTo: "all", // "fallback", "current", "all"
 
 		backend: {
 			// path where resources get loaded from
-			loadPath: path.join(serverFolder, "locales", "{{lng}}", "{{ns}}.json"),
+			loadPath: path.join(localesDir, "{{lng}}", "{{ns}}.json"),
 
 			// path to post missing resources
-			addPath: path.join(serverFolder, "locales", "{{lng}}", "{{ns}}.missing.json"),
+			addPath: path.join(localesDir, "{{lng}}", "{{ns}}.missing.json"),
 
 			// jsonIndent to use when storing json files
-			jsonIndent: 4
+			jsonIndent: 2
 		}
 	};
 
@@ -162,7 +180,7 @@ function initI18N(app) {
 				logger.warn(err);
 		});
 
-	/*i18next.on("languageChanged", function(lng) {
+  /*i18next.on("toggleLanguages", function(lng) {
 		console.log("languageChanged", lng);
 	});
 
@@ -177,15 +195,15 @@ function initI18N(app) {
 	app.use(i18nextExpress.handle(i18next));
 
 	// multiload backend route
-	app.get("/locales/resources.json", i18nextExpress.getResourcesHandler(i18next));	
+	app.get("/locales/resources.json", i18nextExpress.getResourcesHandler(i18next));
 
 	// missing keys
-	app.post("/locales/add/:lng/:ns", i18nextExpress.missingKeyHandler(i18next));		
+	app.post("/locales/add/:lng/:ns", i18nextExpress.missingKeyHandler(i18next));
 }
 
 /**
  * Initialize view engine (pug)
- * 
+ *
  * @param {any} app
  */
 function initViewEngine(app) {
@@ -213,7 +231,7 @@ function initViewEngine(app) {
 
 /**
  * Initialize session handler (mongo-store)
- * 
+ *
  * @param {any} app
  * @param {any} db
  */
@@ -235,7 +253,7 @@ function initSession(app, db) {
 
 /**
  * Initiliaze Helmet security module
- * 
+ *
  * @param {any} app
  */
 function initHelmetHeaders(app) {
@@ -250,7 +268,7 @@ function initHelmetHeaders(app) {
 
 /**
  * Initialize authentication & CSRF
- * 
+ *
  * @param {any} app
  */
 function initAuth(app) {
@@ -275,8 +293,8 @@ function initAuth(app) {
 
 /**
  * Initialize Webpack hot reload module.
- * 	Note: Only in development mode 
- * 
+ * 	Note: Only in development mode
+ *
  * @param {any} app
  */
 function initWebpack(app) {

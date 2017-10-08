@@ -1,24 +1,24 @@
 @mixin tagColorize($bg, $text: $textColor) {
-	$border: lighten($bg, 0%);
+	$border   : lighten($bg, 0%);
 	background: $bg;
-	border: 1px solid $border;
-	color: $text;	
+	border    : 1px solid $border;
+	color     : $text;
 }
 
 
 .tag {
-	margin: 0 0.3em;
-	display: inline-block;
-	padding: .25em .4em;
+	margin   : 0 0.3em;
+	display  : inline-block;
+	padding  : .25em .4em;
 	font-size: 75%;
 	font-size: 0.75em;
 	//font-weight: 700;
-	line-height: 1;
-	color: $textColor;
-	text-align: center;
-	white-space: nowrap;
+	line-height   : 1;
+	color         : $textColor;
+	text-align    : center;
+	white-space   : nowrap;
 	vertical-align: baseline;
-	border-radius: .25em;
+	border-radius : .25em;
 
 	@include tagColorize($buttonColor);
 
@@ -33,20 +33,20 @@
 	}
 
 	&.success {
-		@include tagColorize($successColor);	
+		@include tagColorize($successColor);
 	}
 
 	&.warning {
-		@include tagColorize($warningColor);	
+		@include tagColorize($warningColor);
 	}
 
 	&.danger {
-		@include tagColorize($dangerColor);	
-	}	
+		@include tagColorize($dangerColor);
+	}
 
 	&.pill {
 		padding-right: .6em;
-		padding-left: .6em;
+		padding-left : .6em;
 		border-radius: 10rem;
 	}
 }

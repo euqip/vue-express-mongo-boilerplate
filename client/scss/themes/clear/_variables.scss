@@ -1,27 +1,27 @@
 /* Coolors Exported Palette - coolors.co/00171f-007ea7-00a8e8-ffffff-ef7f0a */
 /* Complementer color - http://colorschemedesigner.com/csd-3.5/#3o21Ttqx7w0w0 */
 
-$color1: #00171f;  //rgba(0, 23, 31, 255)
-$color2: #104357;  //rgba(16, 67, 87, 255)
-$color3: #00a8e8;  //rgba(0, 168, 232, 255)
-$color4: #ffffff;  //rgba(255, 255, 255, 255)
-$color5: #df691a;  //rgba(239, 127, 10, 255)
+$color1: #F1F4F5; //rgba(0, 23, 31, 255)
+$color2: #78A3B3; //rgba(16, 67, 87, 255)
+$color3: #00a8e8; //rgba(0, 168, 232, 255)
+$color4: #2C6ADD; //rgba(255, 255, 255, 255)
+$color5: #C5341B; //rgba(239, 127, 10, 255)
 
 $images-root: "~images/";
 
 $glassTheme: true;
-$colorAlt  : 5%;
+$colorAlt: 5%;
 
 $color1-light: lighten($color1, $colorAlt);
-$color1-dark : darken($color1, $colorAlt);
+$color1-dark: darken($color1, $colorAlt);
 $color2-light: lighten($color2, $colorAlt);
-$color2-dark : darken($color2, $colorAlt);
+$color2-dark: darken($color2, $colorAlt);
 $color3-light: lighten($color3, $colorAlt);
-$color3-dark : darken($color3, $colorAlt);
+$color3-dark: darken($color3, $colorAlt);
 $color4-light: lighten($color4, $colorAlt);
-$color4-dark : darken($color4, $colorAlt);
+$color4-dark: darken($color4, $colorAlt);
 $color5-light: lighten($color5, $colorAlt);
-$color5-dark : darken($color5, $colorAlt);
+$color5-dark: darken($color5, $colorAlt);
 
 /* Assign colors from palette */
 $masterColor: $color2;
@@ -42,17 +42,17 @@ $backgroundColor: $color2;
 //$overlayColor: lighten(desaturate($color3, 30%), 10%);
 $overlayColor: $color2;
 
-$textColor     : $color4;
-$altTextColor  : $color1;
+$textColor: $color4;
+$altTextColor: $color1;
 $titleTextColor: $secondColor;
 
-$buttonColor       : $color2-light;
+$buttonColor: $color2-light;
 $buttonPrimaryColor: $secondColor;
-$buttonTextColor   : $textColor;
+$buttonTextColor: $textColor;
 
 $successColor: #20983b;
 $warningColor: #b38118;
-$dangerColor : #ab1b1b;
+$dangerColor: #ab1b1b;
 
 $minWidth: 320px;
 
@@ -61,27 +61,27 @@ $minWidth: 320px;
 @import url(https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css);
 
 /* Set font family styles */
-$fontFamily      : /*'Titillium Web',*/ 'Ubuntu', 'Roboto',    'Helvetica', 'Arial', sans-serif;
-$fontFamilyHeader: 'Lato',                        'Work Sans', 'Helvetica', 'Arial', sans-serif;
+$fontFamily: /*'Titillium Web',*/ 'Ubuntu', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$fontFamilyHeader: 'Lato', 'Work Sans', 'Helvetica', 'Arial', sans-serif;
 
-$fontThin     : 100;
-$fontLight    : 300;
-$fontNormal   : 400;
-$fontBold     : 600;
+$fontThin: 100;
+$fontLight: 300;
+$fontNormal: 400;
+$fontBold: 600;
 $fontUltraBold: 700;
 
 $baseFont: 16px/18px $fontFamily;
 //$baseFont: 30px/34px $fontFamily;
 
-$headerHeight   : 60px;
-$headerBgColor  : $color1;
+$headerHeight: 70px;
+$headerBgColor: $color1;
 $headerTextColor: $textColor;
 
 
-$menuWidth    : 150px;
+$menuWidth: 180px;
 $menuMiniWidth: 50px;
-$menuBgColor  : $color1;
+$menuBgColor: $color1;
 $menuTextColor: $textColor;
 
-$avatarRadius : 15%;
+$avatarRadius: 15%;
 $defaultRadius: 5px;

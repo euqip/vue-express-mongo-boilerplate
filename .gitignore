@@ -63,3 +63,7 @@ data
 
 # Typings definitions
 typings
+server/bundle.js
+server/dev.js
+server/index.js
+server/locales/fr/sidebar.json
