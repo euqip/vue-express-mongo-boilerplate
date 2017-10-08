@@ -12,7 +12,7 @@ describe("Test login page with username and password", () => {
 	let baseURL;
 
 	before((browser, done) => {
-		baseURL = 'http://localhost:' + browser.globals.test_settings.appPort;
+		baseURL = "http://localhost:" + browser.globals.test_settings.appPort;
 		browser.options.baseURL = baseURL;
 		loginPage = browser.page.loginPage();
 		homePage = browser.page.homePage();
@@ -78,7 +78,7 @@ describe("Test login page with passwordless", () => {
 	let baseURL;
 
 	before((browser, done) => {
-		baseURL = 'http://localhost:' + browser.globals.test_settings.appPort;
+		baseURL = "http://localhost:" + browser.globals.test_settings.appPort;
 		loginPage = browser.page.loginPage();
 		homePage = browser.page.homePage();
 		done();
@@ -106,9 +106,9 @@ describe("Test login page with passwordless", () => {
 			.perform(function(browser, done) {
 				console.log("Check mailbox...");
 
-				let re = /passwordless\/(\w+)/g;			
+				let re = /passwordless\/(\w+)/g;
 				mailtrap.getTokenFromMessage("test@boilerplate-app.com", re, function(err, token, message) {
-					if (err) 
+					if (err)
 						throw new Error(err);
 
 					// Delete message
@@ -131,6 +131,6 @@ describe("Test login page with passwordless", () => {
 			.makeScreenshot()
 			.logout();
 
-	});	
+	});
 
 });

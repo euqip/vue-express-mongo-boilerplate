@@ -43,7 +43,7 @@ let DeviceSchema = new Schema({
 		"default": 1
 	},
 	lastCommunication: {
-		type: Date,	
+		type: Date,
 		"default": Date.now
 	},
 	metadata: {}

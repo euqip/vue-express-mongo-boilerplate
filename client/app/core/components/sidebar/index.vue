@@ -53,7 +53,7 @@
 			"minimized"
 		]
 	};
-	
+
 </script>
 
 <style lang="scss">

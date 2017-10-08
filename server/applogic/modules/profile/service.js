@@ -22,7 +22,7 @@ module.exports = {
 
 		modelPropFilter: "code username fullName email avatar passwordLess provider profile socialLinks roles apiKey lastLogin locale status createdAt updatedAt"
 	},
-	
+
 	actions: {
 		// return my profile with all properties
 		get: {
@@ -81,7 +81,7 @@ module.exports = {
 				google: String
 				github: String
 			}
-		`,		
+		`,
 
 		mutation: `
 		`,
@@ -116,7 +116,7 @@ fragment personFields on Person {
   avatar
   lastLogin
   locale
-  
+
   posts(sort: "-createdAt") {
     code
     title

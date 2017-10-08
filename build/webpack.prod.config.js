@@ -57,7 +57,7 @@ module.exports = merge(baseWpConfig, {
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor"
-		}),		
+		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false

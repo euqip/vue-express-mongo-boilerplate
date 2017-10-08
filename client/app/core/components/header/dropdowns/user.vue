@@ -5,13 +5,13 @@
 				.icon
 					i.fa.fa-user
 				| {{ "MyAccount" | i18n }}
-				
+
 		router-link(tag="li", to="/settings")
 			a
 				.icon
 					i.fa.fa-cog
 				| {{ "Settings" | i18n }}
-		
+
 		li.separator
 
 		li
@@ -32,7 +32,7 @@
 		]
 
 	};
-	
+
 </script>
 
 <style lang="scss">

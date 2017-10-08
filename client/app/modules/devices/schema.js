@@ -89,7 +89,7 @@ module.exports = {
 				default: "rasperry",
 				validator: validators.required
 
-			},	
+			},
 			{
 				type: "text",
 				label: _("Name"),
@@ -106,7 +106,7 @@ module.exports = {
 				featured: false,
 				required: false,
 				validator: validators.string
-			},	
+			},
 			{
 				type: "text",
 				label: _("Address"),

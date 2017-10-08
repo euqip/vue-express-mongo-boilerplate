@@ -43,12 +43,12 @@ function getMessages(inboxID, email, done) {
 
 function getTokenFromMessage(email, re, done) {
 	getMessages(null, email, function(err, messages) {
-		if (err) 
+		if (err)
 			return done(err);
 
 		if (messages.length < 1)
 			return done("Passwordless email not received!");
-		
+
 		let msg = messages[0];
 		// Get the last email body
 		let body = msg.html_body;

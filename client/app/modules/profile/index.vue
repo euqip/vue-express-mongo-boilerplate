@@ -2,7 +2,7 @@
 	.container
 		.profile.flex.row.align-stretch
 			img.avatar(:src="profile.avatar")
-			
+
 			.details.flex-item-1
 				.name {{ profile.fullName }}
 					span.text-muted.username ({{ profile.username }})
@@ -25,7 +25,7 @@
 					.info-row
 						i.fa.fa-calendar
 						span.caption Joined:
-						span.value {{ profile.createdAt | ago }}							
+						span.value {{ profile.createdAt | ago }}
 
 				hr.full
 		pre(v-html="this.$options.filters.prettyJSON(profile)")
@@ -49,10 +49,10 @@
 		},
 
 		created() {
-			this.$service = new Service("profile", this); 
-			
+			this.$service = new Service("profile", this);
+
 			// Get my profile
-			this.getProfile(); 
+			this.getProfile();
 		}
 	};
 
@@ -70,18 +70,18 @@
 	.profile {
 		position: relative;
 		$avatarSize: 6em;
-		
+
 		.avatar {
 			width: $avatarSize;
 			height: $avatarSize;
 			border-radius: $avatarSize / 2;
 			margin: 0.8em 2em 0 0;
-			
+
 		} // .avatar
-		
+
 		.details {
 			// margin-bottom: 1em;
-			
+
 			.name {
 				font-weight: 300;
 				font-size: 2.5em;
@@ -94,39 +94,39 @@
 				}
 
 			} // .name
-			
+
 			.tags {
-				font-size: 1.1em; 
+				font-size: 1.1em;
 			}
 
 			.description {
 				margin-top: 0.6em;
 				line-height: 1.3em;
 				font-size: 0.9em;
-				
+
 				.info-row {
 					font-size: 0.9em;
 					line-height: 1.3em;
-					
+
 					i {
 						width: 1.5em;
 					}
-					
+
 					.caption {
 						display: inline-block;
 						width: 5em;
 					}
-					
+
 					.value {
 						margin-left: 0.5em;
 						color: $textColor;
 						font-weight: 400;
 					}
-					
+
 				} // .info-row
-				
+
 			} // .description
-			
+
 		} // .details
 
 	} // .profile

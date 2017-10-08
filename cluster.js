@@ -1,6 +1,6 @@
 "use strict";
 
-const 
+const
 	cluster = require("cluster"),
 	stopSignals = [
 		"SIGHUP", "SIGINT", "SIGQUIT", "SIGILL", "SIGTRAP", "SIGABRT",

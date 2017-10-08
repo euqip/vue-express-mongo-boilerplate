@@ -3,7 +3,7 @@
 let commands = {
 	login(username, password) {
 		return this
-			.waitForElementVisible('@usernameField', 10000)
+			.waitForElementVisible("@usernameField", 10000)
 			.assert.containsText("@title", "LOGIN")
 			.assert.elementPresent("@usernameField")
 			.assert.elementPresent("@passwordField")
@@ -29,7 +29,7 @@ module.exports = {
 
 		flashError: ".flash .alert-danger div",
 		flashInfo: ".flash .alert-success div"
-		
+
 	}
 
 };

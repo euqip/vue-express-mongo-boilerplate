@@ -56,9 +56,9 @@ describe("Test signup page with password", () => {
 			.perform(function(browser, done) {
 				//console.log("Check mailbox...");
 
-				let re = /verify\/(\w+)/g;			
+				let re = /verify\/(\w+)/g;
 				mailtrap.getTokenFromMessage(user.email, re, function(err, token, message) {
-					if (err) 
+					if (err)
 						throw new Error(err);
 
 					// Delete message
@@ -81,7 +81,7 @@ describe("Test signup page with password", () => {
 			.assert.containsText("@title", "Style guide")
 			.makeScreenshot()
 			.logout();
-	});	
+	});
 
 	it("should login with email & password", (browser) => {
 		loginPage.navigate()
@@ -96,7 +96,7 @@ describe("Test signup page with password", () => {
 			.assert.containsText("@title", "Style guide")
 			.makeScreenshot()
 			.logout();
-	});	
+	});
 
 	it("should login with username & password", (browser) => {
 		loginPage.navigate()
@@ -112,7 +112,7 @@ describe("Test signup page with password", () => {
 			.makeScreenshot()
 			.logout();
 
-	});			
+	});
 
 });
 
@@ -157,9 +157,9 @@ describe.only("Test signup page with passwordless mode", () => {
 			.perform(function(browser, done) {
 				//console.log("Check mailbox...");
 
-				let re = /verify\/(\w+)/g;			
+				let re = /verify\/(\w+)/g;
 				mailtrap.getTokenFromMessage(user.email, re, function(err, token, message) {
-					if (err) 
+					if (err)
 						throw new Error(err);
 
 					// Delete message
@@ -182,7 +182,7 @@ describe.only("Test signup page with passwordless mode", () => {
 			.assert.containsText("@title", "Style guide")
 			.makeScreenshot()
 			.logout();
-	});	
+	});
 
 	it("should give error if login with password", (browser) => {
 		loginPage.navigate()
@@ -192,8 +192,8 @@ describe.only("Test signup page with passwordless mode", () => {
 			.assert.containsText("@flashError", "This is a passwordless account!")
 			.api.pause(pauseTime)
 			.makeScreenshot();
-	});	
-	
+	});
+
 	it("should login with username & w/o password", (browser) => {
 		loginPage.navigate()
 			.login(user.userName, "")
@@ -208,9 +208,9 @@ describe.only("Test signup page with passwordless mode", () => {
 			.perform(function(browser, done) {
 				console.log("Check mailbox...");
 
-				let re = /passwordless\/(\w+)/g;			
+				let re = /passwordless\/(\w+)/g;
 				mailtrap.getTokenFromMessage(user.email, re, function(err, token, message) {
-					if (err) 
+					if (err)
 						throw new Error(err);
 
 					// Delete message
@@ -232,7 +232,7 @@ describe.only("Test signup page with passwordless mode", () => {
 			.assert.containsText("@title", "Style guide")
 			.makeScreenshot()
 			.logout();
-	});			
+	});
 
 	it("should login with email & w/o password", (browser) => {
 		loginPage.navigate()
@@ -248,9 +248,9 @@ describe.only("Test signup page with passwordless mode", () => {
 			.perform(function(browser, done) {
 				console.log("Check mailbox...");
 
-				let re = /passwordless\/(\w+)/g;			
+				let re = /passwordless\/(\w+)/g;
 				mailtrap.getTokenFromMessage(user.email, re, function(err, token, message) {
-					if (err) 
+					if (err)
 						throw new Error(err);
 
 					// Delete message
@@ -272,6 +272,6 @@ describe.only("Test signup page with passwordless mode", () => {
 			.assert.containsText("@title", "Style guide")
 			.makeScreenshot()
 			.logout();
-	});	
+	});
 
 });

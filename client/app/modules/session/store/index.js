@@ -26,7 +26,7 @@ const mutations = {
 
 	[SEARCH] (state, text) {
 		state.searchText = text;
-	}	
+	}
 
 };
 

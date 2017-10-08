@@ -1,6 +1,6 @@
 <template lang="pug">
 	.user-box(v-if="me")
-	
+
 		.user-info.right(@click="toggleUserMenu()")
 			img.avatar(:src='me.avatar')
 			.username {{ me.fullName }}
@@ -19,7 +19,7 @@
 					i.fa.fa-envelope-o
 					span {{ messages.length }}
 					.ring
-			
+
 			notifications-dropdown(:visible="expandedNotifications")
 			messages-dropdown(:visible="expandedMessages")
 
@@ -83,7 +83,7 @@
 		}
 
 	};
-	
+
 </script>
 
 <style lang="scss">

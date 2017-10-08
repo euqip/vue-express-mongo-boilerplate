@@ -17,7 +17,7 @@ let commands = {
 
 		if (passwordless)
 			res = res.click("[for=\"passwordless\"]");
-		
+
 		return res
 			.makeScreenshot()
 			.click("@submitButton");

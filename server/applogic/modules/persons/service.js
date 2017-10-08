@@ -23,7 +23,7 @@ module.exports = {
 
 		modelPropFilter: "code username fullName avatar lastLogin roles"
 	},
-	
+
 	actions: {
 		// return all model
 		/*find: {
@@ -33,7 +33,7 @@ module.exports = {
 					return this.toJSON(docs);
 				})
 				.then((json) => {
-					return this.populateModels(json);					
+					return this.populateModels(json);
 				});
 			}
 		},*/
@@ -69,7 +69,7 @@ module.exports = {
 
 				posts(limit: Int, offset: Int, sort: String): [Post]
 			}
-		`,		
+		`,
 
 		mutation: `
 		`,
@@ -111,7 +111,7 @@ fragment personFields on Person {
   roles
   avatar
   lastLogin
-  
+
   posts(sort: "-createdAt") {
     code
     title

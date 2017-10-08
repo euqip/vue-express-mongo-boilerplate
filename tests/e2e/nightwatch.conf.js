@@ -6,7 +6,7 @@ let chromedriver = require("chromedriver");
 let appPort = process.env.APP_PORT || process.env.PORT || 4000;
 
 // http://nightwatchjs.org/guide#settings-file
-// 
+//
 module.exports = {
 	"src_folders": ["tests/e2e/specs"],
 	"output_folder": "tests/e2e/reports",
@@ -52,7 +52,7 @@ module.exports = {
 
 		"chrome": {
 			"desiredCapabilities": {
-				"browserName": "chrome",				
+				"browserName": "chrome",
 			}
 		},
 
