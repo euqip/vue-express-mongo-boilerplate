@@ -76,10 +76,6 @@ let UserSchema = new Schema({
 		type: String,
 		"default": "local"
 	},
-	language: {
-		type: String,
-		default : "en"
-	},
 	profile: {
 		name: { type: String },
 		gender: { type: String },
@@ -129,7 +125,8 @@ let UserSchema = new Schema({
 	},
 
 	locale: {
-		type: String
+		type: String,
+		default : "en"
 	},
 
 	status: {
@@ -224,7 +221,8 @@ UserSchema.methods.pick = function(props, model) {
 		"username",
 		"roles",
 		"lastLogin",
-		"avatar"
+    "avatar",
+    "locale"
 	]);
 };
 

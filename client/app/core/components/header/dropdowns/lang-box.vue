@@ -28,7 +28,7 @@
     },
     methods :{
       changelanguage(language) {
-        // close the language-dropdown
+        // hide the language-dropdown
         this.$parent.toggleLanguages()
         // send the change to vuex store, changinglang is one of the possible actions
         this.changinglang(language)

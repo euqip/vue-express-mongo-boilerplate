@@ -8,10 +8,12 @@ module.exports = function(app, db) {
 
 	// Index page
 	app.get("/", function(req, res) {
-		if (req.user != null)
+		if (req.user != null) {
 			res.render("main", {
-				user: req.user
-			});
+	user: req.user
+});
+			console.log("server req.user : " + JSON.stringify(req.user));
+		}
 		else
 			res.render("index");
 	});

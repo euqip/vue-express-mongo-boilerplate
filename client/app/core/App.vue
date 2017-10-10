@@ -83,17 +83,19 @@
 		},
 		computed:{
 			...mapGetters("session", [
-				"lang"
-			]),
-
+        "lang",
+        "me"
+      ])
 		},
 		methods: {
 			...mapActions("session", [
-				"getSessionUser"
-			]),
-			...mapGetters("session", [
-				"lang"
-			]),
+				"getSessionUser",
+        "changinglang"
+      ]),
+ 			...mapGetters("session", [
+        "lang",
+        "me"
+      ]),
 
 			update: function(vm) {
 				if (vm == null)
@@ -118,7 +120,7 @@
 		 * Application created
 		 */
 		created() {
-			console.log("App started!");
+			console.log("App started! (browser console)");
 			window.app = this;
 
 			this.getSessionUser();

@@ -8,9 +8,9 @@
 					span.text-muted.username ({{ profile.username }})
 
 				.tags
-					.tag.primary {{"profile:!Role_name!" | i18n}}
-					.tag.danger {{"profile:!Administrator!" | i18n}}
-					.tag.success {{"profile:!Online!" | i18n}}
+					.tag.primary {{"!Role_name!"}}
+					.tag.danger {{"!Administrator!"}}
+					.tag.success {{"!Online!"}}
 				.description
 					.info-row(v-if="profile.profile && profile.profile.location")
 						i.fa.fa-map-marker
@@ -35,8 +35,8 @@
 						span.value {{ profile.email }}
 					.info-row
 						i.fa.fa-language
-						span.caption {{"profile:Language" | i18n}}:
-						span.value {{ profile.language }}
+						span.caption {{"profile:locale" | i18n}}:
+						span.value {{ profile.locale }}
 
 				hr.full
 		pre(v-html="this.$options.filters.prettyJSON(profile)")
@@ -51,21 +51,22 @@
 
 	export default {
 		i18nextNamespace: "profile",
-		computed: mapGetters("profile", [
-			"profile"
-		]),
+		computed:{
+      ...mapGetters("profile", [
+        "profile"
+      ])
+    },
 
 		methods: {
 			...mapActions("profile", [
 				"getProfile"
 			])
-		},
-
+    },
 		created() {
 			this.$service = new Service("profile", this);
 
 			// Get my profile
-			this.getProfile();
+      this.getProfile();
 		}
 	};
 

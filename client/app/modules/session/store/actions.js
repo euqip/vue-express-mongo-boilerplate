@@ -9,8 +9,18 @@ export const NAMESPACE= "/api/session";
 export const getSessionUser = ({ commit }) => {
 	axios.get(NAMESPACE + "/me").then((response) => {
 		let res = response.data;
-		if (res.status == 200)
+		if (res.status == 200){
 			commit(SET_USER, res.data);
+      // user.locale was not included in sent data, change is made in server/modules/persons/service
+      // while the default en locale is set in user schema all users are localized in en.
+			//console.log("user locale is : " + JSON.stringify(res.data));
+			let lng = res.data.locale;
+      // if user has no locale then keep default language
+			if (lng !== undefined) {
+				commit(LANG,lng);
+				i18next.changeLanguage (lng);
+			}
+		}
 		else
 			console.error("Request error!", res.error);
 
