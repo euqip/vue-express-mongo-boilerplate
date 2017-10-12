@@ -1,5 +1,5 @@
 <template lang="pug">
-	div
+	.container
 		page-header(:toggle-sidebar="toggleSidebar")
 
 		sidebar(:minimized="miniSidebar")
@@ -135,6 +135,6 @@
 </script>
 
 <style lang="scss">
-	@import "../../scss/style.scss";
+	//@import "../../scss/style.scss";
 
 </style>

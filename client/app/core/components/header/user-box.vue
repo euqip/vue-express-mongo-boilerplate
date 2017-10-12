@@ -1,32 +1,33 @@
 <template lang="pug">
-	.user-box(v-if="me")
+  .user-box(v-if="me")
+    li.nav-item.list-inline-item
+      ul.list-inline
+        li.list-inline-item(@click="toggleNotifications()", :class=" { active: notifications.length > 0 }")
+          i.fa.fa-bell-o
+          span.badge.badge-pill.badge-primary.exponent {{ notifications.length }}
+          .ring
 
-		.user-info.right(@click="toggleUserMenu()")
-			img.avatar(:src='me.avatar')
-			.username {{ me.fullName }}
-			i.fa.fa-chevron-down
+        li.list-inline-item(@click="toggleMessages()", :class=" { active: messages.length > 0 }")
+          i.fa.fa-envelope-o
+          span.badge.badge-pill.badge-primary.exponent {{ messages.length }}
+          .ring
 
-		user-dropdown(:visible="expandedUserMenu")
+        li.list-inline-item(@click="toggleLanguages()", :class=" { active: lang!='' }")
+          i.fa.fa-language
+          span.badge.badge-pill.badge-primary.exponent {{ lang }}
 
-		.notification-box.right
-			ul.icons
-				li(@click="toggleNotifications()", :class=" { active: notifications.length > 0 }")
-					i.fa.fa-bell-o
-					span {{ notifications.length }}
-					.ring
+    li.nav-item.list-inline-item(@click="toggleUserMenu()")
+      ul.list-inline.useravatar
+        li.list-inline-item
+          img.avatar(:src='me.avatar')
+        li.list-inline-item
+          span.username {{ me.fullName }}
+            i.fa.fa-chevron-down
 
-				li(@click="toggleMessages()", :class=" { active: messages.length > 0 }")
-					i.fa.fa-envelope-o
-					span {{ messages.length }}
-					.ring
-
-				li(@click="toggleLanguages()", :class=" { active: lang!='' }")
-					i.fa.fa-language
-					span {{ lang }}
-
-			notifications-dropdown(:visible="expandedNotifications")
-			messages-dropdown(:visible="expandedMessages")
-			languages-dropdown(:visible="expandedLanguages")
+      //user-dropdown(:invisible=!"expandedUserMenu")
+      //notifications-dropdown(:invisible=!"expandedNotifications")
+      //messages-dropdown(:invisible=!"expandedMessages")
+      //languages-dropdown(:invisible=!"expandedLanguages")
 
 
 </template>
@@ -111,4 +112,10 @@
 </script>
 
 <style lang="scss">
+  .exponent{
+    vertical-align: 1em;
+  }
+  ul.useravatar{
+    margin-bottom: 0;
+  }
 </style>

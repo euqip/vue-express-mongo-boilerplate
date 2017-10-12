@@ -1,5 +1,5 @@
 <template lang="pug">
-	.logo
+	.navbar-brand
 		a.nav-item(href="#")
 			span
 				strong VEM
