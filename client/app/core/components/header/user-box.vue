@@ -24,10 +24,10 @@
           span.username {{ me.fullName }}
             i.fa.fa-chevron-down
 
-      //user-dropdown(:invisible=!"expandedUserMenu")
-      //notifications-dropdown(:invisible=!"expandedNotifications")
-      //messages-dropdown(:invisible=!"expandedMessages")
-      //languages-dropdown(:invisible=!"expandedLanguages")
+    //user-dropdown(:visible=!"expandedUserMenu")
+    notifications-dropdown(:visible="expandedNotifications")
+    //messages-dropdown(:visible="expandedMessages")
+    //languages-dropdown(:visible="expandedLanguages")
 
 
 </template>

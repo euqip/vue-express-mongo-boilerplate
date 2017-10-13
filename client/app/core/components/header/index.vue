@@ -1,6 +1,6 @@
 <template lang="pug">
   section.page-header
-    .navbar.fixed-top.navbar-dark.bg-dark.text-muted
+    .navbar.fixed-top.navbar-dark.bg-dark.navbar-inverse.text-muted
       a.navbar-brand
         logo
         button.nabar-toggler
