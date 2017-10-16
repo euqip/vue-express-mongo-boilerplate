@@ -1,43 +1,52 @@
 <template lang="pug">
-	.messages-dropdown.dropdown(:class="{ 'visible': visible }")
-		.panel
-			.header
-				.left {{ "Messages" | i18n }}
-				.right
-					a.link(href="#")
-						small {{ "MarkAllAsRead" | i18n }}
-			.body
-				.list
-					.item
-						img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/dustin/73.jpg")
-						.body
-							strong Message title
-								small.text-muted John Doe
-							p.text-justify Cupidatat eiusmod commodo excepteur velit magna. Aliqua eu tempor officia officia et ipsum magna sint cillum Lorem reprehenderit.
-						.footer.text-right
-							small.text-muted 1 min ago
-					.item
-						img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/connor_gaunt/73.jpg")
-						.body
-							strong Message title
-								small.text-muted John Doe
-							p.text-justify Laborum laboris nulla nisi labore.
-						.footer.text-right
-							small.text-muted 3 min ago
-
-			.footer.text-center
-				a.link(href="#") {{ "SeeAllMessages" | i18n }}
+  .notification-dropdown.dropdown(:class="{ 'visible': visible }")
+    .card(style="width:25rem;")
+      h5.card-header
+        .float-left {{ "Messages" | i18n }}
+        .float-right
+          a.link(href="#")
+            small {{ "MarkAllAsRead" | i18n }}
+      .card-body
+        ul.list-group
+          li(is="notification-item" v-for="i in items" v-bind:key="i.id" v-bind:name="i.title" v-bind:img="i.img" v-bind:action="i.content" v-bind:delay="i.delay" v-bind:src="src")
+      .card-footer.text-center
+        a.link(href="#") {{ "SeeAllMessages" | i18n }}
 </template>
 
 <script>
+  import notificationItem from './notification-item'
 
-	export default {
+  export default {
+    props: [
+      "visible"
+    ],
+    components: {
+      notificationItem
+		},
 
-		props: [
-			"visible"
-		]
+    data () {
+      return {
+        items: [
+          {id:'1',
+            img:'dustin/73.jpg',
+            name:'John Doe',
+            content:'Cupidatat eiusmod commodo excepteur velit magna. Aliqua eu tempor officia officia et ipsum magna sint cillum Lorem reprehenderit.',
+            title: 'Message Title',
+            delay:'1 min ago'
+            },
+          {id:'2',
+            img:'connor_gaunt/73.jpg',
+            name:'John Doe',
+            content:'Laborum laboris nulla nisi labore.',
+            title: 'Message Title',
+            delay:'3 min ago'
+          },
+        ],
+        src : 'https://s3.amazonaws.com/uifaces/faces/twitter/'
+      }
+    },
 
-	};
+  };
 
 </script>
 

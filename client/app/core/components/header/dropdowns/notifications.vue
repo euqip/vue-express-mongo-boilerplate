@@ -1,5 +1,5 @@
 <template lang="pug">
-  .notification-dropdown.dropdown(:class="{ 'visible': visible }")
+  .notification-dropdown.dropdown.h-50(:class="{ 'visible': visible }")
     .card(style="width:25rem;")
       h5.card-header
         .float-left {{ "Notifications" | i18n }}
@@ -11,9 +11,6 @@
           li(is="notification-item" v-for="i in items" v-bind:key="i.id" v-bind:name="i.name" v-bind:img="i.img" v-bind:action="i.action" v-bind:delay="i.delay" v-bind:src="src")
       .card-footer.text-center
         a.link(href="#") {{ "SeeAllNotifications" | i18n }}
-
-
-
 </template>
 
 <script>
@@ -36,7 +33,7 @@
           {id:'4', img:'ritu/73.jpg', name:'Bill', action:'bought a new TV', delay:'3 hrs ago'},
           {id:'5', img:'sauro/73.jpg', name:'Chris', action:'posted a new blog post', delay:'1 day ago'},
         ],
-        src : 'https://s3.amazonaws.com/uifaces/faces/twitter/',
+        src : 'https://s3.amazonaws.com/uifaces/faces/twitter/'
       }
     },
 

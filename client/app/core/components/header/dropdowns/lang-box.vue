@@ -1,7 +1,7 @@
 <template lang="pug">
-  .languages-dropdown.dropdown(:class="{ 'visible': visible }")
+  .languages-dropdown.w-25.h-25(:class="{ 'visible': visible }")
     //v-for just after tag!
-    button.button.normal.langboxbtn(v-for="langitem in langs" @click="changelanguage(langitem.iso)" v-if="langitem.iso != lang") {{langitem.language}}
+    button.button.dropdown-item(v-for="i in langs" @click="changelanguage(i.iso)" v-if="i.iso != lang") {{i.language}}
 </template>
 
 <script>
