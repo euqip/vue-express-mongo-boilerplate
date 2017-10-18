@@ -1,10 +1,10 @@
 <template lang="pug">
   div.container
     page-header(:toggle-sidebar="toggleSidebar")
-    .row
-      .col-md-1
+    .row.godown
+      .col-md-2
         sidebar(:minimized="miniSidebar")
-      .col-md-11
+      .col-md-10
         .app-main(:class="{ miniSidebar: miniSidebar }")
           router-view(keep-alive)
 
@@ -136,6 +136,9 @@
 </script>
 
 <style lang="scss">
+  .godown{
+    margin-top:60px;
+  }
   //@import "../../scss/style.scss";
 
 </style>

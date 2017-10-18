@@ -1,11 +1,13 @@
 <template lang="pug">
   .container
     h1 {{ "styleguide" | i18n }}
+    p find inspiration here
+      a(src="https://www.quackit.com/bootstrap/bootstrap_4/tutorial/") Bootstrap 4 tutorial
     .guide
       section
-        h2
-          span.number 1.
-          span.text {{"ColorPalette" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 1.
+          span {{"ColorPalette" | i18n}}
         .content.flex.align-center.justify-space-around.colors.row
           .box.box1.col-md-2
             .caption {{"Color" | i18n}} #1
@@ -39,9 +41,9 @@
             .code
 
       section
-        h2
-          span.number 2.
-          span.text {{"Typography" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 2.
+          span {{"Typography" | i18n}}
         .content.typo
           .headers
             h1 {{"Heading" | i18n}} #1 - {{ getTypographyInfo("h1") }}
@@ -69,12 +71,13 @@
               |  fames ac ante ipsum primis in faucibus. Aenean dignissim odio vehicula ligula varius, ac ullamcorper tortor molestie. Phasellus dolor dui, egestas id ornare in, suscipit et dolor.
 
       section
-        h2
-          span.number 3.
-          span.text {{"Buttons" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 3.
+          span {{"Buttons" | i18n}}
         fieldset
           legend {{"Normalbuttons" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
+          P The navbar class will distribute evenly the buttons to occupy the whole width
+          .navbar
             button.btn Normal
             button.btn.btn-primary Primary
             button.btn.btn-success
@@ -87,7 +90,7 @@
 
         fieldset
           legend {{"Largebuttons" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
+          .navbar
             button.btn.btn-lg Normal
             button.btn.btn-lg.btn-primary Primary
             button.btn.btn-lg.btn-success
@@ -95,25 +98,25 @@
               | Success
             button.btn.btn-lg.btn-warning Warning
             button.btn.btn-lg.btn-danger Danger
-            button.btn.btn-lg.outline-secondary Outline
+            button.btn.btn-lg.btn-outline-secondary Outline
             button.btn.btn-lg.btn-loading Loading
 
         fieldset
           legend {{"Smallbuttons" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
-            button.btn.small Normal
-            button.btn.small.primary Primary
-            button.btn.small.success
+          .navbar
+            button.btn.btn-sm Normal
+            button.btn.btn-sm.btn-primary Primary
+            button.btn.btn-sm.btn-success
               i.icon.fa.fa-check
               | Success
-            button.btn.small.warning Warning
-            button.btn.small.btn-danger Danger
-            button.btn.small.outline Outline
-            button.btn.small.loading Loading
+            button.btn.btn-sm.btn-warning Warning
+            button.btn.btn-sm.btn-danger Danger
+            button.btn.btn-sm.btn-outline-secondary Outline
+            button.btn.btn-sm.loading Loading
 
         fieldset
           legend {{"Disabledbuttons" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
+          .navbar
             button.btn(disabled="disabled") Normal
             button.btn.btn-primary(disabled="disabled") Primary
             button.btn.btn-success(disabled="disabled")
@@ -125,45 +128,39 @@
 
         fieldset
           legend {{"Iconbuttons" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
-            button.btn
+          .navbar
+            button.btn.rounded-circle
               i.fa.fa-home
-            button.btn.btn-primary
+            button.btn.rounded-circle.btn-primary
               i.fa.fa-tasks
-            button.btn.btn-success
+            button.btn.rounded-circle.btn-success
               i.fa.fa-cogs
-            button.btn.btn-warning
+            button.btn.rounded-circle.btn-warning
               i.fa.fa-comments
-            button.btn.btn-danger
+            button.btn.rounded-circle.btn-danger
               i.fa.fa-trash
-            button.btn.btn-outline
+            button.btn.rounded-circle.btn-outline
               i.fa.fa-pencil
 
         fieldset
           legend {{"Floatingbuttons" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
-            button.btn.fab
+          .navbar
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.align-items-center(title ="Normal")
               i.icon.fa.fa-plus
-              | Normal
-            button.btn.fab.large.primary
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.align-items-center.btn-primary(title ="Primary")
               i.icon.fa.fa-plus
-              | Primary
-            button.btn.fab.success
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.align-items-center.btn-success(title ="Success")
               i.icon.fa.fa-check
-              | Success
-            button.btn.fab.warning(disabled="disabled")
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.align-items-center.btn-warning(disabled="disabled")(title ="Warning")
               i.icon.fa.fa-comments
-              | Warning
-            button.btn.fab.danger
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.align-items-center.btn-danger(title ="Danger")
               i.icon.fa.fa-trash
-              | Danger
-            button.btn.fab.outline
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.align-items-center.btn-secondary(title ="Outline")
               i.icon.fa.fa-bars
-              | Outline
 
         fieldset
           legend {{"Buttongroup" | i18n}}
-          .content.flex.align-center.justify-space-around.btns
+          .text-center
             .btn-group
               button.btn
                 i.icon.fa.fa-align-left
@@ -177,9 +174,9 @@
         hr
 
       section
-        h2
-          span.number 4.
-          span.text {{"Formelements" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 4.
+          span {{"Formelements" | i18n}}
         .content.forms
           form(action='#')
             fieldset
@@ -193,16 +190,17 @@
                 label(for='text2') {{"Labelwithhint" | i18n}}
                 input.form-control#text2(type='text', placeholder='Placeholder')
                 .hint {{"Maxium100characters" | i18n}}
-              .form-group.has-icon.valid
+              .form-group.text-success
                 label(for='text3') {{"Labelforvalidinput" | i18n}}
                 input.form-control#text3(type='text', placeholder='Placeholder')
                 i.icon.fa.fa-check
-              .form-group.has-icon.error
+              .form-group.text-danger
                 label(for='text4') {{"Labelforinvalidinputwitherrormessages" | i18n}}
                 input.form-control#text4(type='text', placeholder='Placeholder')
                 i.icon.fa.fa-exclamation-triangle
-                .errors
                   span {{"Tooshort" | i18n}}
+                br
+                i.icon.fa.fa-exclamation-triangle
                   span {{"Invalidtextcontent" | i18n}}!
 
               .form-group
@@ -254,9 +252,9 @@
                     span {{"Optiontwo" | i18n}}
 
       section
-        h2
-          span.number 5.
-          span.text {{"Alerts" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 5.
+          span {{"Alerts" | i18n}}
         .content.alerts
           .alert
             i.icon.fa.fa-info-circle
@@ -279,9 +277,9 @@
             h4 {{"Welldone" | i18n}}!
             p {{"Alertyousuccessfully" | i18n}}
       section
-        h2
-          span.number 6.
-          span.text {{"Tables" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 6.
+          span {{"Tables" | i18n}}
         .content.tables
           table.table.stripped.bordered
             thead
@@ -351,13 +349,13 @@
                 td.text-right
 
       section
-        h2
-          span.number 7.
-          span.text {{"BadgeS" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 7.
+          span {{"BadgeS" | i18n}}
         fieldset
           legend {{"Badges" | i18n}}
 
-          .content.flex.align-center.justify-space-around.btns
+          .navbar
             .badge.badge-Normal
             .badge.badge-primary Primary
             .badge.badge-success Success
@@ -370,7 +368,7 @@
         fieldset
           legend {{"NumberBadges" | i18n}}
 
-          .content.flex.align-center.justify-space-around.btns
+          .navbar
             .badge.badge-pill 15
             .badge.badge-pill.badge-primary 5
             .badge.badge-pill.badge-success 100+
@@ -382,9 +380,9 @@
 
 
       section
-        h2
-          span.number 8.
-          span.text {{"Progressbars" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 8.
+          span {{"Progressbars" | i18n}}
         fieldset
           legend {{"Normal" | i18n}}
 
@@ -471,311 +469,324 @@
 
 
       section
-        h2
-          span.number 9.
-          span.text {{"PanelsAndCards" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-3 9.
+          span {{"PanelsAndCards" | i18n}}
         fieldset
           legend {{"NormalPanels" | i18n}}
 
-          .content.flex.align-center.justify-space-around.panels
-            .card
-              .card-header {{"Panelnormal" | i18n}}
-              .card-body
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+          .row
+            .col-sm-3
+              .card
+                .card-header {{"Panelnormal" | i18n}}
+                .card-body
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
 
-            .card.primary
-              .ribbon.right.red
-                span {{"Primary" | i18n}}
-              .card-header {{"Panelprimary" | i18n}}
-              .card-body
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+            .col-sm-3
+              .card
+                .card-header.bg-primary {{"Panelprimary" | i18n}}
+                .ribbon.right.red
+                  span {{"Primary" | i18n}}
+                .card-body
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
 
-            .card.success(style="height: 332px")
-              .card-header {{"Panelsuccesswithlist" | i18n}}
-              .card-body
-                .list
-                  .item
-                    img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-                    .body
+            .col-sm-6
+              .card(style="height: 332px;")
+                .card-header.bg-success {{"Panelsuccesswithlist" | i18n}}
+                .card-body(style= "overflow-y:scroll;")
+                  div
+                    div
+                      img.mr-2.rounded.float-left(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                    div
                       strong {{"Messagetitle" | i18n}}
-                        small.text-muted John Doe
-                      p.text-justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi mollitia ratione fugiat earum qui sit vero nisi pariatur eaque quasi reprehenderit possimus consequatur commodi cum quod, amet sed cupiditate?
-                    .footer.text-right
-                      small.text-muted {{"1minago" | i18n}}
-                  .item
-                    img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-                    .body
+                      small.text-muted  John Doe
+                      p.text-justify set max height to view ribbon right Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi mollitia ratione fugiat earum qui sit vero nisi pariatur eaque quasi reprehenderit possimus consequatur commodi cum quod, amet sed cupiditate?
+                      .footer.text-right
+                        small.text-muted {{"1minago" | i18n}}
+                  div
+                    div
+                      img.mr-2.rounded-circle.float-left(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                    div
                       strong {{"Messagetitle" | i18n}}
-                        small.text-muted John Doe
+                      small.text-muted John Doe
                       p.text-justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi mollitia ratione fugiat earum qui sit vero nisi pariatur eaque quasi reprehenderit possimus consequatur commodi cum quod, amet sed cupiditate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum perferendis sapiente non atque qui quis pariatur impedit ea cupiditate culpa repellat voluptate, ipsam id illo incidunt nam commodi optio? Quasi.
-                    .footer.text-right
-                      small.text-muted {{"3minago" | i18n}}
-                  .item
-                    img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-                    .body
+                      .footer.text-right
+                        small.text-muted {{"3minago" | i18n}}
+                  div
+                    div
+                      img.mr-2.rounded.float-left(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                    div
                       strong {{"Messagetitle" | i18n}}
-                        small.text-muted John Doe
+                      small.text-muted John Doe
                       p.text-justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi mollitia ratione fugiat earum qui sit vero nisi.
-                    .footer.text-right
-                      small.text-muted {{"15minago" | i18n}}
-                  .item
-                    img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-                    .body
+                      .footer.text-right
+                        small.text-muted {{"15minago" | i18n}}
+                  div
+                    div
+                      img.mr-2.rounded.float-left(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                    div
                       strong {{"Messagetitle" | i18n}}
-                        small.text-muted John Doe
+                      small.text-muted John Doe
                       p.text-justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi mollitia ratione fugiat earum qui sit vero nisi pariatur eaque quasi reprehenderit possimus consequatur commodi cum quod, amet sed cupiditate?
-                    .footer.text-right
-                      small.text-muted {{"3hoursago" | i18n}}
-                  .item
-                    img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-                    .body
+                      .footer.text-right
+                        small.text-muted {{"3hoursago" | i18n}}
+                  div
+                    div
+                      img.mr-2.rounded.float-left(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                    div
                       strong {{"Messagetitle" | i18n}}
-                        small.text-muted John Doe
+                      small.text-muted John Doe
                       p.text-justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi mollitia ratione fugiat earum qui sit vero nisi pariatur eaque quasi reprehenderit possimus consequatur commodi cum quod, amet sed cupiditate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo officia, nulla ad quae. Possimus, necessitatibus excepturi ad vel aspernatur ipsam molestiae. Blanditiis assumenda, doloribus tenetur inventore, earum fugiat! Ducimus, recusandae.
-                    .footer.text-right
-                      small.text-muted {{"1dayago" | i18n}}
+                      .footer.text-right
+                        small.text-muted {{"1dayago" | i18n}}
 
 
-          .content.flex.align-center.justify-space-around.panels
-            .card.warning(style="max-height: 280px; max-width: 600px")
-              .card-header {{"Panelwarningwithscroll" | i18n}}
-              .card-body
-                p Duis ex nulla eu ex quis consectetur amet voluptate qui ipsum aliqua nisi commodo cupidatat. Reprehenderit aliqua sint magna ad eiusmod magna non esse. Ex tempor ex duis dolore commodo labore aliquip ad dolor nulla est. Ex eiusmod labore deserunt velit ad consequat elit. Quis elit cupidatat culpa pariatur excepteur. Elit nulla nisi ut nulla cupidatat ipsum officia sint consectetur in laboris.
-                p Voluptate anim in et esse. Voluptate ad est irure eiusmod sit enim pariatur adipisicing. Dolore officia nulla reprehenderit ipsum do aliquip incididunt eiusmod cupidatat exercitation consectetur incididunt.
-              .footer {{"Panelfooter" | i18n}}
+          .row
+            .col-sm-4
+              .card(style="max-height: 360px; max-width: 600px")
+                .card-header.bg-warning {{"Panelwarningwithscroll" | i18n}}
+                .card-body(style= "overflow-y:scroll;")
+                  p Duis ex nulla eu ex quis consectetur amet voluptate qui ipsum aliqua nisi commodo cupidatat. Reprehenderit aliqua sint magna ad eiusmod magna non esse. Ex tempor ex duis dolore commodo labore aliquip ad dolor nulla est. Ex eiusmod labore deserunt velit ad consequat elit. Quis elit cupidatat culpa pariatur excepteur. Elit nulla nisi ut nulla cupidatat ipsum officia sint consectetur in laboris.
+                  p Voluptate anim in et esse. Voluptate ad est irure eiusmod sit enim pariatur adipisicing. Dolore officia nulla reprehenderit ipsum do aliquip incididunt eiusmod cupidatat exercitation consectetur incididunt.
+                .footer {{"Panelfooter" | i18n}}
 
-            .card.danger
-              .card-header {{"Paneldanger" | i18n}}
-              .card-body
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque.
-              .footer {{"Panelfooter" | i18n}}
+            .col-sm-4
+              .card
+                .card-header.bg-danger {{"Paneldanger" | i18n}}
+                .card-body
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque.
+                .footer {{"Panelfooter" | i18n}}
 
-            .card.outline
-              .card-header {{"Paneloutline" | i18n}}
-              .card-body
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+            .col-sm-4
+              .card.border-success
+                .card-header.border-success {{"Paneloutline" | i18n}}
+                .card-body
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
 
 
         fieldset
           legend {{"Normalcards" | i18n}}
-          .content.flex.align-center.justify-space-around.panels
-            .card
-              .block
-                .title {{"SimpleCard" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-              .block
-                small.text-muted {{"Lastupdated5minsago" | i18n}}
+          .row
+            .col-sm-4
+              .card
+                .card-body
+                  .title {{"SimpleCard" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                  small.text-muted {{"Lastupdated5minsago" | i18n}}
 
-            .card
-              .ribbon.right.orange
-                span -20%
-              img.img(src="http://lorempixel.com/350/150/city")
-              .block
-                .title {{"Cardwithimage" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-              .block
-                button.btn.btn-success {{"Checkout" | i18n}}
+            .col-sm-4
+              .card
+                .ribbon.right.orange
+                  span -20%
+                img.img(src="http://lorempixel.com/350/150/city")
+                .card-body
+                  .title {{"Cardwithimage" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                  button.btn.btn-success {{"Checkout" | i18n}}
 
-            .card
-              .ribbon.left.primary
-                span {{"Brandnew" | i18n}}
-              img.img(src="http://placehold.it/350x150")
-              .block
-                .title {{"CardTitlewihribbon" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-              .block.text-right
-                button.btn.btn.danger {{"DELETE" | i18n}}
-                button.btn.btn-outline {{"Close" | i18n}}
+            .col-sm-4
+              .card
+                .ribbon.left.primary
+                  span {{"Brandnew" | i18n}}
+                img.img(src="http://placehold.it/350x150")
+                .card-body
+                  .title {{"CardTitlewihribbon" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                  .text-right
+                    button.m-2.btn.btn-danger {{"DELETE" | i18n}}
+                    button.m-2.btn.btn-outline-secondary {{"Close" | i18n}}
 
         fieldset
           legend {{"Cardsincolumns" | i18n}}
           .content.card-columns
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 1
+              .card-body
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos repellendus architecto molestiae iure enim labore dolores similique, quia consequatur culpa, at cumque ad tenetur nemo vitae dolorem ipsum repellat optio!
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 2
+              .card-body
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro voluptate, neque voluptatibus mollitia aliquid, harum in laborum non amet cupiditate ea nisi necessitatibus quis! Earum architecto corporis molestiae nihil molestias? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, voluptate. Eaque nisi alias consectetur ipsum eveniet qui esse repellat voluptas mollitia, obcaecati corporis a modi officia, architecto commodi eius sint!
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 3
+              .card-body
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
             .card
-              img.img(src="http://lorempixel.com/600/300/city")
-              .block
+              div
+                // dont put img in a card-header or card-body to avoid the paddings
+                img.rounded(src="http://lorempixel.com/600/300/city" style="width: 100%;")
+              .card-header
                 .title {{"SmallCard" | i18n}} 4
+              .card-body
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 5
+              .card-body
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
-              .block
-                button.btn.btn-success Checkout
+                .row
+                  button.btn.btn-success {{"Checkout" | i18n}}
 
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 6
+              .card-body
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt voluptatum quos autem magnam doloribus sunt. Atque quas accusamus repellat, odio dolore sapiente voluptatibus nemo numquam eum odit tempore, similique natus!
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 7
+              .card-body
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
             .card
-              .block
+              .card-header
                 .title {{"SmallCard" | i18n}} 8
+              .card-body
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa
                   a.link(href="https://twitter.com/Icebobcsi") @Icebobcsi
-              .block
                 small.text-muted 08:45 PM - 14 Jun 2016
 
 
       section
-        h2
-          span.number 10.
-          span.text {{"Media" | i18n}}
+        h2.bg-secondary.p-3.rounded
+          span.pr-310.
+          span {{"Media" | i18n}}
         fieldset
           legend {{"Normalmedia" | i18n}}
 
-          .content.list
-            .media
-              .media-left
-                img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-content
+          .row
+            .media.p-3.m-2.bg-secondary.rounded
+              .mr-3
+                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+              .media-body
                 strong John Doe
                 small.text-muted @johndoe - {{"31mago" | i18n}}
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                 p Elit ex id excepteur aliqua sint et culpa nisi laborum. Cupidatat anim aliqua nisi tempor nisi sint mollit non elit laboris consequat. Ut sint mollit voluptate quis sunt magna voluptate incididunt amet voluptate aute occaecat nulla. Nostrud ut eiusmod duis consequat sunt proident in aute esse adipisicing cupidatat commodo consequat dolor. Irure minim consectetur est duis nulla aliqua fugiat culpa proident cupidatat elit magna. Dolor esse magna pariatur sint adipisicing cupidatat veniam excepteur aliquip. Qui fugiat non eiusmod do sunt excepteur enim aliquip reprehenderit ullamco.
                   a.link(href="#")  {{"Readmore" | i18n}}...
                 .functions
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-reply
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-heart
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-trash
               .media-right
                 a.close(href="#", title="Close")
-
-            .media.primary
-              .media-left
-                img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-content
+          .row
+            .media.p-3.m-2.rounded.bg-primary
+              .mr-3
+                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+              .media-body
                 strong John Doe
                 small.text-muted @johndoe - {{"31mago" | i18n}}
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                   a.link(href="#") {{"Readmore" | i18n}}...
                 .functions
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-reply
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-heart
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-trash
               .media-right
                 a.close(href="#", title="Close")
-
-            .media.success
-              .media-left
-                img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-content
+          .row
+            .media.p-3.m-2.rounded.bg-success
+              .mr-3
+                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+              .media-body
                 strong John Doe
                 small.text-muted @johndoe - {{"31mago" | i18n}}
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                   a.link(href="#") {{"Readmore" | i18n}}...
                 .functions
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-reply
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-heart
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-trash
               .media-right
                 a.close(href="#", title="Close")
-
-            .media.warning
-              .media-left
-                img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-content
+          .row
+            .media.p-3.m-2.rounded.bg-warning
+              .mr-3
+                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+              .media-body
                 strong John Doe
                 small.text-muted @johndoe - {{"31mago" | i18n}}
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                   a.link(href="#") {{"Readmore" | i18n}}...
                 .functions
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-reply
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-heart
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-trash
               .media-right
                 a.close(href="#", title="Close")
-
-            .media.danger
-              .media-left
-                img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-content
+          .row
+            .media.p-3.m-2.rounded.bg-danger
+              .mr-3
+                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+              .media-body
                 strong John Doe
                 small.text-muted @johndoe - {{"31mago" | i18n}}
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                   a.link(href="#") {{"Readmore" | i18n}}...
                 .functions
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-reply
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-heart
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-trash
               .media-right
                 a.close(href="#", title="Close")
-
-            .media.outline
-              .media-left
-                img.avatar(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-content
+          .row
+            .media.p-3.m-2.rounded.bg-outline
+              .mr-3
+                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+              .media-body
                 strong John Doe
                 small.text-muted @johndoe - {{"31mago" | i18n}}
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                   a.link(href="#") {{"Readmore" | i18n}}...
                 .functions
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-reply
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-heart
-                  a(href="#")
+                  a.btn(href="#")
                     i.fa.fa-trash
               .media-right
                 a.close(href="#", title="Close")
@@ -801,140 +812,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../scss/themes/blurred/variables";
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  section {
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
-
-    > h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      padding: 8px 10px;
-
-      background-color: rgba(darken($backgroundColor, 10%), 0.6);
-      border: 1px solid darken($backgroundColor, 8%);
-      border-radius: 8px;
-
-      .number {
-        color: #888;
-      }
-
-      .text {
-        margin-left: 4px;
-        font-weight: $fontLight;
-        text-transform: uppercase;
-      }
-
-      clear: both;
-
-    } // .title
-
-  } //. section
-
-  .btns {
-    margin-bottom: 20px;
-  }
-
-  .list {
-    > * {
-      margin-bottom: 20px;
-    }
-  }
-
-  .panels {
-    align-items: flex-start;
-    .panel, .card {
-      margin: 20px;
-    }
-
-    .card {
-      max-width: 350px;
-    }
-  }
-
-  .colors {
-    $boxSize: 150px;
-
-    .box {
-      width: $boxSize;
-      height: $boxSize + 20px;
-
-      border: 1px solid darken($backgroundColor, 10%);
-      border-radius: 6px;
-
-      margin: 5px 10px;
-      padding: 2px;
-
-      .caption {
-        float: left;
-        width: 100%;
-        text-align: center;
-      }
-
-      .main {
-        float: left;
-        width: 100%;
-        height: $boxSize - 60px;
-      } // .main
-
-      .light {
-        float: left;
-        width: 50%;
-        height: 30px;
-
-      } // .light
-
-      .dark {
-        float: right;
-        width: 50%;
-        height: 30px;
-
-      } // .dark
-
-      .code {
-        float: left;
-        width: 100%;
-        position: relative;
-        margin-top: 5px;
-
-        &:after {
-          position: absolute;
-          top: 0; bottom: 0;
-          left: 0; right: 0;
-          margin: auto;
-          width: 100%;
-          text-align: center;
-          font-family: "Consolas";
-          color: White;
-        }
-      } // .code
-
-      $colors: $color1, $color2, $color3, $color4, $color5;
-
-      $colors-light: $color1-light, $color2-light, $color3-light, $color4-light, $color5-light;
-      $colors-dark: $color1-dark, $color2-dark, $color3-dark, $color4-dark, $color5-dark;
-
-      @for $i from 1 through 5 {
-
-        $c: nth($colors, $i);
-
-        &.box#{$i} {
-          .main { background-color: $c; }
-          .light { background-color: nth($colors-light, $i); }
-          .dark { background-color: nth($colors-dark, $i); }
-          .code:after {	content: "" + $c; }
-
-        } // box
-
-      } // for
-
-    } // .box
-
-  } // .colors
+  //@import "./index.scss";
+  @import "./colors.scss";
 </style>

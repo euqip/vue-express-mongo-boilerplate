@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-muted.sticky-top
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-muted.fixed-top
     logo
     <!-- Collapse button -->
     button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
@@ -12,6 +12,7 @@
     //notifications-dropdown(:visible="expandedNotifications")
     //messages-dropdown(:visible="expandedMessages")
     //languages-dropdown(:visible="expandedLanguages")
+    .row
 </template>
 
 <script>

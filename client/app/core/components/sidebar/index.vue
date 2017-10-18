@@ -1,25 +1,31 @@
 <template lang="pug">
-  .row
-    ul.nav.nav-pills.flex-column
+  .row.fixed-top.godown
+    ul.nav.flex-column
       .title {{ "sidebar:General" | i18n }}
-        .nav-item.nav-link.btn.btn-primary(href="#")
+      li.nav-item
+        a.nav-link(href="#")
           i.fa.fa-home
           span {{ "sidebar:Home" | i18n }}
-        .nav-item.nav-link.btn.btn-primary(href="#")
+      li.nav-item
+        a.nav-link(href="#")
           i.fa.fa-tasks
           span {{ "sidebar:Counter" | i18n }}
-        .nav-item.nav-link.btn.btn-primary(href="#")
+      li.nav-item
+        a.nav-link(href="#")
           i.fa.fa-tablet
           span {{ "sidebar:Devices" | i18n }}
-        .nav-item.nav-link.btn.btn-primary(href="#")
+      li.nav-item
+        a.nav-link(href="#")
           i.fa.fa-comments
           span {{ "sidebar:Posts" | i18n }}
-        .nav-item.nav-link.btn.btn-primary(href="#")
+      li.nav-item
+        a.nav-link(href="#")
           i.fa.fa-comments
           span {{ "sidebar:Logout" | i18n }}
       .title {{ "sidebar:Profile" | i18n }}
-        ul.nav.nav-pills.flex-column
-          .nav-item.nav-link.btn.btn-primary(href="#")
+      ul.nav.nav-pills.flex-column
+        li.nav-item
+          a.nav-link(href="#")
             i.fa.fa-sign-out
             span {{ "sidebar:Logout" | i18n }}
 
@@ -45,4 +51,10 @@
 </script>
 
 <style lang="scss">
+.title{
+  text-transform: uppercase;
+  font-weight: bold;
+
+
+}
 </style>

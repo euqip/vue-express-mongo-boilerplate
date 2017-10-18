@@ -1,0 +1,80 @@
+@import "../../../scss/themes/blurred/variables";
+.colors {
+  $boxSize: 150px;
+
+  .box {
+    width: $boxSize;
+    height: $boxSize + 20px;
+
+    border: 1px solid darken($backgroundColor, 10%);
+    border-radius: 6px;
+
+    margin: 5px 10px;
+    padding: 2px;
+
+    .caption {
+      float: left;
+      width: 100%;
+      text-align: center;
+    }
+
+    .main {
+      float: left;
+      width: 100%;
+      height: $boxSize - 60px;
+    } // .main
+
+    .light {
+      float: left;
+      width: 50%;
+      height: 30px;
+
+    } // .light
+
+    .dark {
+      float: right;
+      width: 50%;
+      height: 30px;
+
+    } // .dark
+
+    .code {
+      float: left;
+      width: 100%;
+      position: relative;
+      margin-top: 5px;
+
+      &:after {
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        font-family: "Consolas";
+        color: White;
+      }
+    } // .code
+
+    $colors: $color1, $color2, $color3, $color4, $color5;
+
+    $colors-light: $color1-light, $color2-light, $color3-light, $color4-light, $color5-light;
+    $colors-dark: $color1-dark, $color2-dark, $color3-dark, $color4-dark, $color5-dark;
+
+    @for $i from 1 through 5 {
+
+      $c: nth($colors, $i);
+
+      &.box#{$i} {
+        .main { background-color: $c; }
+        .light { background-color: nth($colors-light, $i); }
+        .dark { background-color: nth($colors-dark, $i); }
+        .code:after {	content: "" + $c; }
+
+      } // box
+
+    } // for
+
+  } // .box
+
+} // .colors
