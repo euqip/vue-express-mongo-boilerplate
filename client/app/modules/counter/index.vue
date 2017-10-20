@@ -1,17 +1,17 @@
 <template lang="pug">
-	.container
+	.container-fluid
 		h2.title {{ "Demo" | i18n }}
 
 		h3 {{ count }}
-		button.button.success(@click="inc")
+		button.btn.btn-success(@click="inc")
 			span.icon
-				i.fa.fa-arrow-up
+				i.px-2.fa.fa-arrow-up
 			span {{ "Increment" | i18n }}
 		br
 		br
-		button.button.warning(@click="dec")
+		button.btn.btn-warning(@click="dec")
 			span
-				i.fa.fa-arrow-up
+				i.px-2.fa.fa-arrow-up
 			span {{ "Decrement" | i18n }}
 
 </template>
