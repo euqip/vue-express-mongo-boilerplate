@@ -1,6 +1,8 @@
 <template lang="pug">
-  div.container
+div
+  .container-fluid
     page-header(:toggle-sidebar="toggleSidebar")
+  .container-fluid.row
     .row.godown
       .col-md-2
         sidebar(:minimized="miniSidebar")
@@ -17,6 +19,7 @@
 
   import PageHeader from "./components/header/index";
   import Sidebar from "./components/sidebar/index";
+  import Social from "./components/sidebar/social";
   import Service from "./service";
 
   import { mapActions, mapGetters } from "vuex";
@@ -32,7 +35,8 @@
      */
     components: {
       PageHeader,
-      Sidebar
+      Sidebar,
+      Social
     },
     /**
      * Create app data object
@@ -137,7 +141,7 @@
 
 <style lang="scss">
   .godown{
-    margin-top:60px;
+    padding-top:55px;
   }
   //@import "../../scss/style.scss";
 

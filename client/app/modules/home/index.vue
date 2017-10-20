@@ -2,38 +2,41 @@
   .container
     h1 {{ "styleguide" | i18n }}
     p find inspiration here
-      a(src="https://www.quackit.com/bootstrap/bootstrap_4/tutorial/") Bootstrap 4 tutorial
+      a(href="https://www.quackit.com/bootstrap/bootstrap_4/tutorial/")
+        span  Bootstrap 4 tutorial
     .guide
-      section
+      section.container
         h2.bg-secondary.p-3.rounded
           span.pr-3 1.
           span {{"ColorPalette" | i18n}}
-        .content.flex.align-center.justify-space-around.colors.row
-          .box.box1.col-md-2
+        p these boxes colors are set with a dedicated scss file, all 5 boxes are equally distributed
+        br
+        .colors.navbar
+          .box.box1
             .caption {{"Color" | i18n}} #1
             .main
             .light
             .dark
             .code
-          .box.box2.col-md-2
+          .box.box2
             .caption {{"Color" | i18n}} #2
             .main
             .light
             .dark
             .code
-          .box.box3.col-md-2
+          .box.box3
             .caption {{"Color" | i18n}} #3
             .main
             .light
             .dark
             .code
-          .box.box4.col-md-2
+          .box.box4
             .caption {{"Color" | i18n}} #4
             .main
             .light
             .dark
             .code
-          .box.box5.col-md-2
+          .box.box5
             .caption {{"Color" | i18n}} #5
             .main
             .light
@@ -46,7 +49,7 @@
           span {{"Typography" | i18n}}
         .content.typo
           .headers
-            h1 {{"Heading" | i18n}} #1 - {{ getTypographyInfo("h1") }}
+            h1 {{"Heading" | i18n}} #1 -  {{ getTypographyInfo("h1") }}
             h2 {{"Heading" | i18n}} #2 -  {{ getTypographyInfo("h2") }}
             h3 {{"Heading" | i18n}} #3 -  {{ getTypographyInfo("h3") }}
             h4 {{"Heading" | i18n}} #4 -  {{ getTypographyInfo("h4") }}

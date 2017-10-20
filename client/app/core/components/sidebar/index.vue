@@ -1,43 +1,37 @@
 <template lang="pug">
-  .row.fixed-top.godown
-    ul.nav.flex-column
-      .title {{ "sidebar:General" | i18n }}
-      li.nav-item
-        a.nav-link(href="#")
-          i.fa.fa-home
-          span {{ "sidebar:Home" | i18n }}
-      li.nav-item
-        a.nav-link(href="#")
-          i.fa.fa-tasks
-          span {{ "sidebar:Counter" | i18n }}
-      li.nav-item
-        a.nav-link(href="#")
-          i.fa.fa-tablet
-          span {{ "sidebar:Devices" | i18n }}
-      li.nav-item
-        a.nav-link(href="#")
-          i.fa.fa-comments
-          span {{ "sidebar:Posts" | i18n }}
-      li.nav-item
-        a.nav-link(href="#")
-          i.fa.fa-comments
-          span {{ "sidebar:Logout" | i18n }}
-      .title {{ "sidebar:Profile" | i18n }}
-      ul.nav.nav-pills.flex-column
-        li.nav-item
+  .sidebar
+    .container-fluid
+      .row(style="height:900px;")
+        nav.nav.flex-column.navbar-dark.bg-dark.text-muted
+          .title.pl-3 {{ "sidebar:General" | i18n }}
+          a.nav-link.active(href="#")
+            i.btn.fa.fa-home
+            span {{ "sidebar:Home" | i18n }}
           a.nav-link(href="#")
-            i.fa.fa-sign-out
+            i.btn.fa.fa-tasks
+            span {{ "sidebar:Counter" | i18n }}
+          a.nav-link(href="#")
+            i.btn.fa.fa-tablet
+            span {{ "sidebar:Devices" | i18n }}
+          a.nav-link(href="#")
+            i.btn.fa.fa-comments
+            span {{ "sidebar:Posts" | i18n }}
+          a.nav-link(href="#")
+            i.btn.fa.fa-comments
             span {{ "sidebar:Logout" | i18n }}
-
-    .footer
-      .social
-        a(href="", target="_blank")
-          i.fa.fa-facebook
-        a(href="https://twitter.com/Icebobcsi", target="_blank")
-          i.fa.fa-twitter
-        a(href="https://github.com/icebob/vue-express-mongo-boilerplate", target="_blank")
-          i.fa.fa-github
-      .copyright &copy; Copyright, 2016
+          .title.pl-3 {{ "sidebar:Profile" | i18n }}
+          a.nav-link(href="#")
+            i.btn.fa.fa-sign-out
+            span {{ "sidebar:Logout" | i18n }}
+          div
+            nav.nav.pt-5
+              a.nav-link.btn(href="", target="_blank")
+                i.mr-1.fa.fa-facebook
+              a.nav-link.btn(href="https://twitter.com/Icebobcsi", target="_blank")
+                i.mr-1.fa.fa-twitter
+              a.nav-link.btn(href="https://github.com/icebob/vue-express-mongo-boilerplate", target="_blank")
+                i.mr-1.fa.fa-github
+            .copyright &copy; Copyright, 2017
 </template>
 
 <script>
@@ -54,7 +48,15 @@
 .title{
   text-transform: uppercase;
   font-weight: bold;
-
-
 }
+.sidebar{
+  position: fixed;
+}
+a.nav-link{
+  color: #aaa;
+  i{
+    font-size: 20px;
+  }
+}
+
 </style>

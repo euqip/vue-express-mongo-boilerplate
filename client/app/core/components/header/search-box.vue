@@ -1,7 +1,7 @@
 <template lang="pug">
   .search-box
     form.form-inline
-      i.fa.fa-search
+      i.px-2.fa.fa-search
       input(type="search", v-model="text", :placeholder="_('Search3dots')")
 </template>
 

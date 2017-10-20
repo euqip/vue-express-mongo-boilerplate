@@ -2,7 +2,7 @@
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-muted.fixed-top
     logo
     <!-- Collapse button -->
-    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+    button.navbar-toggler.navbar-expand-lg(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
       span.navbar-toggler-icon
     .collapse.navbar-collapse
       search-box
@@ -12,7 +12,6 @@
     //notifications-dropdown(:visible="expandedNotifications")
     //messages-dropdown(:visible="expandedMessages")
     //languages-dropdown(:visible="expandedLanguages")
-    .row
 </template>
 
 <script>

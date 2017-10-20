@@ -1,27 +1,24 @@
 <template lang="pug">
   .user-box(v-if="me")
-    ul.navbar-nav.mr-auto
+    nav.navbar-nav.mr-auto
       .nav-item(@click="toggleNotifications()", :class=" { active: notifications.length > 0 }")
-        i.fa.fa-bell-o
-        span.badge.badge-pill.badge-primary.exponent {{ notifications.length }}
+        ipx-1.fa.fa-bell-o
+          span.badge.badge-pill.badge-primary.exponent {{ notifications.length }}
         .ring
 
       .nav-item(@click="toggleMessages()", :class=" { active: messages.length > 0 }")
-        i.fa.fa-envelope-o
-        span.badge.badge-pill.badge-primary.exponent {{ messages.length }}
+        ipx-1.fa.fa-envelope-o
+          span.badge.badge-pill.badge-primary.exponent {{ messages.length }}
         .ring
 
-      .nav-item(@click="toggleLanguages()", :class=" { active: lang!='' }")
-        i.fa.fa-language
-        span.badge.badge-pill.badge-primary.exponent {{ lang }}
+      .nav-item.dropdown(@click="toggleLanguages()", :class=" { active: lang!='' }")
+        ipx-1.fa.fa-language
+          span.badge.badge-pill.badge-primary.exponent {{ lang }}
 
-      .nav-item(@click="toggleUserMenu()")
-        ul.navbar-nav.mr-auto
-          li.nav-item
-            img.rounded-circle(:src='me.avatar' style = "height:40px;")
-          li.nav-item.dropdown
-            span.username {{ me.fullName }}
-              i.fa.fa-chevron-down
+      .nav-item.dopdown(@click="toggleUserMenu()" style="width: 200px")
+        img.rounded-circle.px-1(:src='me.avatar' style = "height:40px;")
+        span.username {{ me.fullName }}
+              ipx-1.fa.fa-chevron-down
 </template>
 
 <script>
