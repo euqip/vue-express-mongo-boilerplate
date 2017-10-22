@@ -29,14 +29,14 @@
             a.nav-link
               i.btn.fa.fa-sign-out
               span.d-sm-none.d-lg-inline {{ "sidebar:Logout" | i18n }}
-          div
+          .d-md-none.d-lg-block
             nav.nav.pt-5
-              a.nav-link.btn(href="", target="_blank")
-                i.mr-1.fa.fa-facebook
-              a.nav-link.btn(href="https://twitter.com/Icebobcsi", target="_blank")
-                i.mr-1.fa.fa-twitter
-              a.nav-link.btn(href="https://github.com/icebob/vue-express-mongo-boilerplate", target="_blank")
-                i.mr-1.fa.fa-github
+              a.nav-link(href="", target="_blank")
+                i.fa.fa-facebook
+              a.nav-link(href="https://twitter.com/Icebobcsi", target="_blank")
+                i.fa.fa-twitter
+              a.nav-link(href="https://github.com/icebob/vue-express-mongo-boilerplate", target="_blank")
+                i.fa.fa-github
             .copyright &copy; Copyright, 2017
 </template>
 
