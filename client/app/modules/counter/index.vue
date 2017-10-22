@@ -1,6 +1,6 @@
 <template lang="pug">
 	.container-fluid
-		h2.title {{ "Demo" | i18n }}
+		h1 {{ "Demo" | i18n }}
 
 		h3 {{ count }}
 		button.btn.btn-success(@click="inc")

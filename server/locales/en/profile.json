@@ -6,5 +6,7 @@
   "Language": "Language",
   "!Role_name!": "!Role name!",
   "Last_login": "Last login",
-  "Full_Name": "Full Name"
+  "Full_Name": "Full Name",
+  "locale": "locale"
+  
 }

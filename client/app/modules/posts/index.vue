@@ -1,60 +1,62 @@
 <template lang="pug">
-  .container
-    h2.title {{ _('Posts') }}
+  .container-fluid
+    h1 {{ _('Posts') }}
 
-    .header.flex.row.justify-space-between
-      .group.sort
-        a.link(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("Hot") }}
-        a.link(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("MostViewed") }}
-        a.link(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("New") }}
-
-      button.btn.btn-primary(@click="newPost")
-        span.icon
-          i.fa.fa-plus
-        span {{ _("NewPost") }}
-
-      .group.filter
-        a.link(@click="changeViewMode('all')", :class="{ active: viewMode == 'all' }") {{ _("AllPosts") }}
-        a.link(@click="changeViewMode('my')", :class="{ active: viewMode == 'my' }") {{ _("MyPosts") }}
+    .text-center
+      .btn-group
+        button.btn.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("Hot") }}
+        button.btn.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("MostViewed") }}
+        button.btn.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("New") }}
+        button.btn.btn-primary(@click="newPost")
+          i.px-1.fa.fa-plus
+          span {{ _("NewPost") }}
+        button.btn.btn-outline-secondary(@click="changeViewMode('all')", :class="{ active: viewMode == 'all' }") {{ _("AllPosts") }}
+        button.btn.btn-outline-secondary(@click="changeViewMode('my')", :class="{ active: viewMode == 'my' }") {{ _("MyPosts") }}
 
     .postForm(v-if="showForm")
       vue-form-generator(:schema='schema', :model='model', :options='{}', :multiple="false", ref="form", :is-new-model="isNewPost")
 
-      .group.buttons
-        button.btn.btn-primary(@click="savePost") {{ _("Save") }}
-        button.btn(@click="cancelPost") {{ _("Cancel") }}
+      .text-center
+        .btn-group
+          button.btn.btn-primary(@click="savePost") {{ _("Save") }}
+          button.btn(@click="cancelPost") {{ _("Cancel") }}
 
 
     transition-group.posts(name="post", tag="ul")
       li(v-for="post of posts", :key="post.code")
-        article.media.rounded
-          .row
-            .media.p-3.m-2.bg-secondary.rounded
-              .mr-1
-                img.rounded(:src="post.author.avatar")
-              .votes(:class="{ voted: iVoted(post) }")
-                .count.text-center {{ post.votes }}
-                .thumb.text-center(@click="toggleVote(post)")
-                  i.fa.fa-thumbs-o-up
-            .media-body
-              h3 {{ post.title }}
 
-              p.content(v-html="markdown(post.content)")
-              hr.full
-              .row
-                .functions.left
-                  a(:title="_('EditPost')", @click="editPost(post)")
-                    i.fa.fa-pencil
-                  a(:title="_('DeletePost')", @click="deletePost(post)")
-                    i.fa.fa-trash
-                .voters.left(:title="_('Voters')")
-                  template(v-for="voter in lastVoters(post)")
-                    img(:src="voter.avatar", :title="voter.fullName + ' (' + voter.username + ')'")
-                .right.text-right
-                  template(v-if="post.editedAt")
-                    small.text-muted {{ editedAgo(post) }}
-                    br
-                  small.text-muted {{ createdAgo(post) }}
+
+
+        article.media.rounded.p-1
+          //article-content
+          .rounded
+            .text-center(style="width: 70px;")
+              img.rounded.pt-2(:src="post.author.avatar")
+              .votes(:class="{ voted: iVoted(post) }")
+                .count {{ post.votes }}
+                .thumb(@click="toggleVote(post)")
+                  i.px-1.fa.fa-thumbs-o-up
+          .media-body.p-2
+            h3 {{ post.title }}
+
+            p.content(v-html="markdown(post.content)")
+            hr.full
+            .functions.left
+              .btn.btn-outlint-secondary(:title="_('EditPost')", @click="editPost(post)")
+                i.px-1.fa.fa-pencil
+              .btn.btn-outlint-secondary(:title="_('DeletePost')", @click="deletePost(post)")
+                i.px-1.fa.fa-trash
+            .voters.left(:title="_('Voters')")
+              template(v-for="voter in lastVoters(post)")
+                img(:src="voter.avatar", :title="voter.fullName + ' (' + voter.username + ')'")
+            .right.text-right
+              template(v-if="post.editedAt")
+                small.text-muted {{ editedAgo(post) }}
+              small.text-muted {{ createdAgo(post) }}
+
+
+
+
 
     .loadMore.text-center(v-if="hasMore")
       button.btn.btn-outline-secondary(@click="loadMoreRows", :class="{ 'loading': fetching }") {{ _("LoadMore") }}
@@ -67,12 +69,17 @@
   import Vue from "vue";
   import marked from "marked";
   import toast from "../../core/toastr";
+  import articleContent from "./article-content";
   import { cloneDeep } from "lodash";
   import { validators, schema as schemaUtils } from "vue-form-generator";
 
   import { mapGetters, mapActions } from "vuex";
 
   export default {
+
+  components: {
+      articleContent
+    },
 
     computed: {
       ...mapGetters("posts", [
@@ -282,7 +289,6 @@
 </script>
 
 <style lang="scss" scoped>
-@import "../../../scss/themes/blurred/variables";
 @import "../../../scss/common/mixins";
 @import "posts";
 

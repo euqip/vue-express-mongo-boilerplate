@@ -5,13 +5,13 @@
       a(href="https://www.quackit.com/bootstrap/bootstrap_4/tutorial/")
         span  Bootstrap 4 tutorial
     .guide
-      section.container
+      section.container-fluid
         h2.bg-secondary.p-3.rounded
           span.pr-3 1.
           span {{"ColorPalette" | i18n}}
         p these boxes colors are set with a dedicated scss file, all 5 boxes are equally distributed
         br
-        .colors.navbar
+        .colors.nav
           .box.box1
             .caption {{"Color" | i18n}} #1
             .main
@@ -677,122 +677,122 @@
                 small.text-muted 08:45 PM - 14 Jun 2016
 
 
-      section
-        h2.bg-secondary.p-3.rounded
-          span.pr-310.
-          span {{"Media" | i18n}}
-        fieldset
-          legend {{"Normalmedia" | i18n}}
+        section
+          h2.bg-secondary.p-3.rounded
+            span.pr-310.
+            span {{"Media" | i18n}}
+          fieldset
+            legend {{"Normalmedia" | i18n}}
 
-          .row
-            .media.p-3.m-2.bg-secondary.rounded
-              .mr-3
-                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-body
-                strong John Doe
-                small.text-muted @johndoe - {{"31mago" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-                p Elit ex id excepteur aliqua sint et culpa nisi laborum. Cupidatat anim aliqua nisi tempor nisi sint mollit non elit laboris consequat. Ut sint mollit voluptate quis sunt magna voluptate incididunt amet voluptate aute occaecat nulla. Nostrud ut eiusmod duis consequat sunt proident in aute esse adipisicing cupidatat commodo consequat dolor. Irure minim consectetur est duis nulla aliqua fugiat culpa proident cupidatat elit magna. Dolor esse magna pariatur sint adipisicing cupidatat veniam excepteur aliquip. Qui fugiat non eiusmod do sunt excepteur enim aliquip reprehenderit ullamco.
-                  a.link(href="#")  {{"Readmore" | i18n}}...
-                .functions
-                  a.btn(href="#")
-                    i.fa.fa-reply
-                  a.btn(href="#")
-                    i.fa.fa-heart
-                  a.btn(href="#")
-                    i.fa.fa-trash
-              .media-right
-                a.close(href="#", title="Close")
-          .row
-            .media.p-3.m-2.rounded.bg-primary
-              .mr-3
-                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-body
-                strong John Doe
-                small.text-muted @johndoe - {{"31mago" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-                  a.link(href="#") {{"Readmore" | i18n}}...
-                .functions
-                  a.btn(href="#")
-                    i.fa.fa-reply
-                  a.btn(href="#")
-                    i.fa.fa-heart
-                  a.btn(href="#")
-                    i.fa.fa-trash
-              .media-right
-                a.close(href="#", title="Close")
-          .row
-            .media.p-3.m-2.rounded.bg-success
-              .mr-3
-                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-body
-                strong John Doe
-                small.text-muted @johndoe - {{"31mago" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-                  a.link(href="#") {{"Readmore" | i18n}}...
-                .functions
-                  a.btn(href="#")
-                    i.fa.fa-reply
-                  a.btn(href="#")
-                    i.fa.fa-heart
-                  a.btn(href="#")
-                    i.fa.fa-trash
-              .media-right
-                a.close(href="#", title="Close")
-          .row
-            .media.p-3.m-2.rounded.bg-warning
-              .mr-3
-                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-body
-                strong John Doe
-                small.text-muted @johndoe - {{"31mago" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-                  a.link(href="#") {{"Readmore" | i18n}}...
-                .functions
-                  a.btn(href="#")
-                    i.fa.fa-reply
-                  a.btn(href="#")
-                    i.fa.fa-heart
-                  a.btn(href="#")
-                    i.fa.fa-trash
-              .media-right
-                a.close(href="#", title="Close")
-          .row
-            .media.p-3.m-2.rounded.bg-danger
-              .mr-3
-                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-body
-                strong John Doe
-                small.text-muted @johndoe - {{"31mago" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-                  a.link(href="#") {{"Readmore" | i18n}}...
-                .functions
-                  a.btn(href="#")
-                    i.fa.fa-reply
-                  a.btn(href="#")
-                    i.fa.fa-heart
-                  a.btn(href="#")
-                    i.fa.fa-trash
-              .media-right
-                a.close(href="#", title="Close")
-          .row
-            .media.p-3.m-2.rounded.bg-outline
-              .mr-3
-                img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
-              .media-body
-                strong John Doe
-                small.text-muted @johndoe - {{"31mago" | i18n}}
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
-                  a.link(href="#") {{"Readmore" | i18n}}...
-                .functions
-                  a.btn(href="#")
-                    i.fa.fa-reply
-                  a.btn(href="#")
-                    i.fa.fa-heart
-                  a.btn(href="#")
-                    i.fa.fa-trash
-              .media-right
-                a.close(href="#", title="Close")
+            .row
+              .media.p-3.m-2.bg-secondary.rounded
+                .mr-3
+                  img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                .media-body
+                  strong John Doe
+                  small.text-muted @johndoe - {{"31mago" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                  p Elit ex id excepteur aliqua sint et culpa nisi laborum. Cupidatat anim aliqua nisi tempor nisi sint mollit non elit laboris consequat. Ut sint mollit voluptate quis sunt magna voluptate incididunt amet voluptate aute occaecat nulla. Nostrud ut eiusmod duis consequat sunt proident in aute esse adipisicing cupidatat commodo consequat dolor. Irure minim consectetur est duis nulla aliqua fugiat culpa proident cupidatat elit magna. Dolor esse magna pariatur sint adipisicing cupidatat veniam excepteur aliquip. Qui fugiat non eiusmod do sunt excepteur enim aliquip reprehenderit ullamco.
+                    a.link(href="#")  {{"Readmore" | i18n}}...
+                  .functions
+                    a.btn(href="#")
+                      i.fa.fa-reply
+                    a.btn(href="#")
+                      i.fa.fa-heart
+                    a.btn(href="#")
+                      i.fa.fa-trash
+                .media-right
+                  a.close(href="#", title="Close")
+            .row
+              .media.p-3.m-2.rounded.bg-primary
+                .mr-3
+                  img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                .media-body
+                  strong John Doe
+                  small.text-muted @johndoe - {{"31mago" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                    a.link(href="#") {{"Readmore" | i18n}}...
+                  .functions
+                    a.btn(href="#")
+                      i.fa.fa-reply
+                    a.btn(href="#")
+                      i.fa.fa-heart
+                    a.btn(href="#")
+                      i.fa.fa-trash
+                .media-right
+                  a.close(href="#", title="Close")
+            .row
+              .media.p-3.m-2.rounded.bg-success
+                .mr-3
+                  img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                .media-body
+                  strong John Doe
+                  small.text-muted @johndoe - {{"31mago" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                    a.link(href="#") {{"Readmore" | i18n}}...
+                  .functions
+                    a.btn(href="#")
+                      i.fa.fa-reply
+                    a.btn(href="#")
+                      i.fa.fa-heart
+                    a.btn(href="#")
+                      i.fa.fa-trash
+                .media-right
+                  a.close(href="#", title="Close")
+            .row
+              .media.p-3.m-2.rounded.bg-warning
+                .mr-3
+                  img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                .media-body
+                  strong John Doe
+                  small.text-muted @johndoe - {{"31mago" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                    a.link(href="#") {{"Readmore" | i18n}}...
+                  .functions
+                    a.btn(href="#")
+                      i.fa.fa-reply
+                    a.btn(href="#")
+                      i.fa.fa-heart
+                    a.btn(href="#")
+                      i.fa.fa-trash
+                .media-right
+                  a.close(href="#", title="Close")
+            .row
+              .media.p-3.m-2.rounded.bg-danger
+                .mr-3
+                  img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                .media-body
+                  strong John Doe
+                  small.text-muted @johndoe - {{"31mago" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                    a.link(href="#") {{"Readmore" | i18n}}...
+                  .functions
+                    a.btn(href="#")
+                      i.fa.fa-reply
+                    a.btn(href="#")
+                      i.fa.fa-heart
+                    a.btn(href="#")
+                      i.fa.fa-trash
+                .media-right
+                  a.close(href="#", title="Close")
+            .row
+              .media.p-3.m-2.rounded.bg-outline
+                .mr-3
+                  img.rounded(src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg")
+                .media-body
+                  strong John Doe
+                  small.text-muted @johndoe - {{"31mago" | i18n}}
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
+                    a.link(href="#") {{"Readmore" | i18n}}...
+                  .functions
+                    a.btn(href="#")
+                      i.fa.fa-reply
+                    a.btn(href="#")
+                      i.fa.fa-heart
+                    a.btn(href="#")
+                      i.fa.fa-trash
+                .media-right
+                  a.close(href="#", title="Close")
 
 </template>
 

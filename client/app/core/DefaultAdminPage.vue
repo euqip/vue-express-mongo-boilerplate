@@ -1,11 +1,11 @@
 <template lang="pug">
-	.container
-		h3.title {{ schema.title }}
+	.container-fluid
+		h1 {{ schema.title }}
 
 		.flex.align-center.justify-space-around
 			.left(v-if="enabledNew")
-				button.button.is-primary(@click="newModel")
-					i.icon.fa.fa-plus
+				button.btn.btn.outline.secondary(@click="newModel")
+					i.px-1.fa.fa-plus
 					| {{ schema.resources.addCaption || _("Add") }}
 			.right {{ _("SelectedOfAll", { selected: selected.length, all: rows.length } ) }}
 
@@ -18,15 +18,15 @@
 				div.alert.alert-danger(v-for="(item, index) in validationErrors", :key="index") {{ item.field.label }}:
 					strong {{ item.error }}
 
-			.buttons.flex.justify-space-around
-				button.button.primary(@click="saveModel", :disabled="!enabledSave")
-					i.icon.fa.fa-save
+			.btn-group
+				button.btn.btn-primary(@click="saveModel", :disabled="!enabledSave")
+					i.px-1.fa.fa-save
 					| {{ schema.resources.saveCaption || _("Save") }}
-				button.button.outline(@click="cloneModel", :disabled="!enabledClone")
-					i.icon.fa.fa-copy
+				button.btn.btn-outline-secondary(@click="cloneModel", :disabled="!enabledClone")
+					i.px-1.fa.fa-copy
 					| {{ schema.resources.cloneCaption || _("Clone") }}
-				button.button.danger(@click="deleteModel", :disabled="!enabledDelete")
-					i.icon.fa.fa-trash
+				button.btn.btn-danger(@click="deleteModel", :disabled="!enabledDelete")
+					i.px-1.fa.fa-trash
 					| {{ schema.resources.deleteCaption || _("Delete") }}
 
 </template>

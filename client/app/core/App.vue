@@ -2,7 +2,7 @@
 div
   .container-fluid
     page-header(:toggle-sidebar="toggleSidebar")
-  .container-fluid.row
+  .container-fluid
     .row.godown
       .col-md-2
         sidebar(:minimized="miniSidebar")
@@ -19,7 +19,6 @@ div
 
   import PageHeader from "./components/header/index";
   import Sidebar from "./components/sidebar/index";
-  import Social from "./components/sidebar/social";
   import Service from "./service";
 
   import { mapActions, mapGetters } from "vuex";
@@ -36,7 +35,6 @@ div
     components: {
       PageHeader,
       Sidebar,
-      Social
     },
     /**
      * Create app data object
@@ -140,6 +138,8 @@ div
 </script>
 
 <style lang="scss">
+  @import "../../scss/themes/blurred/variables";
+
   .godown{
     padding-top:55px;
   }
