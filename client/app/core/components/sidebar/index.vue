@@ -7,28 +7,28 @@
           router-link(tag=li, to="/")
             a.nav-link
               i.btn.fa.fa-home
-              span.d-sm-none.d-lg-inline {{ "sidebar:Home" | i18n }}
+              span.d-md-none.d-lg-inline {{ "sidebar:Home" | i18n }}
           router-link(tag=li, to="/counter")
             a.nav-link
               i.btn.fa.fa-tasks
-              span.d-sm-none.d-lg-inline {{ "sidebar:Counter" | i18n }}
+              span.d-md-none.d-lg-inline {{ "sidebar:Counter" | i18n }}
           router-link(tag=li, to="/devices")
             a.nav-link
               i.btn.fa.fa-tablet
-              span.d-sm-none.d-lg-inline {{ "sidebar:Devices" | i18n }}
+              span.d-md-none.d-lg-inline {{ "sidebar:Devices" | i18n }}
           router-link(tag=li, to="/posts")
             a.nav-link
               i.btn.fa.fa-comments
-              span.d-sm-none.d-lg-inline {{ "sidebar:Posts" | i18n }}
+              span.d-md-none.d-lg-inline {{ "sidebar:Posts" | i18n }}
           router-link(tag=li, to="/profile")
             a.nav-link
               i.btn.fa.fa-comments
-              span.d-sm-none.d-lg-inline {{ "sidebar:Logout" | i18n }}
+              span.d-md-none.d-lg-inline {{ "sidebar:Logout" | i18n }}
             .title.pl-3.d-sm-none.d-lg-inline {{ "sidebar:Profile" | i18n }}
           router-link(tag=li, to="/logout")
             a.nav-link
               i.btn.fa.fa-sign-out
-              span.d-sm-none.d-lg-inline {{ "sidebar:Logout" | i18n }}
+              span.d-md-none.d-lg-inline {{ "sidebar:Logout" | i18n }}
           .d-md-none.d-lg-block
             nav.nav.pt-5
               a.nav-link(href="", target="_blank")

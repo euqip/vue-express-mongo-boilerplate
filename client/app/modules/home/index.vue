@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container.pr-1.pl-1
+  .container-fluid.pr-1.pl-1
     h1 {{ "styleguide" | i18n }}
     p find inspiration here
       a(href="https://www.quackit.com/bootstrap/bootstrap_4/tutorial/")

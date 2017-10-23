@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container-fluid
+  .container-fluid.mr-5.px-0
     h1 {{ _('Posts') }}
 
     .text-center

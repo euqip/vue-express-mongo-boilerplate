@@ -3,8 +3,8 @@ div
   .container-fluid
     page-header(:toggle-sidebar="toggleSidebar")
   .container-fluid
-    .row.godown
-      .d-none.col-md-1.col-lg-2.d-md-block
+    .row.godown.no-gutters
+      .d-none.col-md-1.col-lg-2.d-lg-block
         sidebar(:minimized="miniSidebar")
       .col
         .app-main(:class="{ miniSidebar: miniSidebar }")
