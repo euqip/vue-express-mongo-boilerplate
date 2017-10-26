@@ -1,16 +1,17 @@
 <template lang="pug">
-  .notification-dropdown.dropdown(:class="{ 'visible': visible }")
-    .card(style="width:25rem;")
-      h5.card-header
-        .float-left {{ "Messages" | i18n }}
-        .float-right
-          a.link(href="#")
-            small {{ "MarkAllAsRead" | i18n }}
-      .card-body
-        ul.list-group
-          li(is="notification-item" v-for="i in items" v-bind:key="i.id" v-bind:name="i.title" v-bind:img="i.img" v-bind:action="i.content" v-bind:delay="i.delay" v-bind:src="src")
-      .card-footer.text-center
-        a.link(href="#") {{ "SeeAllMessages" | i18n }}
+  .messages-dropdown.rounded.pt-0.pb-0
+      .card(style="width:25rem;")
+        h5.card-header
+          .float-left {{ "Messages" | i18n }}
+          .float-right
+            button.btn.link(href="#")
+              small {{ "MarkAllAsRead" | i18n }}
+        .card-body.px-1.py-1
+          ul.list-group
+            li(is="notification-item" v-for="i in items" v-bind:key="i.id" v-bind:name="i.title" v-bind:img="i.img" v-bind:action="i.content" v-bind:delay="i.delay" v-bind:src="src")
+        .card-footer.text-center
+          button.btn.link(href="#") {{ "SeeAllMessages" | i18n }}
+
 </template>
 
 <script>

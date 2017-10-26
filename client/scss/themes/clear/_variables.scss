@@ -2,7 +2,7 @@
 /* Complementer color - http://colorschemedesigner.com/csd-3.5/#3o21Ttqx7w0w0 */
 
 $color1: #F1F4F5; //rgba(0, 23, 31, 255)
-$color2: #78A3B3; //rgba(16, 67, 87, 255)
+$color2: #BAD3DB; //rgba(16, 67, 87, 255)
 $color3: #00a8e8; //rgba(0, 168, 232, 255)
 $color4: #2C6ADD; //rgba(255, 255, 255, 255)
 $color5: #C5341B; //rgba(239, 127, 10, 255)
@@ -42,7 +42,7 @@ $backgroundColor: $color2;
 //$overlayColor: lighten(desaturate($color3, 30%), 10%);
 $overlayColor: $color2;
 
-$textColor: $color4;
+$textColor: $color2;
 $altTextColor: $color1;
 $titleTextColor: $secondColor;
 

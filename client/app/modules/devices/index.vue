@@ -11,6 +11,7 @@
 	import { mapGetters, mapActions } from "vuex";
 
 	export default {
+    //i18nextNamespace: "devices",
 
 		components: {
 			AdminPage: AdminPage

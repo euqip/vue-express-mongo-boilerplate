@@ -1,7 +1,7 @@
 <template lang="pug">
-  .languages-dropdown.w-25.h-25(:class="{ 'visible': visible }")
+  .languages.py-1.w-25
     //v-for just after tag!
-    button.button.dropdown-item(v-for="i in langs" @click="changelanguage(i.iso)" v-if="i.iso != lang") {{i.language}}
+    .dropdown-item.btn(v-for="i in langs" @click="changelanguage(i.iso)" v-if="i.iso != lang") {{i.language}}
 </template>
 
 <script>
@@ -10,8 +10,8 @@
 
   module.exports = {
 		props: [
-			"visible"
-    ],
+
+      ],
     components: {
 		},
 
@@ -28,9 +28,7 @@
     },
     methods :{
       changelanguage(language) {
-        // hide the language-dropdown
-        this.$parent.toggleLanguages()
-        // send the change to vuex store, changinglang is one of the possible actions
+       // send the change to vuex store, changinglang is one of the possible actions
         this.changinglang(language)
       },
  			...mapActions("session", [

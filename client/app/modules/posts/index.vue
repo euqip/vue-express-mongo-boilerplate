@@ -25,10 +25,7 @@
     transition-group.posts(name="post", tag="ul")
       li(v-for="post of posts", :key="post.code")
 
-
-
         article.media.rounded.p-1
-          //article-content
           .rounded
             .text-center(style="width: 70px;")
               img.rounded.pt-2(:src="post.author.avatar")
@@ -38,7 +35,6 @@
                   i.px-1.fa.fa-thumbs-o-up
           .media-body.p-2
             h3 {{ post.title }}
-
             p.content(v-html="markdown(post.content)")
             hr.full
             .functions.left
@@ -54,10 +50,6 @@
                 small.text-muted {{ editedAgo(post) }}
               small.text-muted {{ createdAgo(post) }}
 
-
-
-
-
     .loadMore.text-center(v-if="hasMore")
       button.btn.btn-outline-secondary(@click="loadMoreRows", :class="{ 'loading': fetching }") {{ _("LoadMore") }}
     .noMore.text-center(v-if="!hasMore")
@@ -65,20 +57,24 @@
     hr
 </template>
 
+
 <script>
   import Vue from "vue";
   import marked from "marked";
   import toast from "../../core/toastr";
-  import articleContent from "./article-content";
+  import postcontent from "./postcontent";
+  import postvotes from "./postvotes";
   import { cloneDeep } from "lodash";
   import { validators, schema as schemaUtils } from "vue-form-generator";
 
   import { mapGetters, mapActions } from "vuex";
 
   export default {
+  //i18nextNamespace: "posts",
 
   components: {
-      articleContent
+      postcontent,
+      postvotes
     },
 
     computed: {

@@ -1,16 +1,16 @@
 <template lang="pug">
-  .notification-dropdown.dropdown.h-50(:class="{ 'visible': visible }")
+  .notification-dropdown.dropdown.h-50.pt-0.pb-0
     .card(style="width:25rem;")
       h5.card-header
         .float-left {{ "Notifications" | i18n }}
         .float-right
-          a.link(href="#")
+          button.btn.link(href="#")
             small {{ "MarkAllAsRead" | i18n }}
-      .card-body
+      .card-body.p-1
         ul.list-group
           li(is="notification-item" v-for="i in items" v-bind:key="i.id" v-bind:name="i.name" v-bind:img="i.img" v-bind:action="i.action" v-bind:delay="i.delay" v-bind:src="src")
       .card-footer.text-center
-        a.link(href="#") {{ "SeeAllNotifications" | i18n }}
+        button.btn.link(href="#") {{ "SeeAllNotifications" | i18n }}
 </template>
 
 <script>

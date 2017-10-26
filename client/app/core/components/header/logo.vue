@@ -15,4 +15,7 @@
 </script>
 
 <style lang="scss">
+a.nav-item.strong{
+  color: #fff
+}
 </style>

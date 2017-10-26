@@ -1,149 +1,90 @@
 <template lang="pug">
-	.container
-		.profile.flex.row.align-stretch
-			img.avatar(:src="profile.avatar")
+  .container-fluid.mr-5.px-0
+    h1 {{"profile:userprofile" | i18n}}
+    .row
+      .col
 
-			.details.flex-item-1
-				.name {{ profile.fullName }}
-					span.text-muted.username ({{ profile.username }})
+        .media.p-3.m-2.bg-outline.rounded
+          .mr-3
+            img.rounded(:src="profile.avatar")
+          .media-body
+            h2 {{ profile.fullName }}
+            span.text-text-muted.username ({{ profile.username }})
 
-				.tags
-					.tag.primary {{"!Role_name!"}}
-					.tag.danger {{"!Administrator!"}}
-					.tag.success {{"!Online!"}}
-				.description
-					.info-row(v-if="profile.profile && profile.profile.location")
-						i.fa.fa-map-marker
-						span.caption {{"profile:Location" | i18n}}:
-						span.value {{ profile.profile.location }}
+            .nav
+              .btn-primary {{"!Role_name!"}}
+              .btn-danger {{"!Administrator!"}}
+              .btn-success {{"!Online!"}}
+            div
+              .d-flex.flex-row(v-if="profile.profile && profile.profile.location")
+                i.btn.fa.fa-map-marker(:title="_('profile:Location')")
+                span.caption.text-muted {{"profile:Location" | i18n}}:
+                span.value {{ profile.profile.location }}
 
-					.info-row
-						i.fa.fa-clock-o
-						span.caption {{"profile:Last_login" | i18n}}:
-						span.value !Online!
-					.info-row
-						i.fa.fa-calendar
-						span.caption {{"profile:Joined" | i18n}}:
-						span.value {{ profile.createdAt | ago }}
-					.info-row
-						i.fa.fa-user
-						span.caption {{"profile:Full_Name" | i18n}}:
-						span.value {{ profile.name }}
-					.info-row
-						i.fa.fa-envelope
-						span.caption {{"profile:Email" | i18n}}:
-						span.value {{ profile.email }}
-					.info-row
-						i.fa.fa-language
-						span.caption {{"profile:locale" | i18n}}:
-						span.value {{ profile.locale }}
+              div.d-flex.flex-row.justify-content-start
+                i.btn.fa.fa-clock-o(:title="_('profile:Last_login')")
+                span.caption.text-muted.w-25 {{"profile:Last_login" | i18n}}:
+                span.value !Online!
+            div.d-flex.flex-row
+                i.btn.fa.fa-calendar(:title="_('profile:Joined')")
+                span.caption.text-muted.w-25 {{"profile:Joined" | i18n}}:
+                span.value {{ profile.createdAt | ago }}
+            div.d-flex.flex-row
+                i.btn.fa.fa-user(:title="_('profile:Full_Name')")
+                span.caption.text-muted.w-25 {{"profile:Full_Name" | i18n}}:
+                span.value {{ profile.fullName }}
+            div.d-flex.flex-row
+                i.btn.fa.fa-envelope(:title="_('profile:Email')")
+                span.caption.text-muted.w-25 {{"profile:Email" | i18n}}:
+                span.value {{ profile.email }}
+            div.d-flex.flex-row.nav-item.dropdown
+              .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                i.btn.fa.fa-language(:title="_('profile:locale')")
+                span.caption.text-muted.w-25 {{"profile:locale" | i18n}}:
+                  langBox.dropdown-menu
+                span.value {{ profile.locale }}
 
-				hr.full
-		pre(v-html="this.$options.filters.prettyJSON(profile)")
+            hr.full
+            .row
+            .media-body
+              pre.small(v-html="this.$options.filters.prettyJSON(profile)")
 
 </template>
 
 <script>
 
-	import Service from "../../core/service";
+  import Service from "../../core/service";
+  import langBox from "../../core/components/header/dropdowns/lang-box"
+  import { mapGetters, mapActions } from "vuex";
 
-	import { mapGetters, mapActions } from "vuex";
-
-	export default {
-		i18nextNamespace: "profile",
-		computed:{
+  export default {
+    //i18nextNamespace: "profile",
+    components: {
+        langBox
+    },
+    computed:{
       ...mapGetters("profile", [
         "profile"
       ])
     },
 
-		methods: {
-			...mapActions("profile", [
-				"getProfile"
-			])
+    methods: {
+      ...mapActions("profile", [
+        "getProfile"
+      ])
     },
-		created() {
-			this.$service = new Service("profile", this);
+    created() {
+      this.$service = new Service("profile", this);
 
-			// Get my profile
+      // Get my profile
       this.getProfile();
-		}
-	};
+    }
+  };
 
 
 </script>
 
 <style lang="scss" scoped>
 
-	@import "../../../scss/themes/blurred/variables";
-	@import "../../../scss/common/mixins";
-
-	.container {
-		padding: 1rem;
-	}
-
-	.profile {
-		position   : relative;
-		$avatarSize: 6em;
-
-		.avatar {
-			width        : $avatarSize;
-			height       : $avatarSize;
-			border-radius: $avatarSize / 2;
-			margin       : 0.8em 2em 0 0;
-
-		} // .avatar
-
-		.details {
-			// margin-bottom: 1em;
-
-			.name {
-				font-weight: 300;
-				font-size  : 2.5em;
-				line-height: 1.3em;
-				font-family: $fontFamilyHeader;
-
-				.username {
-					font-size  : 0.7em;
-					margin-left: 0.3em;
-				}
-
-			} // .name
-
-			.tags {
-				font-size: 1.1em;
-			}
-
-			.description {
-				margin-top : 0.6em;
-				line-height: 1.3em;
-				font-size  : 0.9em;
-
-				.info-row {
-					font-size  : 0.9em;
-					line-height: 1.3em;
-
-					i {
-						width: 1.5em;
-					}
-
-					.caption {
-						display: inline-block;
-						width  : 8em;
-					}
-
-					.value {
-						margin-left: 0.5em;
-						color      : $textColor;
-						font-weight: 400;
-					}
-
-				} // .info-row
-
-			} // .description
-
-		} // .details
-
-	} // .profile
 
 </style>

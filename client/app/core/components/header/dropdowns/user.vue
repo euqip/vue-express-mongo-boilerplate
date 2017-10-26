@@ -1,37 +1,30 @@
 <template lang="pug">
-	ul.dropdown-menu.user-menu.dropdown(:class="{ 'visible': visible }")
-		router-link(tag="li", to="/profile")
-			a
-				.icon
-					i.fa.fa-user
-				| {{ "MyAccount" | i18n }}
+  .dropdown-menu.dropdown-menu-right
+    .dropdown-item.btn
+      router-link(tag="div", to="/profile")
+        i.px-1.fa.fa-user
+        | {{ "MyAccount" | i18n }}
 
-		router-link(tag="li", to="/settings")
-			a
-				.icon
-					i.fa.fa-cog
-				| {{ "Settings" | i18n }}
+    .dropdown-item.btn
+      router-link(tag="div", to="/settings")
+        i.px-1.fa.fa-cog
+        | {{ "Settings" | i18n }}
 
-		li.separator
-
-		li
-			a(href='/logout')
-				.icon
-					i.fa.fa-power-off
-				| {{ "Logout" | i18n }}
-
-
+    .dropdown-divider
+    .dropdown-item.btn
+      a(href='/logout')
+        i.px-1.fa.fa-power-off
+        | {{ "Logout" | i18n }}
 </template>
 
 <script>
 
-	export default {
+  export default {
 
-		props: [
-			"visible"
-		]
+    props: [
+    ]
 
-	};
+  };
 
 </script>
 

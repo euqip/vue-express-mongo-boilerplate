@@ -7,6 +7,9 @@
   "Language": "Langue",
   "login": "login",
   "Full_Name": "Nom",
-  "Last_login": "Dernière visite"
+  "Last_login": "Dernière visite",
+  "locale": "Langue",
+  "userprofile": "Profil utilisateur"
   
+
 }

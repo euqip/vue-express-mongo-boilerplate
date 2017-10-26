@@ -1,18 +1,18 @@
 <template lang="pug">
 	.container-fluid
-		h1 {{ "Demo" | i18n }}
+		h1 {{ "counter:Demo" | i18n }}
 
-		h3 {{ count }}
+		h3 {{ count }} {{ "counter:Clicktochange" | i18n }}
 		button.btn.btn-success(@click="inc")
 			span.icon
 				i.px-2.fa.fa-arrow-up
-			span {{ "Increment" | i18n }}
+			span {{ "counter:Increment" | i18n }}
 		br
 		br
 		button.btn.btn-warning(@click="dec")
 			span
 				i.px-2.fa.fa-arrow-up
-			span {{ "Decrement" | i18n }}
+			span {{ "counter:Decrement" | i18n }}
 
 </template>
 
@@ -22,6 +22,7 @@
 	import Service from "../../core/service";
 
 	export default {
+    //i18nextNamespace: "counter",
 		/**
 		 * Computed getters
 		 */
