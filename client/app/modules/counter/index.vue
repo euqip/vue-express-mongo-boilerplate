@@ -22,7 +22,8 @@
 	import Service from "../../core/service";
 
 	export default {
-    //i18nextNamespace: "counter",
+    i18nextNamespaces: "counter",
+    //i18next.loadNamespaces('counter', (err, t) => { /* ... */ })
 		/**
 		 * Computed getters
 		 */

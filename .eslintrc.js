@@ -18,7 +18,7 @@ module.exports = {
     "rules": {
         "indent": [
             "warn",
-            "tab"
+            "2"
         ],
         "quotes": [
             "warn",
@@ -26,7 +26,7 @@ module.exports = {
         ],
         "semi": [
             "error",
-            "always"
+            "never"
         ],
         "no-var": [
             "error"

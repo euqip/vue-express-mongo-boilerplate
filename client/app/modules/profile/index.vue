@@ -70,7 +70,8 @@
 
     methods: {
       ...mapActions("profile", [
-        "getProfile"
+        "getProfile",
+        "setLang"
       ])
     },
     created() {

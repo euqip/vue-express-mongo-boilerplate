@@ -1,0 +1,31 @@
+{
+	"PostTitleCannotBeEmpty": "Post title cannot be blank!",
+	"PostContentCannotBeEmpty": "Post content cannot be blank!",
+	"PostNotFound": "Post not found!",
+	"InvalidPostID": "Invalid Post ID!",
+
+	"YouHaveAlreadyVotedThisPost": "You have already voted this post!",
+	"YouHaveNotVotedThisPostYet": "You have not voted this post yet!",
+	"OnlyAuthorEditPost": "Only the author can edit this post!",
+	"OnlyAuthorDeletePost": "Only the author can delete this post!",
+	"YouAreNotTheOwner": "You are not the owner!",
+
+	"PostAdded": "Post added",
+	"PostUpdated": "Post updated",
+	"PostDeleted": "Post deleted",
+
+	"PostNameAdded": "Post '{{data.title}}' added by {{user.fullName}}!",
+	"PostNameUpdated": "Post '{{data.title}}' updated by {{user.fullName}}!",
+	"PostNameDeleted": "Post '{{data.title}}' deleted by {{user.fullName}}!",
+	"PostNameVoted": "Post '{{data.title}}' voted by {{user.fullName}}!",
+  "PostNameUnvoted": "Post '{{data.title}}' unvoted by {{user.fullName}}!",
+
+  "Hot": "Hot",
+  "MostViewed": "Most Viewed",
+  "New": "New",
+  "NewPost": "Add New Post",
+  "AllPosts": "All Posts",
+  "MyPosts": "My Posts"
+
+
+}

@@ -1,25 +1,26 @@
 <template lang="pug">
   .container-fluid.mr-5.px-0
-    h1 {{ _('Posts') }}
+    h1 {{ _('posts:Posts') }}
 
     .text-center
       .btn-group
-        button.btn.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("Hot") }}
-        button.btn.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("MostViewed") }}
-        button.btn.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("New") }}
+        button.btn.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("posts:Hot") }}
+        button.btn.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("posts:MostViewed") }}
+        button.btn.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("posts:New") }}
         button.btn.btn-primary(@click="newPost")
           i.px-1.fa.fa-plus
-          span {{ _("NewPost") }}
-        button.btn.btn-outline-secondary(@click="changeViewMode('all')", :class="{ active: viewMode == 'all' }") {{ _("AllPosts") }}
-        button.btn.btn-outline-secondary(@click="changeViewMode('my')", :class="{ active: viewMode == 'my' }") {{ _("MyPosts") }}
+          span {{ "posts:NewPost" |i18n }}
+        button.btn.btn-outline-secondary(@click="changeViewMode('all')", :class="{ active: viewMode == 'all' }") {{ _("posts:AllPosts") }}
+        button.btn.btn-outline-secondary(@click="changeViewMode('my')", :class="{ active: viewMode == 'my' }") {{ _("posts:MyPosts") }}
 
     .postForm(v-if="showForm")
+      // create aan input form with a module, How to get fields translated?
       vue-form-generator(:schema='schema', :model='model', :options='{}', :multiple="false", ref="form", :is-new-model="isNewPost")
 
       .text-center
         .btn-group
-          button.btn.btn-primary(@click="savePost") {{ _("Save") }}
-          button.btn(@click="cancelPost") {{ _("Cancel") }}
+          button.btn.btn-primary(@click="savePost") {{ "Save" | i18n }}
+          button.btn(@click="cancelPost") {{ "Cancel" | i18n }}
 
 
     transition-group.posts(name="post", tag="ul")
@@ -30,25 +31,25 @@
             .text-center(style="width: 70px;")
               img.rounded.pt-2(:src="post.author.avatar")
               .votes(:class="{ voted: iVoted(post) }")
-                .count {{ post.votes }}
+                .count.my-0 {{ post.votes }}
                 .thumb(@click="toggleVote(post)")
-                  i.px-1.fa.fa-thumbs-o-up
+                  i.fa.fa-thumbs-o-up
           .media-body.p-2
             h3 {{ post.title }}
             p.content(v-html="markdown(post.content)")
-            hr.full
+            hr.full.my-0
             .functions.left
-              .btn.btn-outlint-secondary(:title="_('EditPost')", @click="editPost(post)")
+              .btn.btn-outlint-secondary(:title="_('posts:EditPost')", @click="editPost(post)")
                 i.px-1.fa.fa-pencil
-              .btn.btn-outlint-secondary(:title="_('DeletePost')", @click="deletePost(post)")
+              .btn.btn-outlint-secondary(:title="_('posts:DeletePost')", @click="deletePost(post)")
                 i.px-1.fa.fa-trash
-            .voters.left(:title="_('Voters')")
+              span.right.text-right
+                template(v-if="post.editedAt")
+                  small.text-muted {{ editedAgo(post) }}
+                small.text-muted {{ createdAgo(post) }}
+            .voters.left(:title="_('posts:Voters')")
               template(v-for="voter in lastVoters(post)")
                 img(:src="voter.avatar", :title="voter.fullName + ' (' + voter.username + ')'")
-            .right.text-right
-              template(v-if="post.editedAt")
-                small.text-muted {{ editedAgo(post) }}
-              small.text-muted {{ createdAgo(post) }}
 
     .loadMore.text-center(v-if="hasMore")
       button.btn.btn-outline-secondary(@click="loadMoreRows", :class="{ 'loading': fetching }") {{ _("LoadMore") }}
@@ -70,7 +71,7 @@
   import { mapGetters, mapActions } from "vuex";
 
   export default {
-  //i18nextNamespace: "posts",
+  i18nextNamespace: "posts",
 
   components: {
       postcontent,
