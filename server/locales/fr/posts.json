@@ -1,4 +1,6 @@
 {
+  "Posts": "Articles",
+  "Voters": "Voix",
 
   "Hot": "Chaud",
   "MostViewed": "Les plus consultés",
@@ -6,26 +8,24 @@
   "NewPost": "Nouveau message",
   "AllPosts": "Tous les messages",
   "MyPosts": "Mes messages",
-  "ViewsCount": " Consultations: {{count}}",
-  "CreatedAgoByName": "Créé {{ago}} par {{name}}",
-  "EditedAgo": "Edited {{ago}}",
-  "EditPost": "Edit post",
-  "DeletePost": "Delete post",
+  "ViewsCount": "{{count}} Vues:",
+  "EditPost": "Modifier l'article",
+  "DeletePost": "Supprimer l'article",
   "Title": "Titre",
   "TitleOfPost": "Titre du message",
   "Content": "Contenu",
   "ContentOfPost": "Conteu du message",
-  "Voters": "Voters",
   "LoadMore": "Lire plus...",
 
-  "PostAdded": "Post ajouté",
-  "PostUpdated": "Post modifié",
-  "PostDeleted": "Post supprimé",
+  "PostAdded": "Article ajouté",
+  "PostUpdated": "Article modifié",
+  "PostDeleted": "Article supprimé",
 
-  "PostNameAdded": "Post '{{data.title}}' ajouté par {{user.fullName}}!",
-  "PostNameUpdated": "Post '{{data.title}}' modifié par {{user.fullName}}!",
-  "PostNameDeleted": "Post '{{data.title}}' supprimé par {{user.fullName}}!",
-  "PostNameVoted": "Post '{{data.title}}' voted par {{user.fullName}}!",
-  "PostNameUnvoted": "Post '{{data.title}}' unvoted par {{user.fullName}}!"
+  "PostNameAdded": "Article '{{data.title}}' ajouté par {{user.fullName}}!",
+  "PostNameUpdated": "Article '{{data.title}}' modifié par {{user.fullName}}!",
+  "PostNameDeleted": "Article '{{data.title}}' supprimé par {{user.fullName}}!",
+  "PostNameVoted": "Article '{{data.title}}' voted par {{user.fullName}}!",
+  "PostNameUnvoted": "Article '{{data.title}}' unvoted par {{user.fullName}}!",
 
+  "reachedend": "Fin de la liste."
 }

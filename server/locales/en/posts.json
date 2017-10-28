@@ -19,13 +19,17 @@
 	"PostNameDeleted": "Post '{{data.title}}' deleted by {{user.fullName}}!",
 	"PostNameVoted": "Post '{{data.title}}' voted by {{user.fullName}}!",
   "PostNameUnvoted": "Post '{{data.title}}' unvoted by {{user.fullName}}!",
-
+  "Posts": "Posts",
   "Hot": "Hot",
   "MostViewed": "Most Viewed",
   "New": "New",
   "NewPost": "Add New Post",
   "AllPosts": "All Posts",
-  "MyPosts": "My Posts"
+  "MyPosts": "My Posts",
+  "reachedend": "You reached the end of the list.",
 
+  "EditPost": "EditPost",
+  "DeletePost": "DeletePost",
+  "Voters": "Voters"
 
 }

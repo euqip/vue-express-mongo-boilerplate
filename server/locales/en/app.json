@@ -3,6 +3,8 @@
 	"Cancel": "Cancel",
 	"Clone": "Clone",
 	"Delete": "Delete",
+	"CreatedAgoByName": "Created {{ago}} by {{name}}",
+	"EditedAgo": "Edited {{ago}}",
 
 	"PostTitleCannotBeEmpty": "Post title cannot be blank!",
 	"PostContentCannotBeEmpty": "Post content cannot be blank!",
@@ -53,8 +55,6 @@
 	"AllPosts": "All posts",
 	"MyPosts": "My posts",
 	"ViewsCount": " Views: {{count}}",
-	"CreatedAgoByName": "Created {{ago}} by {{name}}",
-	"EditedAgo": "Edited {{ago}}",
 	"EditPost": "Edit post",
 	"DeletePost": "Delete post",
 	"Title": "Title",

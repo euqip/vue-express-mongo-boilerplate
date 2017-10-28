@@ -1,17 +1,18 @@
 <template lang="pug">
   .container-fluid.mr-5.px-0
+    
     h1 {{ _('posts:Posts') }}
 
     .text-center
       .btn-group
-        button.btn.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("posts:Hot") }}
-        button.btn.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("posts:MostViewed") }}
-        button.btn.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("posts:New") }}
-        button.btn.btn-primary(@click="newPost")
+        button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("posts:Hot") }}
+        button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("posts:MostViewed") }}
+        button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("posts:New") }}
+        button.btn.btn-sm.btn-primary(@click="newPost")
           i.px-1.fa.fa-plus
           span {{ "posts:NewPost" |i18n }}
-        button.btn.btn-outline-secondary(@click="changeViewMode('all')", :class="{ active: viewMode == 'all' }") {{ _("posts:AllPosts") }}
-        button.btn.btn-outline-secondary(@click="changeViewMode('my')", :class="{ active: viewMode == 'my' }") {{ _("posts:MyPosts") }}
+        button.btn.btn-sm.btn-outline-secondary(@click="changeViewMode('all')", :class="{ active: viewMode == 'all' }") {{ _("posts:AllPosts") }}
+        button.btn.btn-sm.btn-outline-secondary(@click="changeViewMode('my')", :class="{ active: viewMode == 'my' }") {{ _("posts:MyPosts") }}
 
     .postForm(v-if="showForm")
       // create aan input form with a module, How to get fields translated?
@@ -19,7 +20,7 @@
 
       .text-center
         .btn-group
-          button.btn.btn-primary(@click="savePost") {{ "Save" | i18n }}
+          button.btn.btn-sm.btn-primary(@click="savePost") {{ "Save" | i18n }}
           button.btn(@click="cancelPost") {{ "Cancel" | i18n }}
 
 
@@ -39,9 +40,9 @@
             p.content(v-html="markdown(post.content)")
             hr.full.my-0
             .functions.left
-              .btn.btn-outlint-secondary(:title="_('posts:EditPost')", @click="editPost(post)")
+              .btn.btn-sm.btn-outlint-secondary(:title="_('posts:EditPost')", @click="editPost(post)")
                 i.px-1.fa.fa-pencil
-              .btn.btn-outlint-secondary(:title="_('posts:DeletePost')", @click="deletePost(post)")
+              .btn.btn-sm.btn-outlint-secondary(:title="_('posts:DeletePost')", @click="deletePost(post)")
                 i.px-1.fa.fa-trash
               span.right.text-right
                 template(v-if="post.editedAt")
@@ -52,9 +53,9 @@
                 img(:src="voter.avatar", :title="voter.fullName + ' (' + voter.username + ')'")
 
     .loadMore.text-center(v-if="hasMore")
-      button.btn.btn-outline-secondary(@click="loadMoreRows", :class="{ 'loading': fetching }") {{ _("LoadMore") }}
+      button.btn.btn-sm.btn-outline-secondary(@click="loadMoreRows", :class="{ 'loading': fetching }") {{ _("LoadMore") }}
     .noMore.text-center(v-if="!hasMore")
-      span.text-muted You reached the end of the list.
+      span.text-muted {{ "posts:reachedend" | i18n }}
     hr
 </template>
 
@@ -103,21 +104,21 @@
           fields: [
             {
               type: "text",
-              label: this._("Title"),
+              label: this._("posts:Title"),
               model: "title",
               featured: true,
               required: true,
-              placeholder: this._("TitleOfPost"),
+              placeholder: this._("posts:TitleOfPost"),
               validator: validators.string
             },
             {
               type: "textArea",
-              label: this._("Content"),
+              label: this._("posts:Content"),
               model: "content",
               featured: true,
               required: true,
               rows: 10,
-              placeholder: this._("ContentOfPost"),
+              placeholder: this._("posts:ContentOfPost"),
               validator: validators.string
             }
           ]

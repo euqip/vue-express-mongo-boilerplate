@@ -6,31 +6,20 @@
 	"Cancel": "Abandonner",
 	"Clone": "Dupliquer",
 	"Delete": "Supprimer",
-
-	"PostTitleCannotBeEmpty": "Le titre du message ne peut être vide!",
-	"PostContentCannotBeEmpty": "Le contenu du message ne peut être vide!",
-	"PostNotFound": "Message non trouvé!",
-	"InvalidPostID": "Invalide!",
-
-	"YouHaveAlreadyVotedThisPost": "Vous avez déjà voté pour ce message!",
-	"YouHaveNotVotedThisPostYet": "Vous n'avez pas encore voté pour ce message!",
-	"OnlyAuthorEditPost": "Seul l'auteur peut modifier le contenu!",
-	"OnlyAuthorDeletePost": "Seul l'auteur peut supprimer le message!",
-	"YouAreNotTheOwner": "Vous n'êtes pas le propriétaire!",
-
-
-	"appareilAdded": "Appareil ajouté",
-	"appareilUpdated": "appareil modifié",
-	"appareilDeleted": "appareil supprimé",
-	"appareilNotFound": "appareil non trouvé!",
-
-	"appareilNameAdded": "appareil '{{data.name}}' ajouté par {{user.fullName}}!",
-	"appareilNameUpdated": "appareil '{{data.name}}' modifié par {{user.fullName}}!",
-	"appareilNameDeleted": "appareil '{{data.name}}' supprimé par {{user.fullName}}!",
-
-	"appareilNameCannotBeBlank": "Le nom de l'appareilne peut être vide!",
+  "LoadMore": "La suite ...",
 
 	"UserNotFound": "Utilisateur non trouvé!",
+  "CreatedAgoByName": "Créé {{ago}} par {{name}}",
+  "EditedAgo": "Modifié {{ago}}",
+
+  "genetratedByVueFormGenerator": "rechercher comment utilisse le bon Name Space",
+  
+  "Title": "Titre",
+  "TitleOfPost": "Titre du message",
+  "Content": "Contenu",
+  "ContentOfPost": "Conteu du message",
+  
+
 
 	"ID": "ID",
 	"Type": "Type",

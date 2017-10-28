@@ -6,7 +6,7 @@ div
     .row.godown.no-gutters
       .d-none.col-md-1.col-lg-2.d-lg-block
         sidebar(:minimized="miniSidebar")
-      .col
+      .col.col-xs-12.col-md-12.col-lg-10
         .app-main(:class="{ miniSidebar: miniSidebar }")
           router-view(keep-alive)
         .row.d-md-none
