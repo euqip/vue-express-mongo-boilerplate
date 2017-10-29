@@ -116,7 +116,7 @@
 				this.isNewModel = false;
 
 				let filter = Vue.filter("filterBy");
-				let filteredRows = filter(this.rows, this.search);
+				let filteredRows = Vue.filter(this.rows, this.search);
 
 				if (this.selected.length < filteredRows.length) {
 					// Select all
