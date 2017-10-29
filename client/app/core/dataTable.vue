@@ -2,13 +2,13 @@
   table.table.table-stripped
     thead
       tr
-        th.selected(v-if="schema.multiSelect", @click="selectAll")
+        th.selector(v-if="schema.multiSelect", @click="selectAll")
           i.px-1.fa.fa-square-o
         th.sortable(v-for="col in schema.columns", :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field == order.field, 'desc': col.field == order.field && order.direction == -1 }") {{ col.title }}
 
     tbody
       tr(v-for="row in filteredOrderedRows", @click="select($event, row)")
-        th.selected(v-if="schema.multiSelect", @click.stop.prevent="select($event, row, true)", scope = "row")
+        th.selector(v-if="schema.multiSelect", @click.stop.prevent="select($event, row, true)", scope = "row")
           i.px-1.fa.fa-square-o
         td(v-for="col in schema.columns", :class="getCellClasses(row, col)")
           span(v-html="getCellValue(row, col)")
