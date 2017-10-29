@@ -4,7 +4,7 @@
     h1 {{ _('posts:Posts') }}
 
     .text-center
-      .btn-group
+      div( role = "group" style= "position: relative;")
         button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("posts:Hot") }}
         button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("posts:MostViewed") }}
         button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("posts:New") }}

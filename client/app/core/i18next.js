@@ -15,6 +15,7 @@ function install(Vue, callback, options = {}) {
 			lng: "fr",
 			fallbackLng: "en",
 			whitelist: ["en", "hu", "fr", "nl"],
+			//ns: ["app","sidebar","header"],
 			ns: ["app","sidebar","profile","header","counter","posts","devices"],
 			//ns: ["app","sidebar","profile","header","posts","devices"],
 			defaultNS: "app",

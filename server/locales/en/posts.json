@@ -30,6 +30,10 @@
 
   "EditPost": "EditPost",
   "DeletePost": "DeletePost",
-  "Voters": "Voters"
+  "Voters": "Voters",
+  "Title": "Titre",
+  "TitleOfPost": "Titre du message",
+  "Content": "Contenu",
+  "ContentOfPost": "Conteu du message"
 
 }

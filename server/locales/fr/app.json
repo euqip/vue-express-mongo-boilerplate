@@ -14,28 +14,9 @@
 
   "genetratedByVueFormGenerator": "rechercher comment utilisse le bon Name Space",
   
-  "Title": "Titre",
-  "TitleOfPost": "Titre du message",
-  "Content": "Contenu",
-  "ContentOfPost": "Conteu du message",
   
 
 
-	"ID": "ID",
-	"Type": "Type",
-	"Address": "Adresse",
-	"Name": "Nom",
-	"Status": "Statut",
-	"LastCommunication": "Dernière communication",
-	"willBeGenerated": "<sera généré>",
-	"appareilName": "Nom d'appareil name",
-	"Description": "Description",
-	"AddressOfappareil": "Adresse de l'appareil",
-	"Active": "Actif",
-	"Inactive": "Inactif",
-	"AddNewappareil": "Ajouter un nouvel appareil",
-
-	"SelectedOfAll": "{{ selected }} parmi {{ all }} sélectionné",
 	"Search3dots": "Chercher...",
 
 
@@ -140,10 +121,6 @@
   "Normalmedia": "Media normal",
   "Media": "Media",
   "31mago": "Il y a 31 min",
-  "DeviceName": "Nom",
-  "AddressOfDevice": "Adresse",
-  "AddNewDevice": "Nouvel appareil",
-  "Owner": "Utilisateur",
   "Languages": "Langues",
   "English": "Anglais",
   "French": "Français",

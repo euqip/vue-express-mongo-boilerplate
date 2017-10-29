@@ -24,7 +24,7 @@ module.exports = {
 				}
 			},
 			{
-				title: _("Type"),
+				title: _("devices:Type"),
 				field: "type",
 				formatter(value) {
 					let type = find(deviceTypes, (type) => type.id == value);
@@ -32,15 +32,15 @@ module.exports = {
 				}
 			},
 			{
-				title: _("Address"),
+				title: _("devices:Address"),
 				field: "address"
 			},
 			{
-				title: _("Owner"),
+				title: _("devices:Owner"),
 				field: "name"
 			},
 			{
-				title: _("Status"),
+				title: _("devices:Status"),
 				field: "status",
 				formatter(value, model, col) {
 					return value ? "<i class='fa fa-check'/>" : "<i class='fa fa-ban'/>";
@@ -48,7 +48,7 @@ module.exports = {
 				align: "center"
 			},
 			{
-				title: _("LastCommunication"),
+				title: _("devices:LastCommunication"),
 				field: "lastCommunication",
 				formatter(value) {
 					return moment(value).fromNow();
@@ -68,7 +68,7 @@ module.exports = {
 		fields: [
 			{
 				type: "text",
-				label: _("ID"),
+				label: _("devices:ID"),
 				model: "code",
 				readonly: true,
 				disabled: true,
@@ -77,57 +77,57 @@ module.exports = {
 					if (model.code)
 						return model.code;
 					else
-						return _("willBeGenerated");
+						return _("devices:willBeGenerated");
 				}
 			},
 			{
 				type: "select",
-				label: _("Type"),
+				label: _("devices:Type"),
 				model: "type",
 				required: true,
 				values: deviceTypes,
 				default: "rasperry",
 				validator: validators.required
 
-			},	
+			},
 			{
 				type: "text",
-				label: _("Name"),
+				label: _("devices:Name"),
 				model: "name",
 				featured: true,
 				required: true,
-				placeholder: _("DeviceName"),
+				placeholder: _("devices:DeviceName"),
 				validator: validators.string
 			},
 			{
 				type: "text",
-				label: _("Description"),
+				label: _("devices:Description"),
 				model: "description",
 				featured: false,
 				required: false,
 				validator: validators.string
-			},	
+			},
 			{
 				type: "text",
-				label: _("Address"),
+				label: _("devices:Address"),
 				model: "address",
-				placeholder: _("AddressOfDevice"),
+				placeholder: _("devices:AddressOfDevice"),
 				validator: validators.string
 			},
 			{
 				type: "label",
-				label: _("LastCommunication"),
+				label: _("devices:LastCommunication"),
 				model: "lastCommunication",
 				get(model) { return model && model.lastCommunication ? moment(model.lastCommunication).fromNow() : "-"; }
 			},
 			{
 				type: "switch",
-				label: _("Status"),
+				label: _("devices:Status"),
 				model: "status",
 				multi: true,
 				default: 1,
-				textOn: _("Active"),
-				textOff: _("Inactive"),
+				textOn: _("devices:Active"),
+				textOff: _("devices:Inactive"),
 				valueOn: 1,
 				valueOff: 0
 			}
@@ -162,7 +162,7 @@ module.exports = {
 	},
 
 	resources: {
-		addCaption: _("AddNewDevice"),
+		addCaption: _("devices:AddNewDevice"),
 		saveCaption: _("Save"),
 		cloneCaption: _("Clone"),
 		deleteCaption: _("Delete")

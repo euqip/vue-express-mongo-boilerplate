@@ -82,6 +82,7 @@
 	"mailSubjectPasswordChanged": "✔ Your password has been changed on {{app.title}}",
 	"emailSentWithMagicLink"    : "Un courriel avec un lien magique a été envoyé à l'adresse {{email}}. Veuillez vérifier les Spam s'il n'arrive pas.",
 	"emailSentVerifyLink"       : "Veuillez consulter le courriel pour vous inscrire. Merci pour votre inscription!",
-	"emailSentPasswordResetLink": "Un courriel avec des instructions complémentaires a été envoyé à l'adresse {{email}}."
+  "emailSentPasswordResetLink": "Un courriel avec des instructions complémentaires a été envoyé à l'adresse {{email}}."
+
 
 }

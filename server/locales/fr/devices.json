@@ -1,3 +1,21 @@
 {
-  "coco":"coco"
+	"ID": "ID",
+	"Type": "Type",
+	"Address": "Adresse",
+	"Name": "Nom",
+	"Status": "Statut",
+	"LastCommunication": "Dernière communication",
+	"willBeGenerated": "<sera généré>",
+	"appareilName": "Nom d'appareil name",
+	"Description": "Description",
+	"AddressOfappareil": "Adresse de l'appareil",
+	"Active": "Actif",
+	"Inactive": "Inactif",
+	"AddNewappareil": "Ajouter un nouvel appareil",
+  "DeviceName": "Nom",
+  "AddressOfDevice": "Adresse",
+  "AddNewDevice": "Nouvel appareil",
+  "Owner": "Utilisateur",
+
+	"SelectedOfAll": "{{ selected }} parmi {{ all }} sélectionné"
 }

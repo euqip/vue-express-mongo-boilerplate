@@ -1,3 +1,25 @@
 {
-  "devices":"Appareils"
+  "devices":"Devices",
+  "DeviceAdded": "Device added",
+	"DeviceUpdated": "Device updated",
+	"DeviceDeleted": "Device deleted",
+	"DeviceNotFound": "Device not found!",
+
+	"DeviceNameAdded": "Device '{{data.name}}' added by {{user.fullName}}!",
+	"DeviceNameUpdated": "Device '{{data.name}}' updated by {{user.fullName}}!",
+  "DeviceNameDeleted": "Device '{{data.name}}' deleted by {{user.fullName}}!",
+  "SelectedOfAll": "SelectedOfAll",
+  "ID": "ID",
+	"Type": "Type",
+	"Address": "Address",
+	"Name": "Name",
+	"Status": "Status",
+	"LastCommunication": "Last communication",
+	"willBeGenerated": "<will be generated>",
+	"DeviceName": "Device name",
+	"Description": "Description",
+	"AddressOfDevice": "Address of device",
+	"Active": "Active",
+	"Inactive": "Inactive",
+  "AddNewDevice": "Add new device"
 }
