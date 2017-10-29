@@ -154,7 +154,7 @@
               i.icon.fa.fa-plus
             button.btn.rounded-circle.mr-3.d-flex.justify-content-center.btn-success(title ="Success")
               i.icon.fa.fa-check
-            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.btn-warning(disabled="disabled")(title ="Warning")
+            button.btn.rounded-circle.mr-3.d-flex.justify-content-center.btn-warning(disabled="disabled", title ="Warning")
               i.icon.fa.fa-comments
             button.btn.rounded-circle.mr-3.d-flex.justify-content-center.btn-danger(title ="Danger")
               i.icon.fa.fa-trash

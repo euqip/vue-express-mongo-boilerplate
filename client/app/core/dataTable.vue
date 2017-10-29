@@ -9,7 +9,8 @@
     tbody
       tr(v-for="row in filteredOrderedRows", @click="select($event, row)")
         th.selector(v-if="schema.multiSelect", @click.stop.prevent="select($event, row, true)", scope = "row")
-          i.px-1.fa.fa-square-o
+          i.px-1.fa.fa-square-o(v-if="select")
+          i.px-1.fa.fa-check-square-o(v-if!="select")
         td(v-for="col in schema.columns", :class="getCellClasses(row, col)")
           span(v-html="getCellValue(row, col)")
           span.labels(v-if="col.labels != null")
