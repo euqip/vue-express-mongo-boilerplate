@@ -29,7 +29,6 @@ const mutations = {
 					state.selected = state.selected.filter(item => item != row);
 				else
 					state.selected.push(row);
-
 			} else {
 				state.selected.splice(0);
 				state.selected.push(row);
@@ -50,7 +49,7 @@ const mutations = {
 
 	[REMOVE] (state, model) {
 		state.rows = state.rows.filter(item => item.code != model.code);
-	}	
+	}
 };
 
 import * as getters from "./getters";

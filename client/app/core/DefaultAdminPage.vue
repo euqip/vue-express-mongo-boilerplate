@@ -97,7 +97,8 @@
 						console.log("Model property changed!");
 				},
 				deep: true
-			}*/
+      }
+      */
 		},
 
 		methods: {
