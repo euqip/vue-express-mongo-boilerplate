@@ -1,16 +1,16 @@
 <template lang="pug">
-  table.table.table-stripped
+  table.table.table-hover.table-striped
     thead
       tr
-        th.selector(v-if="schema.multiSelect", @click="selectAll")
+        th(v-if="schema.multiSelect", @click="selectAll")
           i.px-1.fa.fa-square-o
-        th.sortable(v-for="col in schema.columns", :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field == order.field, 'desc': col.field == order.field && order.direction == -1 }") {{ col.title }}
+        th.sortable(v-for="col in schema.columns", :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field === order.field, 'desc': col.field === order.field && order.direction === -1 }") {{ col.title }}
 
     tbody
-      tr(v-for="row in filteredOrderedRows", @click="select($event, row)")
-        th.selector(v-if="schema.multiSelect", @click.stop.prevent="select($event, row, true)", scope = "row")
-          i.px-1.fa.fa-square-o(v-if="select")
-          i.px-1.fa.fa-check-square-o(v-if!="select")
+      tr(v-for="row in filteredOrderedRows", @click="select($event, row)", :class="{'text-muted': getRowClasses(row).inactive}")
+        th(v-if="schema.multiSelect", @click.stop.prevent="select($event, row, true)", scope = "row")
+          i.px-1.fa.fa-check-square-o(v-if="getRowClasses(row).selected")
+          i.px-1.fa.fa-square-o(v-else)
         td(v-for="col in schema.columns", :class="getCellClasses(row, col)")
           span(v-html="getCellValue(row, col)")
           span.labels(v-if="col.labels != null")
@@ -180,5 +180,30 @@
 </script>
 
 <style lang="scss" scoped>
+  //@import "../../scss/themes/blurred/variables";
+  @import "../../scss/themes/clear/variables";
 
+  th.sortable {
+    &:after {
+      content    : "\f0dc";
+      float      : right;
+      margin-left: 0.3em;
+      font-family: fontawesome;
+      font-size  : 0.9em;
+      color      : rgba($textColor, 0.6);
+    }
+
+    &.sorted {
+      &:after {
+        content: "\f0dd";
+        color  : $textColor;
+      }
+
+      &.desc:after {
+        content: "\f0de";
+      }
+
+    } // .sorted
+
+  } //
 </style>
