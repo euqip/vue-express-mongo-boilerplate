@@ -1,10 +1,10 @@
 module.exports = {
 
-	deviceTypes: [
+  deviceTypes: [
 		{ id: "rasperry", name: "Raspberry" },
 		{ id: "odroid", name: "ODroid" },
 		{ id: "nanopi", name: "NanoPI" },
-		{ id: "pc", name: "PC" }	
-	]
-	
-};
+		{ id: "pc", name: "PC" }
+  ]
+
+}

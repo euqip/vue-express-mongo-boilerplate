@@ -1,7 +1,7 @@
 export function devices(state) {
-	return state.rows;
+  return state.rows
 }
 
 export function selected(state) {
-	return state.selected;
+  return state.selected
 }

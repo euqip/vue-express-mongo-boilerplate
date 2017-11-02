@@ -1,18 +1,18 @@
-"use strict";
+"use strict"
 
-let path = require("path");
-let pkg = require("./package.json");
+let path = require("path")
+let pkg = require("./package.json")
 
 module.exports = {
 
 	// Secret for ID hashing
-	hashSecret: "{{hashSecret}}",
+  hashSecret: "{{hashSecret}}",
 
 	// Secret for session hashing
-	sessionSecret: "{{sessionSecret}}",
+  sessionSecret: "{{sessionSecret}}",
 
 	// Application settings
-	app: {
+  app: {
 		//title: "VEM APP",
 		//version: "1.0.0",
 		//description: "This is my boilerplate web app",
@@ -20,7 +20,7 @@ module.exports = {
 		//url: "http://localhost:3000/",
 		//googleAnalyticsID: 'UA-xxxxx-x',
 		//contactEmail: "hello@vem-app.com"
-	},
+  },
 
 	// ip: process.env.NODE_IP || "0.0.0.0",
 	// port: process.env.NODE_PORT || 3000,
@@ -29,23 +29,23 @@ module.exports = {
 	// logFolder: path.join(global.rootPath, "logs"),
 
 	// Database (Mongo) settings
-	db: {
+  db: {
 		// uri: process.env.MONGO_URI || "mongodb://localhost/vemapp",
-		options: {
-			user: process.env.MONGO_USERNAME || "",
-			pass: process.env.MONGO_PASSWORD || ""
-		}
-	},
+    options: {
+      user: process.env.MONGO_USERNAME || "",
+      pass: process.env.MONGO_PASSWORD || ""
+    }
+  },
 
 	// Redis settings for caching
-	redis: {
-		enabled: false,
-		uri: process.env.REDIS_URI || "redis://localhost:6379",
-		options: null
-	},
+  redis: {
+    enabled: false,
+    uri: process.env.REDIS_URI || "redis://localhost:6379",
+    options: null
+  },
 
 	// Mail sending settings
-	mailer: {
+  mailer: {
 		//from: "noreply@vem-app.com",
 
 		/*
@@ -82,88 +82,88 @@ module.exports = {
 		sendgrid: {
 			apiKey: ""
 		}*/
-	},
+  },
 
 	// Features of application
-	features: {
-		disableSignUp: false,
-		verificationRequired: true
-	},
+  features: {
+    disableSignUp: false,
+    verificationRequired: true
+  },
 
 	// Social authentication (OAuth) keys
-	authKeys: {
+  authKeys: {
 
-		google: {
-			clientID: null,
-			clientSecret: null
-		},
+    google: {
+      clientID: null,
+      clientSecret: null
+    },
 
-		facebook: {
-			clientID: null,
-			clientSecret: null
-		},
+    facebook: {
+      clientID: null,
+      clientSecret: null
+    },
 
-		github: {
-			clientID: null,
-			clientSecret: null
-		},
+    github: {
+      clientID: null,
+      clientSecret: null
+    },
 
-		twitter: {
-			clientID: null,
-			clientSecret: null
-		}
-	},
+    twitter: {
+      clientID: null,
+      clientSecret: null
+    }
+  },
 
 	// Logging settings
-	logging: {
+  logging: {
 
-		console: {
+    console: {
 			// level: "debug"
-		},
+    },
 
-		file: {
-			enabled: false,
+    file: {
+      enabled: false,
 			// path: path.join(global.rootPath, "logs"),
 			// level: "info",
 			// json: false,
 			// exceptionsSeparateFile: true
-		},
+    },
 
-		graylog: {
-			enabled: false
+    graylog: {
+      enabled: false
 			// servers: [ { host: "192.168.0.100", port: 12201 } ]
-		},
+    },
 
-		papertrail: {
-			enabled: false,
-			host: null,
-			port: null,
-			level: "debug",
-			program: "vem"
-		},
+    papertrail: {
+      enabled: false,
+      host: null,
+      port: null,
+      level: "debug",
+      program: "vem"
+    },
 
-		logentries: {
-			enabled: false,
-			token: null
-		},
+    logentries: {
+      enabled: false,
+      token: null
+    },
 
-		loggly: {
-			enabled: false,
-			token: null,
-			subdomain: null
-		},
+    loggly: {
+      enabled: false,
+      token: null,
+      subdomain: null
+    },
 
-		logsene: {
-			enabled: false,
-			token: null
-		},
+    logsene: {
+      enabled: false,
+      token: null
+    },
 
-		logzio: {
-			enabled: false,
-			token: null
-		}
+    logzio: {
+      enabled: false,
+      token: null
+    }
 
-	}
+  }
 
-};
+}
 

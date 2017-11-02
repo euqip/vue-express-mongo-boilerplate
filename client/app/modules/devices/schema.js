@@ -10,7 +10,7 @@ let _ = Vue.prototype._
 module.exports = {
 
   id: "devices",
-  title: _("devices:Devices"),
+  title: _("Devices"),
 
   table: {
     multiSelect: true,
@@ -112,14 +112,14 @@ module.exports = {
         label: _("devices:Address"),
         model: "address",
         placeholder: _("devices:AddressOfDevice"),
-        validator: validators.string
+        validator: validators.string,
       },
       {
         type: "label",
         label: _("devices:LastCommunication"),
         model: "lastCommunication",
         get(model) {
-          return model && model.lastCommunication ? moment(model.lastCommunication).fromNow() : "-" 
+          return model && model.lastCommunication ? moment(model.lastCommunication).fromNow() : "-"
         }
       },
       {

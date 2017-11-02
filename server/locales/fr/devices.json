@@ -1,4 +1,5 @@
 {
+  "Devices": "Appareils",
 	"ID": "ID",
 	"Type": "Type",
 	"Address": "Adresse",
@@ -16,6 +17,7 @@
   "AddressOfDevice": "Adresse",
   "AddNewDevice": "Nouvel appareil",
   "Owner": "Utilisateur",
-
+  "editdevice": "Modifier ou créer un appareil",
+  
 	"SelectedOfAll": "{{ selected }} parmi {{ all }} sélectionné"
 }

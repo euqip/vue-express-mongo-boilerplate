@@ -1,5 +1,5 @@
-"use strict";
+"use strict"
 
 module.exports = {
-	counter: 0
-};
+  counter: 0
+}
