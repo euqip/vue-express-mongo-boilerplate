@@ -1,6 +1,6 @@
 # resposive_header
 
-Responsive header is a replication of the admin dashboard exemple provided by bootstrap for its version 4.beta2.
+Responsive header is a replication of the admin dashboard exemple provided by Bootstrap for its version 4.beta2.
 
 To show it, uncomment the spa module reference in the app main page.
 
