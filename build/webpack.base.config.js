@@ -7,7 +7,8 @@ module.exports = {
   devtool: "#inline-source-map",
 
   entry: {
-    app: ["./client/app/main.js"],
+    //app: ["./client/app/main.js"],
+    app: ["./client/app/example.js"],
     vendor: [
       "es6-promise",
       "vue",

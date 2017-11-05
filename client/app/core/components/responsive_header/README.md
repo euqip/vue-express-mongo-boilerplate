@@ -1,10 +1,33 @@
 # resposive_header
 
-Responsive header is a replication of the admin dashboard exemple provided by Bootstrap for its version 4.beta2.
+Responsive header is a replication of the admin dashboard example provided by Bootstrap for its version 4.beta2.
 
-To show it, uncomment the spa module reference in the app main page.
+To show it, uncomment the app entry in webpack.base.config file and comment origiinal app, then npm run dev to test it.
 
-## responsive header on Galaxy S5
+```html
+
+<template lang="pug">
+  Spa
+</template>
+
+.....
+
+
+<script>
+  import Vue from "vue";
+  import Spa from "./components/responsive_header/spa";
+  export default {
+     components: {
+      Spa
+    }
+  }
+</script>
+
+```
+
+An other option is to
+
+## responsive header viewed on Galaxy S5
 
 ### vertical
 
