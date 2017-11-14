@@ -1,7 +1,7 @@
 <template lang="pug">
-  .sidebar
-    .container-fluid.px-0
-      .row(style="height:900px;")
+  .row
+    .col-sm-3.col-md-2.d-none.d-sm-block.bg-dark.sidebar
+      div(style="height:100%;")
         nav.nav.flex-column.navbar-dark.bg-dark.text-muted
           .title.pl-3.d-sm-none.d-lg-inline {{ "sidebar:General" | i18n }}
           router-link(tag=li, to="/")

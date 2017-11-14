@@ -3,9 +3,15 @@ import axios from "axios"
 import i18next from "i18next"
 
 import { ADD_MESSAGE, ADD_NOTIFICATION, SET_USER, SEARCH, LANG } from "./types"
+import Vuex from "vuex"
+Vue.use (Vuex)
 
-export const NAMESPACE= "/api/session"
-
+//export const NAMESPACE = "/api/session"
+let NAMESPACE = "/api/session"
+// this getSessionUser does not work with vuex >= 2.4
+// works perfect with vuex < 2.4
+// find an example at : https://vuex.vuejs.org/en/actions.html
+// a cart with products
 export const getSessionUser = ({ commit }) => {
   axios.get(NAMESPACE + "/me").then((response) => {
     let res = response.data

@@ -45,6 +45,7 @@ import * as actions from "./actions"
 
 export default {
   namespaced: true,
+  strict: process.env.NODE_ENV !== "production",
   state,
   getters,
   actions,

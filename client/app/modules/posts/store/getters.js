@@ -1,19 +1,19 @@
 export function posts(state) {
-	return state.rows;
+  return state.rows
 }
 
 export function hasMore(state) {
-	return state.hasMore;
+  return state.hasMore
 }
 
 export function fetching(state) {
-	return state.fetching;
+  return state.fetching
 }
 
 export function sort(state) {
-	return state.sort;
+  return state.sort
 }
 
 export function viewMode(state) {
-	return state.viewMode;
+  return state.viewMode
 }
