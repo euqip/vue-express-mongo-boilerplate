@@ -1,9 +1,16 @@
 <template lang="pug">
 div
   .container-fluid
-    page-header(:toggle-sidebar="toggleSidebar")
+    // Action items are defined once in a config file "../modules/actions.js"
+    page-header(:toggle-sidebar="toggleSidebar", v-bind:items="actionitems")
     .container-fluid
-      sidebar
+      .row
+        .d-none.col-sm-1.col-md-2.d-sm-block.bg-dark.sidebar
+          div(style="height:100%;")
+            sidebar(v-bind:items="actionitems")
+            .d-md-none1.d-lg-block1
+               Social
+
       main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3(role= "main")
         router-view(keep-alive)
         .copyright &copy; Copyright, 2017
@@ -15,9 +22,11 @@ div
 <script>
   import Vue from "vue";
 
-  import PageHeader from "./components/header/index";
-  import Sidebar from "./components/sidebar/index";
-  import Service from "./service";
+  import PageHeader from "./components/header/index"
+  import Sidebar from "./components/sidebar/index"
+  import Social from "./components/sidebar/social"
+  import Appactions from "../modules/actions.js"
+  import Service from "./service"
 
   import { mapActions, mapGetters } from "vuex";
 
@@ -33,16 +42,15 @@ div
     components: {
       PageHeader,
       Sidebar,
+      Social
     },
-    /**
-     * Create app data object
-     *
-     * TODO: move to vuex state
-     */
+    props: [
+      ],
     data() {
       return {
         wsReconnecting: false,
         miniSidebar: false,
+        actionitems: Appactions.mainactions
       };
     },
 
@@ -131,7 +139,8 @@ div
   };
 </script>
 
-<style>
+<style lang="scss">
+@import "../../scss/themes/clear/variables";
 /*
  * Base structure
  */

@@ -25,7 +25,9 @@
       .nav-item.dropdown
         .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
           img.rounded-circle.px-1(:src='me.avatar' style = "height:40px;")
-          span.username {{ me.fullName }}
+          span &nbsp;&nbsp;
+          span(style="width:100px;") {{ me.fullName}}
+          span &nbsp;&nbsp;
         user
 
 </template>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .notification-dropdown.dropdown.h-50.pt-0.pb-0
+  .dropdown.h-50.py-0
     .card(style="width:25rem;")
       h5.card-header
         .float-left {{ "Notifications" | i18n }}

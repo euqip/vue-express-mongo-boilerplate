@@ -1,7 +1,8 @@
 <template lang="pug">
   .languages.py-1.w-25
     //v-for just after tag!
-    .dropdown-item.btn(v-for="i in langs" @click="changelanguage(i.iso)" v-if="i.iso != lang") {{i.language}}
+    a.dropdown-item(v-for="i in langs" @click="changelanguage(i.iso)" v-if="i.iso != lang")
+      span {{i.language}}
 </template>
 
 <script>
@@ -50,4 +51,5 @@
   .langboxbtn{
     width:100%;
   }
+
 </style>

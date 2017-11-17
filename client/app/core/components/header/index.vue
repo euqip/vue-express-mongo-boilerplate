@@ -2,16 +2,14 @@
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-muted.fixed-top
     logo
     <!-- Collapse button -->
-    button.navbar-toggler.navbar-expand-lg(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+    button.navbar-toggler.navbar-toggler-right.hidden-lg-up(type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
       span.navbar-toggler-icon
-    .collapse.navbar-collapse
+    .collapse.navbar-collapse(id="navbarSupportedContent")
       search-box
-    .collapse.navbar-collapse
+      .nav-item.dropdown
       user-box
-    //user-dropdown(:visible=!"expandedUserMenu")
-    //notifications-dropdown(:visible="expandedNotifications")
-    //messages-dropdown(:visible="expandedMessages")
-    //languages-dropdown(:visible="expandedLanguages")
+      Actions.d-md-none.d-sm-block(v-bind:items ="items")
+
 </template>
 
 <script>
@@ -22,6 +20,8 @@
 	import NotificationsDropdown from "./dropdowns/notifications";
 	import MessagesDropdown from "./dropdowns/messages";
 	import LanguagesDropdown from "./dropdowns/lang-box";
+  import Actions from "./dropdowns/actions";
+  import Sidebar from "../sidebar/index";
 
 
 	import { mapActions, mapGetters } from "vuex";
@@ -42,20 +42,23 @@
 			UserDropdown,
 			NotificationsDropdown,
 			MessagesDropdown,
-			LanguagesDropdown
+      LanguagesDropdown,
+      Sidebar,
+      Actions
 		},
 
 		data() {
 			return {
-        lng: this.lang
-
-			};
+        lng: this.lang,
+			}
 		},
 		props: [
-			"toggleSidebar"
+      "toggleSidebar",
+      "items"
+
 		]
 
-	};
+	}
 
 </script>
 
