@@ -64,8 +64,8 @@
   import Vue from "vue";
   import marked from "marked";
   import toast from "../../core/toastr";
-  import postcontent from "./postcontent";
-  import postvotes from "./postvotes";
+  //import postcontent from "./postcontent";
+  //import postvotes from "./postvotes";
   import { cloneDeep } from "lodash";
   import { validators, schema as schemaUtils } from "vue-form-generator";
 
@@ -75,8 +75,8 @@
   i18nextNamespace: "posts",
 
   components: {
-      postcontent,
-      postvotes
+      //postcontent,
+      //postvotes
     },
 
     computed: {
