@@ -261,3 +261,9 @@ vue-express-mongo-boilerplate is available under the [MIT license](https://tldrl
 Copyright (C) 2016 Icebob
 
 [![@icebob](https://img.shields.io/badge/github-icebob-green.svg)](https://github.com/icebob) [![@icebob](https://img.shields.io/badge/twitter-Icebobcsi-blue.svg)](https://twitter.com/Icebobcsi)
+
+# This branch is a Twitter Bootstarp 4.0 beta version
+
+### Index page after login
+
+![Index page](https://github.com/euqip/vue-express-mongo-boilerplate/blob/twbs4/client/app/core/components/responsive_header/img/mainscreen_twbs4.png)
