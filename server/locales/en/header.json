@@ -1,6 +1,12 @@
 {
   "languageselector": "Change Language",
-  "notifications": "Notifications",
-  "messages": "Messages"
-
+  "Notifications": "Notifications",
+  "Messages": "Messages",
+  "MarkAllAsRead": "Mark all as Read",
+  "MarkAllNotifAsRead": "Mark all as Read",
+  "MarkAllMsgAsRead": "Mark all as Read",
+  "SeeAllMessages": "See all Messages",
+  "Search3dots": "Search...",
+  "messages": "Messages",
+  "SeeAllNotifications": "SeeAllNotifications"
 }

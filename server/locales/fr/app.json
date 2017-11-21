@@ -1,34 +1,18 @@
 {
-	"Increment": "Incrémenter",
-	"Decrement": "Decrémenter",
-
-	"Save": "Sauver",
+  
+  "Save": "Sauver",
 	"Cancel": "Abandonner",
 	"Clone": "Dupl.",
 	"Delete": "Supprimer",
   "LoadMore": "La suite ...",
-
+  "Close": "Fermer",
+  
 	"UserNotFound": "Utilisateur non trouvé!",
   "CreatedAgoByName": "Créé {{ago}} par {{name}}",
   "EditedAgo": "Modifié {{ago}}",
 
-  "genetratedByVueFormGenerator": "rechercher comment utilisse le bon Name Space",
-  
-  
-
-
-	"Search3dots": "Chercher...",
-
-
+  "genetratedByVueFormGenerator": "rechercher comment utiliser le bon Name Space",
 	"InvalidCode": "Code erroné!",
-
-	"Notifications": "Notifications",
-	"Messages": "Messages",
-	"MarkAllAsRead": "Marquer tout comme lu",
-	"SeeAllNotifications": "Voir toutes les notifications",
-	"SeeAllMessages": "Voir tous les messages",
-
-
   "styleguide": "Guide de sytle",
   "ColorPalette": "Palette de Couleurs",
   "Color": "Couleur",
@@ -98,11 +82,16 @@
   "Panelprimary": "Panneau primaire",
   "Panelsuccesswithlist": "Panneau succè avec une liste",
   "Messagetitle": "Titre de message",
+
+
   "1minago": "Il y a 1 min",
   "3minago": "Il y a 3 min",
   "15minago": "Il y a 15 min",
+  "31mago": "Il y a 31 min",
   "3hoursago": "Il y a 3 heures",
   "1dayago": "Il y a 1 jour",
+
+
   "Panelwarningwithscroll": "Panneau de rique avec ascensseur",
   "Panelfooter": "Pied de panneau",
   "Paneldanger": "Panneau de Danger",
@@ -114,17 +103,16 @@
   "Cardwithimage": "Carte image",
   "CardTitlewihribbon": "Carte titre avec ruban",
   "Brandnew": "Nouveau",
-  "Close": "Fermer",
-  "DELETE": "Supprimer",
   "SmallCard": "Petite carte",
   "Cardsincolumns": "Cartes en colonnes",
   "Normalmedia": "Media normal",
   "Media": "Media",
-  "31mago": "Il y a 31 min",
   "Languages": "Langues",
   "English": "Anglais",
   "French": "Français",
   "Dutch": "Néerlandais",
-  "Hungarian": "Hongrois"
+  "Hungarian": "Hongrois",
+
+  "Actions": "Menu"
 
 }

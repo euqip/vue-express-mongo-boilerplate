@@ -2,7 +2,7 @@
   .search-box
     form.form-inline
       i.px-2.fa.fa-search
-      input(type="search", v-model="text", :placeholder="_('Search3dots')")
+      input(type="search", v-model="text", :placeholder="_('header:Search3dots')")
 </template>
 
 <script>

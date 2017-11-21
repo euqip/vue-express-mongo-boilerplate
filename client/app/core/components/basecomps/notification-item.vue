@@ -4,20 +4,27 @@
       .col-sm-2
         img.avatar(:src="getimgurl()")
       .col-sm-10
-        div
-          strong {{ name }}
-          |  {{ action }}
-          .footer.float-right
-            small.text-muted {{ delay }}
+        h4 {{item.title}}
+        strong {{ item.name }}
+        |  {{ item.action }}
+        .footer.float-right
+          small.text-muted {{ item.delay }}
     .dropdown-divider
 </template>
 
 <script>
   export default {
-    props: ['name', 'img', 'action', 'delay', 'src'],
+    props: {
+      "item" :{
+        type: Object
+      },
+      "src": {
+        type: String
+      }
+    },
     methods:{
       getimgurl() {
-        return this.src + this.img
+        return this.src + this.item.img
       }
     }
   }

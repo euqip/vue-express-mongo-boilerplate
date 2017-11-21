@@ -1,43 +1,38 @@
 <template lang="pug">
   .user-box(v-if="me")
     nav.navbar-nav.container
-      .nav-item.dropdown( :title="_('header:notifications')")
-        .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", :class=" { active: notifications.length > 0 }")
-          i.px-1.fa.fa-bell-o
-            span.badge.badge-pill.badge-primary.exponent {{ notifications.length }}
-          .ring
-        notifications.dropdown-menu
+      .row
 
-      .nav-item.dropdown( :title="_('header:messages')")
-        //the dropdown-toggle class is removed to desable the dropdown arrow
-        .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", :class=" { active: messages.length > 0 }")
-          i.px-1.fa.fa-envelope-o
-            span.badge.badge-pill.badge-primary.exponent {{ messages.length }}
-          .ring
-        messages.dropdown-menu
+        .nav-item.dropdown.col-sm-2
+          badgedicon(:title="_('header:notifications')", icon="fa-bell-o", :badge='notifications.length')
+          messages.dropdown-menu(v-bind:items="notificationitems", :uitxt="notifui", :src="faces_source")
 
-      .nav-item.dropdown(:title="_('header:languageselector')")
-        .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
-          i.px-1.fa.fa-language
-            span.badge.badge-pill.badge-primary.exponent {{ lang }}
-        langBox.dropdown-menu
+        .nav-item.dropdown.col-sm-2
+          badgedicon(:title="_('header:messages')", icon="fa-envelope-o", :badge='messages.length')
+          //messages.dropdown-menu(v-bind:items="messageitems", :src="faces_source")
+          messages.dropdown-menu(v-bind:items="messageitems", :uitxt="msgsui", :src="faces_source")
 
-      .nav-item.dropdown
-        .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
-          img.rounded-circle.px-1(:src='me.avatar' style = "height:40px;")
-          span &nbsp;&nbsp;
-          span(style="width:100px;") {{ me.fullName}}
-          span &nbsp;&nbsp;
-        user
+        .nav-item.dropdown.col-sm-2
+          badgedicon(:title="_('header:languageselector')", icon="fa-language", :badge='lang')
+          langBox.dropdown-menu
 
+        .nav-item.dropdown.col-sm-6
+          .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            img.rounded-circle.px-1(:src='me.avatar' style = "height:40px;")
+            span &nbsp;&nbsp;
+            span(style="width:100px;") {{ me.fullName}}
+          user(v-bind:items ="menuitems")
+            span &nbsp;&nbsp;
 </template>
 
 <script>
   import langBox from "./dropdowns/lang-box"
   import user from "./dropdowns/user"
-  import notifications from "./dropdowns/notifications"
-  import messages from "./dropdowns/messages"
-	import { mapActions, mapGetters } from "vuex";
+  import messages from "../basecomps/messages"
+
+  import bc from "../basecomps/ui_config.js"
+  import badgedicon from "../basecomps/badgedicon"
+  import { mapActions, mapGetters } from "vuex"
 
 	export default {
 		computed: mapGetters("session", [
@@ -50,29 +45,31 @@
 		components: {
       langBox,
       user,
-      notifications,
-      messages
+      messages,
+      badgedicon,
 		},
 
 		data() {
 			return {
-        lng: this.lang
+        "lng": this.lang,
+        "menuitems": bc.usermenu,
+        "notificationitems": bc.fake_notif,
+        "messageitems": bc.fake_msgs,
+        "faces_source": bc.fake_faces_src,
+        "msgsui": bc.header.msgs,
+        "notifui": bc.header.notif,
 
 			};
 		},
 
 		methods: {
-			toggleLanguages() {
-				this.expandedLanguages = !this.expandedLanguages;
-				if (this.expandedLanguages) {
-					this.expandedMessages = false;
-					this.expandedUserMenu = false;
-					this.expandedNotifications =  false;
-					console.log ("toggle languages")
-				}
-			}
-		}
 
+    },
+    props: {
+      "bcui": {
+        "type": Object
+      }
+    }
 	};
 
 </script>

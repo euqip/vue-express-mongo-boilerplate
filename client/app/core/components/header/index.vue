@@ -8,7 +8,7 @@
       search-box
       .nav-item.dropdown
       user-box
-      Actions.d-md-none.d-sm-block(v-bind:items ="items")
+      menudrop.d-md-none.d-sm-block(v-bind:items ="items") {{ "app:Actions" | i18n }}
 
 </template>
 
@@ -16,11 +16,8 @@
 	import Logo from "./logo"
 	import SearchBox from "./search-box"
   import UserBox from "./user-box"
-	import UserDropdown from "./dropdowns/user";
-	import NotificationsDropdown from "./dropdowns/notifications";
-	import MessagesDropdown from "./dropdowns/messages";
 	import LanguagesDropdown from "./dropdowns/lang-box";
-  import Actions from "./dropdowns/actions";
+  import menudrop from "../basecomps/menudrop";
   import Sidebar from "../sidebar/index";
 
 
@@ -39,12 +36,9 @@
 			Logo,
 			SearchBox,
       UserBox,
-			UserDropdown,
-			NotificationsDropdown,
-			MessagesDropdown,
       LanguagesDropdown,
       Sidebar,
-      Actions
+      menudrop
 		},
 
 		data() {
@@ -54,7 +48,8 @@
 		},
 		props: [
       "toggleSidebar",
-      "items"
+      "items",
+      "bc"
 
 		]
 

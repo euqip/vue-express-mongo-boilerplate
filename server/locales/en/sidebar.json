@@ -5,5 +5,9 @@
   "Counter": "Counter",
   "Posts": "Posts",
   "Profile": "Profile",
-  "Logout": "Logout"
+  "Logout": "Logout",
+  "profile": "profile",
+  "MAIN": "MAIN",
+  "PROFILE": "PROFILE",
+  "Settings": "Settings"
 }

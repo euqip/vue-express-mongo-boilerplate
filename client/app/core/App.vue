@@ -2,18 +2,19 @@
 div
   .container-fluid
     // Action items are defined once in a config file "../modules/actions.js"
-    page-header(:toggle-sidebar="toggleSidebar", v-bind:items="actionitems")
+    page-header(:toggle-sidebar="toggleSidebar", v-bind:items="items", :bcui="bc")
     .container-fluid
       .row
         .d-none.col-sm-1.col-md-2.d-sm-block.bg-dark.sidebar
           div(style="height:100%;")
-            sidebar(v-bind:items="actionitems")
+            sidebar(v-bind:items="items")
             .d-md-none1.d-lg-block1
                Social
 
       main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3(role= "main")
         router-view(keep-alive)
-        .copyright &copy; Copyright, 2017
+        .d-md-none
+          span.copyright &copy; Copyright, 2017
 
   // a(href="https://github.com/icebob/vue-express-mongo-boilerplate")
     img(style="position: absolute; top: 0; left: 0; border: 0; z-index:2000", src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67", alt="Fork me on GitHub", data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png")
@@ -25,7 +26,8 @@ div
   import PageHeader from "./components/header/index"
   import Sidebar from "./components/sidebar/index"
   import Social from "./components/sidebar/social"
-  import Appactions from "../modules/actions.js"
+  import bc from "./components/basecomps/ui_config.js"
+  //import ui from "./components/basecomps/ui"
   import Service from "./service"
 
   import { mapActions, mapGetters } from "vuex";
@@ -42,7 +44,7 @@ div
     components: {
       PageHeader,
       Sidebar,
-      Social
+      Social,
     },
     props: [
       ],
@@ -50,7 +52,8 @@ div
       return {
         wsReconnecting: false,
         miniSidebar: false,
-        actionitems: Appactions.mainactions
+        items: bc.sidebarmenu,
+        bc: bc
       };
     },
 

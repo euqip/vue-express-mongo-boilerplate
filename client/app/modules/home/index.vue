@@ -596,7 +596,7 @@
                   .title {{"CardTitlewihribbon" | i18n}}
                   p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta cumque assumenda culpa maiores omnis totam obcaecati voluptas eligendi sapiente enim debitis, illo dolore facilis, in, nihil perspiciatis, et perferendis.
                   .text-right
-                    button.m-2.btn.btn-danger {{"DELETE" | i18n}}
+                    button.m-2.btn.btn-danger {{"Delete" | i18n}}
                     button.m-2.btn.btn-outline-secondary {{"Close" | i18n}}
 
         fieldset
