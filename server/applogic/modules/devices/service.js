@@ -4,7 +4,7 @@ let logger 		= require("../../../core/logger")
 let config 		= require("../../../config")
 let C 	 		= require("../../../core/constants")
 
-let _			= require("lodash")
+//let _			= require("lodash")
 
 let Device 		= require("./models/device")
 
@@ -36,11 +36,11 @@ module.exports = {
       }
     },
 
-		// return a model by ID
+    // return a model by ID
     get: {
       cache: true,
       handler(ctx) {
-        ctx.assertModelIsExist(ctx.t("app:DeviceNotFound"))
+        ctx.assertModelIsExist(ctx.t("devices:DeviceNotFound"))
         return Promise.resolve(ctx.model)
       }
     },
@@ -57,77 +57,77 @@ module.exports = {
       })
 
       return device.save()
-			.then((doc) => {
-  return this.toJSON(doc)
-})
-			.then((json) => {
-  return this.populateModels(json)
-})
-			.then((json) => {
-  this.notifyModelChanges(ctx, "created", json)
-  return json
-})
+      .then((doc) => {
+        return this.toJSON(doc)
+      })
+      .then((json) => {
+        return this.populateModels(json)
+      })
+      .then((json) => {
+        this.notifyModelChanges(ctx, "app:created", json)
+        return json
+      })
     },
 
     update(ctx) {
-      ctx.assertModelIsExist(ctx.t("app:DeviceNotFound"))
+      ctx.assertModelIsExist(ctx.t("devices:DeviceNotFound"))
       this.validateParams(ctx)
 
       return this.collection.findById(ctx.modelID).exec()
-			.then((doc) => {
+      .then((doc) => {
 
-  if (ctx.params.address != null)
-    doc.address = ctx.params.address
+        if (ctx.params.address != null)
+          doc.address = ctx.params.address
 
-  if (ctx.params.type != null)
-    doc.type = ctx.params.type
+        if (ctx.params.type != null)
+          doc.type = ctx.params.type
 
-  if (ctx.params.name != null)
-    doc.name = ctx.params.name
+        if (ctx.params.name != null)
+          doc.name = ctx.params.name
 
-  if (ctx.params.description != null)
-    doc.description = ctx.params.description
+        if (ctx.params.description != null)
+          doc.description = ctx.params.description
 
-  if (ctx.params.status != null)
-    doc.status = ctx.params.status
+        if (ctx.params.status != null)
+          doc.status = ctx.params.status
 
-  return doc.save()
-})
-			.then((doc) => {
-  return this.toJSON(doc)
-})
-			.then((json) => {
-  return this.populateModels(json)
-})
-			.then((json) => {
-  this.notifyModelChanges(ctx, "updated", json)
-  return json
-})
+        return doc.save()
+      })
+      .then((doc) => {
+        return this.toJSON(doc)
+      })
+      .then((json) => {
+        return this.populateModels(json)
+      })
+      .then((json) => {
+        this.notifyModelChanges(ctx, "app:updated", json)
+        return json
+      })
     },
 
     remove(ctx) {
-      ctx.assertModelIsExist(ctx.t("app:DeviceNotFound"))
+      ctx.assertModelIsExist(ctx.t("devices:DeviceNotFound"))
 
       return Device.remove({ _id: ctx.modelID })
-			.then(() => {
-  return ctx.model
-})
-			.then((json) => {
-  this.notifyModelChanges(ctx, "removed", json)
-  return json
-})
+      .then(() => {
+        return ctx.model
+      })
+      .then((json) => {
+        this.notifyModelChanges(ctx, "app:removed", json)
+        return json
+      })
     }
 
   },
 
   methods: {
-		/**
-		 * Validate params of context.
-		 * We will call it in `create` and `update` actions
-		 *
-		 * @param {Context} ctx 			context of request
-		 * @param {boolean} strictMode 		strictMode. If true, need to exists the required parameters
-		 */
+    /**
+     * Validate params of context.
+     * We will call it in `create` and `update` actions
+     *
+     * @param {Context} ctx 			context of request
+     * @param {boolean} strictMode 		strictMode. If true, need to exists the required parameters
+     */
     validateParams(ctx, strictMode) {
       if (strictMode || ctx.hasParam("name"))
         ctx.validateParam("name").trim().notEmpty(ctx.t("app:DeviceNameCannotBeBlank")).end()
@@ -145,39 +145,39 @@ module.exports = {
   },
 
   init(ctx) {
-		// Fired when start the service
+    // Fired when start the service
   },
 
   socket: {
     afterConnection(socket, io) {
-			// Fired when a new client connected via websocket
+      // Fired when a new client connected via websocket
     }
   },
 
   graphql: {
 
     query: `
-			devices(limit: Int, offset: Int, sort: String): [Device]
-			device(code: String): Device
-		`,
+      devices(limit: Int, offset: Int, sort: String): [Device]
+      device(code: String): Device
+    `,
 
     types: `
-			type Device {
-				code: String!
-				address: String
-				type: String
-				name: String
-				description: String
-				status: Int
-				lastCommunication: Timestamp
-			}
-		`,
+      type Device {
+        code: String!
+        address: String
+        type: String
+        name: String
+        description: String
+        status: Int
+        lastCommunication: Timestamp
+      }
+    `,
 
     mutation: `
-			deviceCreate(name: String!, address: String, type: String, description: String, status: Int): Device
-			deviceUpdate(code: String!, name: String, address: String, type: String, description: String, status: Int): Device
-			deviceRemove(code: String!): Device
-		`,
+      deviceCreate(name: String!, address: String, type: String, description: String, status: Int): Device
+      deviceUpdate(code: String!, name: String, address: String, type: String, description: String, status: Int): Device
+      deviceRemove(code: String!): Device
+    `,
 
     resolvers: {
       Query: {

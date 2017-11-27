@@ -17,6 +17,7 @@ export const getRows = function ({commit, state}, loadMore) {
     else
 			commit(loadMore ? LOAD_MORE : LOAD, data)
   }).catch((err) => {
+    // how to use i18n with toastr???
     toastr.error(err.message)
   }).then(() => {
     commit(FETCHING, false)
@@ -41,6 +42,7 @@ export const saveRow = function(store, model) {
   service.rest("create", model).then((data) => {
     created(store, data)
   }).catch((err) => {
+    console.log("" + err.message)
     toastr.error(err.message)
   })
 }
@@ -49,6 +51,7 @@ export const updateRow = function(store, model) {
   service.rest("update", model).then((data) => {
     updated(store, data)
   }).catch((err) => {
+    console.log("" + err.message)
     toastr.error(err.message)
   })
 }

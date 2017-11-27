@@ -54,7 +54,7 @@
          */
         updated(res) {
           this.updated(res.data);
-          toast.success(this._("DeviceNameUpdated", res), this._("DeviceUpdated"));
+          toast.success(this._("devices:DeviceNameUpdated", res), this._("devices:DeviceUpdated"));
         },
 
         /**
@@ -63,7 +63,7 @@
          */
         removed(res) {
           this.removed(res.data);
-          toast.success(this._("DeviceNameDeleted", res), this._("DeviceDeleted"));
+          toast.success(this._("devices:DeviceNameDeleted", res), this._("devices:DeviceDeleted"));
         }
       }
     },

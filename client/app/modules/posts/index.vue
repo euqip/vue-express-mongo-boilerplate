@@ -1,10 +1,10 @@
 <template lang="pug">
   .container-fluid.mr-5.px-0
-    
+
     h1 {{ _('posts:Posts') }}
 
     .text-center
-      div( role = "group" style= "position: relative;")
+      div( role = "group" style= "position: relative")
         button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-votes')", :class="{ active: sort == '-votes' }") {{ _("posts:Hot") }}
         button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-views')", :class="{ active: sort == '-views' }") {{ _("posts:MostViewed") }}
         button.btn.btn-sm.btn-outline-secondary(@click="changeSort('-createdAt')", :class="{ active: sort == '-createdAt' }") {{ _("posts:New") }}
@@ -29,7 +29,7 @@
 
         article.media.rounded.p-1
           .rounded
-            .text-center(style="width: 70px;")
+            .text-center(style="width: 70px")
               img.rounded.pt-2(:src="post.author.avatar")
               .votes(:class="{ voted: iVoted(post) }")
                 .count.my-0 {{ post.votes }}
@@ -61,15 +61,15 @@
 
 
 <script>
-  import Vue from "vue";
-  import marked from "marked";
-  import toast from "../../core/toastr";
-  //import postcontent from "./postcontent";
-  //import postvotes from "./postvotes";
-  import { cloneDeep } from "lodash";
-  import { validators, schema as schemaUtils } from "vue-form-generator";
+  import Vue from "vue"
+  import marked from "marked"
+  import toast from "../../core/toastr"
+  //import postcontent from "./postcontent"
+  //import postvotes from "./postvotes"
+  import { cloneDeep } from "lodash"
+  import { validators, schema as schemaUtils } from "vue-form-generator"
 
-  import { mapGetters, mapActions } from "vuex";
+  import { mapGetters, mapActions } from "vuex"
 
   export default {
   i18nextNamespace: "posts",
@@ -123,7 +123,7 @@
             }
           ]
         }
-      };
+      }
     },
 
     /**
@@ -141,8 +141,8 @@
         /*
         We don't use it because we don't know we need to add it to the page (filter, sort..etc)
         created(res) {
-          this.created(res.data);
-          toast.success(this._("PostNameAdded", res), this._("PostAdded"));
+          this.created(res.data)
+          toast.success(this._("PostNameAdded", res), this._("PostAdded"))
         },*/
 
         /**
@@ -150,18 +150,18 @@
          * @param  {Object} res Post object
          */
         updated(res) {
-          this.updated(res.data);
-          toast.success(this._("PostNameUpdated", res), this._("PostUpdated"));
+          this.updated(res.data)
+          toast.success(this._("posts:PostNameUpdated", res), this._("posts:PostUpdated"))
         },
 
         voted(res) {
-          this.updated(res.data);
-          toast.success(this._("PostNameVoted", res), this._("PostUpdated"));
+          this.updated(res.data)
+          toast.success(this._("posts:PostNameVoted", res), this._("posts:PostUpdated"))
         },
 
         unvoted(res) {
-          this.updated(res.data);
-          toast.success(this._("PostNameUnvoted", res), this._("PostUpdated"));
+          this.updated(res.data)
+          toast.success(this._("posts:PostNameUnvoted", res), this._("posts:PostUpdated"))
         },
 
         /**
@@ -169,8 +169,8 @@
          * @param  {Object} res Post object
          */
         removed(res) {
-          this.removed(res.data);
-          toast.success(this._("PostNameDeleted", res), this._("PostDeleted"));
+          this.removed(res.data)
+          toast.success(this._("posts:PostNameDeleted", res), this._("posts:PostDeleted"))
         }
       }
     },
@@ -191,88 +191,88 @@
       ]),
 
       markdown(content) {
-        return marked(content);
+        return marked(content)
       },
 
       iVoted(post) {
-        return _.find(post.voters, (user) => user.code == this.me.code) != null;
+        return _.find(post.voters, (user) => user.code == this.me.code) != null
       },
 
       toggleVote(post) {
         if (this.iVoted(post))
-          this.unVote(post);
+          this.unVote(post)
         else
-          this.vote(post);
+          this.vote(post)
       },
 
       lastVoters(post, count = 5) {
         if (post.voters && post.voters.length > 0) {
-          let voters = _.clone(post.voters).reverse().slice(0, 5);
-          return voters;
+          let voters = _.clone(post.voters).reverse().slice(0, 5)
+          return voters
         }
-        return [];
+        return []
       },
 
       createdAgo(post) {
-        return this._("CreatedAgoByName", { ago: Vue.filter("ago")(post.createdAt), name: post.author.fullName } );
+        return this._("CreatedAgoByName", { ago: Vue.filter("ago")(post.createdAt), name: post.author.fullName } )
       },
 
       editedAgo(post) {
         if (post.editedAt)
-          return this._("EditedAgo", { ago: Vue.filter("ago")(post.editedAt) } );
+          return this._("EditedAgo", { ago: Vue.filter("ago")(post.editedAt) } )
       },
 
       newPost() {
-        this.model = schemaUtils.createDefaultObject(this.schema);
-        this.showForm = true;
-        this.isNewPost = true;
+        this.model = schemaUtils.createDefaultObject(this.schema)
+        this.showForm = true
+        this.isNewPost = true
 
-        this.focusFirstInput();
+        this.focusFirstInput()
       },
 
       editPost(post) {
-        this.model = cloneDeep(post);
-        this.showForm = true;
-        this.isNewPost = false;
-        this.focusFirstInput();
+        this.model = cloneDeep(post)
+        this.showForm = true
+        this.isNewPost = false
+        this.focusFirstInput()
       },
 
       focusFirstInput() {
         this.$nextTick(() => {
-          let el = document.querySelector(".postForm .form-control:nth-child(1):not([readonly]):not(:disabled)");
+          let el = document.querySelector(".postForm .form-control:nth-child(1):not([readonly]):not(:disabled)")
           if (el)
-            el.focus();
-        });
+            el.focus()
+        })
       },
 
       focusFirstErrorInput() {
         this.$nextTick(() => {
-          let el = document.querySelector(".postForm .form-group.error .form-control");
+          let el = document.querySelector(".postForm .form-group.error .form-control")
           if (el)
-            el.focus();
-        });
+            el.focus()
+        })
       },
 
       savePost() {
         if (this.$refs.form.validate()) {
           if (this.isNewPost)
-            this.saveRow(this.model);
+            this.saveRow(this.model)
           else
-            this.updateRow(this.model);
+            this.updateRow(this.model)
 
-          this.cancelPost();
+          this.cancelPost()
         } else {
-          this.focusFirstErrorInput();
+          this.focusFirstErrorInput()
         }
       },
 
       cancelPost() {
-        this.showForm = false;
-        this.model = null;
+        this.showForm = false
+        this.model = null
       },
 
       deletePost(post) {
-        this.removeRow(post);
+        this.removeRow(post)
       }
 
     },
@@ -281,9 +281,9 @@
      * Call if the component is created
      */
     created() {
-      this.getRows();
+      this.getRows()
     }
-  };
+  }
 </script>
 
 <style lang="scss" scoped>

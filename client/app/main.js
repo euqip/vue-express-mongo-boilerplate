@@ -4,11 +4,11 @@ require("es6-promise/auto")
 
 import Vue from "vue"
 
+import VueI18Next from "./core/i18next.js"
 import axios from "axios"
 axios.defaults.headers.post["Content-Type"] = "application/json"
 
 import Filters from "./core/filters"
-import VueI18Next from "./core/i18next.js"
 import VueFormGenerator from "vue-form-generator"
 import VueWebsocket from "vue-websocket"
 // store is imported here to be accessible to all sub components

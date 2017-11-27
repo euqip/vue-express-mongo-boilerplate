@@ -8,6 +8,7 @@
 <script>
   // ring class not yet defined
   export default {
+    name: 'badgedicon',
     props: {
       "title" : {
         type : String,

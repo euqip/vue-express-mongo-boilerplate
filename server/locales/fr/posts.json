@@ -26,6 +26,7 @@
   "PostNameDeleted": "Article '{{data.title}}' supprimé par {{user.fullName}}!",
   "PostNameVoted": "Article '{{data.title}}' voted par {{user.fullName}}!",
   "PostNameUnvoted": "Article '{{data.title}}' unvoted par {{user.fullName}}!",
+  "PostNotFound": "Article non trouvé",
 
   "reachedend": "Fin de la liste."
 }
