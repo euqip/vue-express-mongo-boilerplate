@@ -12,8 +12,8 @@ import Profile from "../modules/profile"
 Vue.use(VueRouter)
 
 export default new VueRouter({
-  //mode: "hash",
-  mode: "history",
+  mode: "hash",
+  //mode: "history",
   routes: [
 		{ path: "/", component: Home },
 		{ path: "/devices", component: Devices },
