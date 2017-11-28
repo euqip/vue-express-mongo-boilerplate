@@ -2,7 +2,7 @@
   .noarrow(:title= "title", data-toggle="dropdown", :class=" { active: badge != '0' }")
     i.px-1.fa(:class= "icon")
       span.badge.badge-pill.badge-primary.exponent {{ badge }}
-    .ring
+      span.ring(:class=" { active: badge != '0' }")
 </template>
 
 <script>
@@ -39,14 +39,34 @@
   $secondColor: $color3;
   $activeColor: lighten($secondColor, 5%);
   .ring {
+    display:none;
+  }
+  .active {
+    display: block;
+  }
+
+  .ringold{
+        border: 1px solid $activeColor;
+    border-radius: 100px;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: -11px;
+    right: -3px;
+    animation: pulsate 5s ease-out infinite;
+    opacity: 0.0
+
+  }
+  .ring {
+    display: none;
     border: 1px solid $activeColor;
     border-radius: 100px;
     height: 40px;
     width: 40px;
     position: absolute;
-    top: -18px;
-    right: -27px;
-    animation: pulsate 10s ease-out infinite;
+    top: -111px;
+    right: -3px;
+    animation: pulsate 5s ease-out infinite;
     opacity: 0.0
   }
 
