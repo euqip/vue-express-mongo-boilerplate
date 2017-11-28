@@ -38,6 +38,20 @@
 
   $secondColor: $color3;
   $activeColor: lighten($secondColor, 5%);
+  @keyframes pulsate {
+	30% {
+		transform: scale(0.1, 0.1);
+		opacity  : 0.0;
+	}
+	35% {
+		opacity: 1.0;
+	}
+	40% {
+		transform: scale(1.2, 1.2);
+		opacity  : 0.0;
+	}
+}
+
   .ring {
     display:none;
   }
@@ -57,17 +71,17 @@
     opacity: 0.0
 
   }
-  .ring {
-    display: none;
+  .ring.active {
+    display: block;
     border: 1px solid $activeColor;
     border-radius: 100px;
     height: 40px;
     width: 40px;
     position: absolute;
-    top: -111px;
+    top: -11px;
     right: -3px;
     animation: pulsate 5s ease-out infinite;
-    opacity: 0.0
+    opacity: 1.0
   }
 
 </style>
