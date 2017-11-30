@@ -41,62 +41,7 @@ module.exports = {
 
   init(ctx) {
     personService = this.services("persons")
-  },
-
-  graphql: {
-
-    query: `
-			me: Person
-			onlineUsers: [Person]
-		`,
-
-    mutation: `
-		`,
-
-    resolvers: {
-      Query: {
-        me: "me",
-        onlineUsers: "onlineUsers"
-      }
-    }
   }
 
+
 }
-
-/*
-## GraphiQL test ##
-
-# Get my account
-query me {
-  me {
-    ...personFields
-  }
-}
-
-
-# Get list of online users
-query getOnlineUser {
-  onlineUsers {
-    ...personFields
-  }
-}
-
-
-fragment personFields on Person {
-  code
-  fullName
-  email
-  username
-  roles
-  verified
-  avatar
-  lastLogin
-  locale
-
-  posts(sort: "-createdAt") {
-    code
-    title
-  }
-}
-
-*/

@@ -1,3 +1,5 @@
+"use strict"
+
 import Vue from "vue"
 import { isFunction, defaultsDeep } from "lodash"
 import i18next from "i18next"
@@ -16,7 +18,7 @@ function install(Vue, callback, options = {}) {
   fallbackLng: "en",
   whitelist: ["en", "hu", "fr", "nl"],
 			//ns: ["app","sidebar","header"],
-  ns: ["app","sidebar","profile","header","counter","posts","devices"],
+  ns: ["app", "sidebar", "profile","header","counter","posts","devices"],
   //ns: ["app","sidebar","profile","header","posts"],
   defaultNS: "app",
   debug: false,

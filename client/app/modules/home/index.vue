@@ -354,7 +354,7 @@
       section
         h2.bg-secondary.p-3.rounded
           span.pr-3 7.
-          span {{"BadgeS" | i18n}}
+          span {{"Badges" | i18n}}
         fieldset
           legend {{"Badges" | i18n}}
 

@@ -1,3 +1,5 @@
+"use strict"
+
 import Vue from "vue"
 import toastr from "../../../core/toastr"
 

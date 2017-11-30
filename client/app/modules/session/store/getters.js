@@ -1,3 +1,5 @@
+"use strict"
+
 export function me(state) {
   return state.user
 }

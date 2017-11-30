@@ -1,4 +1,5 @@
-import Vue from "vue"
+"use strict"
+
 import toastr from "../../../core/toastr"
 import Service from "../../../core/service"
 import { LOAD, LOAD_MORE, ADD, UPDATE, VOTE, UNVOTE, REMOVE,
@@ -12,13 +13,14 @@ let service = new Service("posts")
 export const getRows = function ({commit, state}, loadMore) {
   commit(FETCHING, true)
   return service.rest("find", { filter: state.viewMode, sort: state.sort, limit: 10, offset: state.offset }).then((data) => {
-    if (data.length == 0)
+    if (data.length === 0)
       commit(NO_MORE_ITEMS)
     else
 			commit(loadMore ? LOAD_MORE : LOAD, data)
   }).catch((err) => {
     // how to use i18n with toastr???
-    toastr.error(err.message)
+    console.log("---------------- > translation : " + err.message + " to " + _(err.message))
+    toastr.error(_(err.message))
   }).then(() => {
     commit(FETCHING, false)
   })
@@ -42,8 +44,8 @@ export const saveRow = function(store, model) {
   service.rest("create", model).then((data) => {
     created(store, data)
   }).catch((err) => {
-    console.log("" + err.message)
-    toastr.error(err.message)
+    console.log("---------------- > translation : " + err.message + " to " + _(err.message))
+    toastr.error(_(err.message))
   })
 }
 
@@ -51,8 +53,8 @@ export const updateRow = function(store, model) {
   service.rest("update", model).then((data) => {
     updated(store, data)
   }).catch((err) => {
-    console.log("" + err.message)
-    toastr.error(err.message)
+    console.log("---------------- > translation : " + err.message + " to " + _(err.message))
+    toastr.error(_(err.message))
   })
 }
 
@@ -60,7 +62,8 @@ export const removeRow = function(store, model) {
   service.rest("remove", { code: model.code }).then((data) => {
     removed(store, data)
   }).catch((err) => {
-    toastr.error(err.message)
+    console.log("---------------- > translation : " + err.message + " to " + _(err.message))
+    toastr.error(_(err.message))
   })
 }
 
@@ -68,7 +71,8 @@ export const vote = function(store, model) {
   service.rest("vote", { code: model.code }).then((data) => {
     updated(store, data)
   }).catch((err) => {
-    toastr.error(err.message)
+    console.log("---------------- > translation : " + err.message + " to " + _(err.message))
+    toastr.error(_(err.message))
   })
 }
 
@@ -76,7 +80,8 @@ export const unVote = function(store, model) {
   service.rest("unvote", { code: model.code }).then((data) => {
     updated(store, data)
   }).catch((err) => {
-    toastr.error(err.message)
+    console.log("---------------- > translation : " + err.message + " to " + _(err.message))
+    toastr.error(_(err.message))
   })
 }
 

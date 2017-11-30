@@ -2,6 +2,7 @@
 	"node": true,
   "sub": true,
   "asi" : true,
+  "browser": true,
   "esversion": 6,
 	"globals": {
 		"require": true,

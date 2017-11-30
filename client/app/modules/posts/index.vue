@@ -68,12 +68,16 @@
   //import postvotes from "./postvotes"
   import { cloneDeep } from "lodash"
   import { validators, schema as schemaUtils } from "vue-form-generator"
+  //i18next.loadNamespaces('posts', (err, t) => { /* ... */ })
+
 
   import { mapGetters, mapActions } from "vuex"
 
   export default {
-  i18nextNamespace: "posts",
-
+  //i18nextNamespace: "posts",
+  props:{
+    ns : "posts"
+  },
   components: {
       //postcontent,
       //postvotes

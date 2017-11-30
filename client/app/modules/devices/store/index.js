@@ -1,3 +1,5 @@
+"use strict"
+
 import { LOAD, ADD, SELECT, CLEAR_SELECT, UPDATE, REMOVE } from "./types"
 
 import { each, find, assign, remove, isArray } from "lodash"

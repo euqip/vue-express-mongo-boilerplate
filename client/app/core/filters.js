@@ -1,3 +1,5 @@
+"use strict"
+
 import moment from "moment"
 //import prettyBytes from 'pretty-bytes';
 

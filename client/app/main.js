@@ -35,6 +35,7 @@ Vue.use(VueI18Next, (i18next) => {
     },
     router,
     store,
+    VueI18Next,
     render: h => h("app")
   })
 })

@@ -1,3 +1,5 @@
+"use strict"
+
 export const SEARCH						= "SEARCH"
 export const ADD_NOTIFICATION = "ADD_NOTIFICATION"
 export const ADD_MESSAGE 			= "ADD_MESSAGE"

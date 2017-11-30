@@ -1,3 +1,5 @@
+"use strict"
+
 import axios from "axios"
 import IO from "socket.io-client"
 

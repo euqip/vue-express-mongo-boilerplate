@@ -1,3 +1,5 @@
+"use strict"
+
 import "toastr/build/toastr.css"
 import toastr from "toastr/build/toastr.min.js"
 

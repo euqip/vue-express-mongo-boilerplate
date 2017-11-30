@@ -1,3 +1,5 @@
+"use strict"
+
 import Vue from "vue"
 import axios from "axios"
 import i18next from "i18next"

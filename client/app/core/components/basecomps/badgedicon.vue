@@ -55,22 +55,6 @@
   .ring {
     display:none;
   }
-  .active {
-    display: block;
-  }
-
-  .ringold{
-        border: 1px solid $activeColor;
-    border-radius: 100px;
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    top: -11px;
-    right: -3px;
-    animation: pulsate 5s ease-out infinite;
-    opacity: 0.0
-
-  }
   .ring.active {
     display: block;
     border: 1px solid $activeColor;
@@ -81,7 +65,7 @@
     top: -11px;
     right: -3px;
     animation: pulsate 5s ease-out infinite;
-    opacity: 1.0
+    opacity: 0.0
   }
 
 </style>

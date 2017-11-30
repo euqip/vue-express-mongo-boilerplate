@@ -14,7 +14,9 @@
 	"Type": "Type",
 	"Address": "Address",
 	"Name": "Name",
-	"Status": "Status",
+  "Status": "Status",
+  "Owner": "Owner",
+
 	"LastCommunication": "Last communication",
 	"willBeGenerated": "<will be generated>",
 	"DeviceName": "Device name",

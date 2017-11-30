@@ -1,3 +1,5 @@
+"use strict"
+
 export const LOAD 			  = "LOAD"
 export const ADD 			    = "ADD"
 export const SELECT			  = "SELECT"

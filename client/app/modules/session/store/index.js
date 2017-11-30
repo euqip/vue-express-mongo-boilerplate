@@ -1,3 +1,5 @@
+"use strict"
+
 import { ADD_MESSAGE, ADD_NOTIFICATION, SET_USER, SEARCH, LANG, NS} from "./types"
 
 const state = {

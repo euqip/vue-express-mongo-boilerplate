@@ -142,6 +142,9 @@
 
 
   "Actions": "Actions",
-  "Network Error": "this is an error!"
+  "Network Error": "this is an error!",
+    "Name": "Name",
+    "Badges": "Badges",
+    "NumberBadges": "Number Badges"
 
 }
