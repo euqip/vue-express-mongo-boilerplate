@@ -61,6 +61,7 @@ function initMiddleware(app) {
   app.use(compress({
     filter: function(req, res) {
       logger.info("Compress: ", req.url )
+      //logger.info("i18n: ", req.i18n)
       return /json|text|javascript|css/.test(res.getHeader("Content-Type"))
     },
     level: 3,
@@ -147,7 +148,7 @@ function initI18N(app) {
 		//debug: true,
     fallbackLng: "fr",
     whitelist: getDirectories(localesDir),
-    ns: ["app","sidebar","profile","header","counter","posts","devices"],
+    ns: ["app","sidebar","profile","header","counter","posts","devices", "server"],
 //		ns: ["app", "frontend", "sidebar"],
     defaultNS: "frontend",
     debug: false,

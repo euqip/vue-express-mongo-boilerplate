@@ -20,7 +20,7 @@ export const getProfile = function ({ commit }) {
 export const setLang = function (store, model) {
   service.rest("setlang", model).then((data) => {
     updated(store, data)
-    toastr.success(data.msg)
+    toastr.success()
   }).catch((err) => {
     toastr.error(err.message)
   })

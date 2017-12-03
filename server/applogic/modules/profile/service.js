@@ -3,6 +3,7 @@
 let logger 		= require("../../../core/logger")
 let config 		= require("../../../config")
 let C 	 		= require("../../../core/constants")
+let i18next = require ("i18next")
 
 //let _			= require("lodash")
 
@@ -46,7 +47,8 @@ module.exports = {
             doc.save()
             return this.toJSON(doc)
           } else {
-            // do not change existing language selection
+            logger.warn(ctx.t("server:langalreadyset"))
+            logger.warn(doc.locale)
           }
         })
           .then((json) => {

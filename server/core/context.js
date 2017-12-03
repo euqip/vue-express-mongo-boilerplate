@@ -78,6 +78,7 @@ class Context {
     ctx.user = req.user
     ctx.params = _.defaults({}, req.query, req.params, req.body)
     ctx.action = action
+    req.i18n.changeLanguage(req.user.locale)
 
     return ctx
   }
@@ -162,7 +163,6 @@ class Context {
 
     return newCtx
   }
-
 	/**
 	 * Return the response time in milliseconds
 	 *
@@ -211,6 +211,17 @@ class Context {
       throw this.errorBadRequest(C.ERR_MODEL_NOT_FOUND, errorMessage)
 
     return true
+  }
+	/**
+	 * Use the ctx.t to translate keys
+	 *
+	 * @param {string} Message
+	 * @returns
+	 *
+	 * @memberOf Context
+	 */
+  responseTranslation(message){
+    return this.t("server:" + message)
   }
 
 	/**
