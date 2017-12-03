@@ -1,5 +1,6 @@
 "use strict"
 
+import Vue from "vue"
 import toastr from "../../../core/toastr"
 import Service from "../../../core/service"
 import { LOAD, LOAD_MORE, ADD, UPDATE, VOTE, UNVOTE, REMOVE,

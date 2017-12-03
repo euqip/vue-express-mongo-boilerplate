@@ -4,7 +4,7 @@ let logger 		= require("../../../core/logger")
 let config 		= require("../../../config")
 let C 	 		= require("../../../core/constants")
 
-let _			= require("lodash")
+//let _			= require("lodash")
 
 let User 		= require("./models/user")
 
@@ -34,6 +34,24 @@ module.exports = {
         .then((json) => {
           return this.populateModels(json)
         })
+      }
+    },
+    setlang: {
+      permission: C.PERM_OWNER,
+      cache: false, // can't be cached, because it is unique for every account
+      handler(ctx) {
+        return User.findById(User.schema.methods.decodeID(ctx.user.code)).exec().then((doc) => {
+          if (ctx.params.locale !== null && ctx.params.locale !== doc.locale ){
+            doc.locale = ctx.params.locale
+            doc.save()
+            return this.toJSON(doc)
+          } else {
+            // do not change existing language selection
+          }
+        })
+          .then((json) => {
+            return this.populateModels(json)
+          })
       }
     }
   },

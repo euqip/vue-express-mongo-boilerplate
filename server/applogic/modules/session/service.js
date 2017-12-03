@@ -24,14 +24,16 @@ module.exports = {
 
   actions: {
 
-		// return my User model
+    // return my User model
+    // response to (get) /api/session/me
     me(ctx) {
       return Promise.resolve(ctx.user).then( (doc) => {
         return personService.toJSON(doc)
       })
     },
 
-		// return all online users
+    // return all online users
+    // response to (get) /api/session/onlineUsers
     onlineUsers(ctx) {
       return Promise.resolve().then(() => {
         return personService.toJSON(_.map(Sockets.userSockets, (s) => s.request.user))

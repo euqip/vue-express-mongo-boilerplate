@@ -74,21 +74,6 @@ module.exports = {
     mutation: `
 		`,
 
-    resolvers: {
-      Query: {
-				//users: "find",
-        person: "get"
-      },
-
-      Person: {
-        posts(person, args, context) {
-          let ctx = context.ctx
-          let postService = ctx.services("posts")
-          if (postService)
-            return postService.actions.find(ctx.copy(Object.assign(args, { author: person.code })))
-        }
-      }
-    }
   }
 
 }

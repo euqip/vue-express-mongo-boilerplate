@@ -51,7 +51,7 @@ export const searching = ({ commit }, text) => {
 
 export const changinglang = ({ commit }, text) => {
   commit(LANG, text)
-  i18next.changeLanguage (text)
+  i18next.changeLanguage(text)
 }
 
 export const loadingns = ({ commit }, text) => {

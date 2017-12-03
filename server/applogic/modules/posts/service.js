@@ -45,13 +45,13 @@ module.exports = {
         return ctx.queryPageSort(query).exec().then( (docs) => {
           return this.toJSON(docs)
         })
-				.then((json) => {
-  return this.populateModels(json)
-})
+        .then((json) => {
+          return this.populateModels(json)
+        })
       }
     },
 
-		// return a model by ID
+    // return a model by ID
     get: {
       cache: true, // if true, we don't increment the views!
       permission: C.PERM_PUBLIC,
@@ -61,9 +61,9 @@ module.exports = {
         return Post.findByIdAndUpdate(ctx.modelID, { $inc: { views: 1 } }).exec().then( (doc) => {
           return this.toJSON(doc)
         })
-				.then((json) => {
-  return this.populateModels(json)
-})
+        .then((json) => {
+          return this.populateModels(json)
+        })
       }
     },
 
@@ -78,16 +78,16 @@ module.exports = {
         })
 
         return post.save()
-				.then((doc) => {
-  return this.toJSON(doc)
-})
-				.then((json) => {
-  return this.populateModels(json)
-})
-				.then((json) => {
-  this.notifyModelChanges(ctx, "created", json)
-  return json
-})
+        .then((doc) => {
+          return this.toJSON(doc)
+        })
+        .then((json) => {
+          return this.populateModels(json)
+        })
+        .then((json) => {
+          this.notifyModelChanges(ctx, "created", json)
+          return json
+        })
       }
     },
 
@@ -98,26 +98,26 @@ module.exports = {
         this.validateParams(ctx)
 
         return this.collection.findById(ctx.modelID).exec()
-				.then((doc) => {
-  if (ctx.params.title != null)
-    doc.title = ctx.params.title
+        .then((doc) => {
+          if (ctx.params.title != null)
+            doc.title = ctx.params.title
 
-  if (ctx.params.content != null)
-    doc.content = ctx.params.content
+          if (ctx.params.content != null)
+            doc.content = ctx.params.content
 
-  doc.editedAt = Date.now()
-  return doc.save()
-})
-				.then((doc) => {
-  return this.toJSON(doc)
-})
-				.then((json) => {
-  return this.populateModels(json)
-})
-				.then((json) => {
-  this.notifyModelChanges(ctx, "updated", json)
-  return json
-})
+          doc.editedAt = Date.now()
+          return doc.save()
+        })
+        .then((doc) => {
+          return this.toJSON(doc)
+        })
+        .then((json) => {
+          return this.populateModels(json)
+        })
+        .then((json) => {
+          this.notifyModelChanges(ctx, "updated", json)
+          return json
+        })
       }
     },
 
@@ -127,13 +127,13 @@ module.exports = {
         ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
 
         return Post.remove({ _id: ctx.modelID })
-				.then(() => {
-  return ctx.model
-})
-				.then((json) => {
-  this.notifyModelChanges(ctx, "removed", json)
-  return json
-})
+        .then(() => {
+          return ctx.model
+        })
+        .then((json) => {
+          this.notifyModelChanges(ctx, "removed", json)
+          return json
+        })
       }
     },
 
@@ -141,65 +141,65 @@ module.exports = {
       ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
 
       return this.collection.findById(ctx.modelID).exec()
-			.then((doc) => {
-				// Check user is on voters
-  if (doc.voters.indexOf(ctx.user.id) !== -1)
-    throw ctx.errorBadRequest(C.ERR_ALREADY_VOTED, ctx.t("app:YouHaveAlreadyVotedThisPost"))
-  return doc
-})
-			.then((doc) => {
-				// Add user to voters
-  return Post.findByIdAndUpdate(doc.id, { $addToSet: { voters: ctx.user.id } , $inc: { votes: 1 }}, { "new": true })
-})
-			.then((doc) => {
-  return this.toJSON(doc)
-})
-			.then((json) => {
-  return this.populateModels(json)
-})
-			.then((json) => {
-  this.notifyModelChanges(ctx, "voted", json)
-  return json
-})
+      .then((doc) => {
+        // Check user is on voters
+        if (doc.voters.indexOf(ctx.user.id) !== -1)
+          throw ctx.errorBadRequest(C.ERR_ALREADY_VOTED, ctx.t("app:YouHaveAlreadyVotedThisPost"))
+        return doc
+      })
+      .then((doc) => {
+        // Add user to voters
+        return Post.findByIdAndUpdate(doc.id, { $addToSet: { voters: ctx.user.id } , $inc: { votes: 1 }}, { "new": true })
+      })
+      .then((doc) => {
+        return this.toJSON(doc)
+      })
+      .then((json) => {
+        return this.populateModels(json)
+      })
+      .then((json) => {
+        this.notifyModelChanges(ctx, "voted", json)
+        return json
+      })
     },
 
     unvote(ctx) {
       ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
 
       return this.collection.findById(ctx.modelID).exec()
-			.then((doc) => {
-				// Check user is on voters
-  if (doc.voters.indexOf(ctx.user.id) == -1)
-    throw ctx.errorBadRequest(C.ERR_NOT_VOTED_YET, ctx.t("app:YouHaveNotVotedThisPostYet"))
-  return doc
-})
-			.then((doc) => {
-				// Remove user from voters
-  return Post.findByIdAndUpdate(doc.id, { $pull: { voters: ctx.user.id } , $inc: { votes: -1 }}, { "new": true })
-})
-			.then((doc) => {
-  return this.toJSON(doc)
-})
-			.then((json) => {
-  return this.populateModels(json)
-})
-			.then((json) => {
-  this.notifyModelChanges(ctx, "unvoted", json)
-  return json
-})
+      .then((doc) => {
+        // Check user is on voters
+        if (doc.voters.indexOf(ctx.user.id) == -1)
+          throw ctx.errorBadRequest(C.ERR_NOT_VOTED_YET, ctx.t("app:YouHaveNotVotedThisPostYet"))
+        return doc
+      })
+      .then((doc) => {
+        // Remove user from voters
+        return Post.findByIdAndUpdate(doc.id, { $pull: { voters: ctx.user.id } , $inc: { votes: -1 }}, { "new": true })
+      })
+      .then((doc) => {
+        return this.toJSON(doc)
+      })
+      .then((json) => {
+        return this.populateModels(json)
+      })
+      .then((json) => {
+        this.notifyModelChanges(ctx, "unvoted", json)
+        return json
+      })
 
     }
 
   },
 
   methods: {
-		/**
-		 * Validate params of context.
-		 * We will call it in `create` and `update` actions
-		 *
-		 * @param {Context} ctx 			context of request
-		 * @param {boolean} strictMode 		strictMode. If true, need to exists the required parameters
-		 */
+    /**
+     * Validate params of context.
+     * We will call it in `create` and `update` actions
+     *
+     * @param {Context} ctx 			context of request
+     * @param {boolean} strictMode 		strictMode. If true, need to exists the required parameters
+     */
     validateParams(ctx, strictMode) {
       if (strictMode || ctx.hasParam("title"))
         ctx.validateParam("title").trim().notEmpty(ctx.t("app:PostTitleCannotBeEmpty")).end()
@@ -213,12 +213,12 @@ module.exports = {
 
   },
 
-	/**
-	 * Check the owner of model
-	 *
-	 * @param {any} ctx	Context of request
-	 * @returns	{Promise}
-	 */
+  /**
+   * Check the owner of model
+   *
+   * @param {any} ctx	Context of request
+   * @returns	{Promise}
+   */
   ownerChecker(ctx) {
     return new Promise((resolve, reject) => {
       ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
@@ -226,15 +226,15 @@ module.exports = {
       if (ctx.model.author.code == ctx.user.code || ctx.isAdmin())
         resolve()
       else
-				reject()
+        reject()
     })
   },
 
   init(ctx) {
-		// Fired when start the service
+    // Fired when start the service
     this.personService = ctx.services("persons")
 
-		// Add custom error types
+    // Add custom error types
     C.append([
       "ALREADY_VOTED",
       "NOT_VOTED_YET"
@@ -243,39 +243,39 @@ module.exports = {
 
   socket: {
     afterConnection(socket, io) {
-			// Fired when a new client connected via websocket
+      // Fired when a new client connected via websocket
     }
   },
 
   graphql: {
 
     query: `
-			posts(limit: Int, offset: Int, sort: String): [Post]
-			post(code: String): Post
-		`,
+      posts(limit: Int, offset: Int, sort: String): [Post]
+      post(code: String): Post
+    `,
 
     types: `
-			type Post {
-				code: String!
-				title: String
-				content: String
-				author: Person!
-				views: Int
-				votes: Int,
-				voters(limit: Int, offset: Int, sort: String): [Person]
-				createdAt: Timestamp
-				createdAt: Timestamp
-			}
-		`,
+      type Post {
+        code: String!
+        title: String
+        content: String
+        author: Person!
+        views: Int
+        votes: Int,
+        voters(limit: Int, offset: Int, sort: String): [Person]
+        createdAt: Timestamp
+        createdAt: Timestamp
+      }
+    `,
 
     mutation: `
-			postCreate(title: String!, content: String!): Post
-			postUpdate(code: String!, title: String, content: String): Post
-			postRemove(code: String!): Post
+      postCreate(title: String!, content: String!): Post
+      postUpdate(code: String!, title: String, content: String): Post
+      postRemove(code: String!): Post
 
-			postVote(code: String!): Post
-			postUnvote(code: String!): Post
-		`,
+      postVote(code: String!): Post
+      postUnvote(code: String!): Post
+    `,
 
     resolvers: {
       Query: {
@@ -294,79 +294,3 @@ module.exports = {
   }
 
 }
-
-/*
-## GraphiQL test ##
-
-# Find all posts
-query getPosts {
-  posts(sort: "-createdAt -votes", limit: 3) {
-    ...postFields
-  }
-}
-
-# Create a new post
-mutation createPost {
-  postCreate(title: "New post", content: "New post content") {
-    ...postFields
-  }
-}
-
-# Get a post
-query getPost($code: String!) {
-  post(code: $code) {
-    ...postFields
-  }
-}
-
-# Update an existing post
-mutation updatePost($code: String!) {
-  postUpdate(code: $code, content: "Modified post content") {
-    ...postFields
-  }
-}
-
-# vote the post
-mutation votePost($code: String!) {
-  postVote(code: $code) {
-    ...postFields
-  }
-}
-
-# unvote the post
-mutation unVotePost($code: String!) {
-  postUnvote(code: $code) {
-    ...postFields
-  }
-}
-
-# Remove a post
-mutation removePost($code: String!) {
-  postRemove(code: $code) {
-    ...postFields
-  }
-}
-
-
-
-fragment postFields on Post {
-    code
-    title
-    content
-    author {
-      code
-      fullName
-      username
-      avatar
-    }
-    views
-    votes
-  	voters {
-  	  code
-  	  fullName
-  	  username
-  	  avatar
-  	}
-}
-
-*/

@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
-require("nodejs-dashboard");
-require("./index");
+require("nodejs-dashboard")
+require("./index")

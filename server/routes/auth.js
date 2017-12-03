@@ -10,7 +10,7 @@ let passport 	= require("passport")
 let express 	= require("express")
 
 let mailer 		= require("../libs/mailer")
-let User 		= require("../models/user")
+let User 		  = require("../models/user")
 let Response 	= require("../core/response")
 
 /**
@@ -45,7 +45,7 @@ function respond(req, res, redirect, err) {
 
   }
   else if (redirect) {
-		// Redirect to the original url
+    // Redirect to the original url
     if (req.session.returnTo) {
       redirect = req.session.returnTo
       delete req.session.returnTo
@@ -70,7 +70,7 @@ module.exports = function(app, db) {
     }
 
     if (req.body.password) {
-			// Login with password
+      // Login with password
       passport.authenticate("local", function(err, user, info) {
         if (!user) {
           req.flash("error", { msg: info.message })
@@ -83,11 +83,11 @@ module.exports = function(app, db) {
             return respond(req, res, "/login")
           }
 
-					// Success authentication
-					// Update user's record with login time
+          // Success authentication
+          // Update user's record with login time
           req.user.lastLogin = Date.now()
           req.user.save(function() {
-						// Remove sensitive data before login
+            // Remove sensitive data before login
             req.user.password = undefined
             req.user.salt = undefined
 
@@ -99,7 +99,7 @@ module.exports = function(app, db) {
       })(req, res, next)
 
     } else {
-			// Passwordless login
+      // Passwordless login
       async.waterfall([
 
         function generateToken(done) {
@@ -112,8 +112,8 @@ module.exports = function(app, db) {
           let username = req.body.username
           User.findOne({
             $or: [
-							{ "username": username},
-							{ "email": username}
+              { "username": username},
+              { "email": username}
             ]
           }, function(err, user) {
             if (!user) {
@@ -121,7 +121,7 @@ module.exports = function(app, db) {
               return done("Invalid username or email: " + username)
             }
 
-						// Check that the user is not disabled or deleted
+            // Check that the user is not disabled or deleted
             if (user.status !== 1) {
               req.flash("error", { msg: req.t("UserDisabledOrDeleted")})
               return done(`User '${username} is disabled or deleted!`)
@@ -129,7 +129,7 @@ module.exports = function(app, db) {
 
 
             user.passwordLessToken = token
-						//user.passwordLessTokenExpires = Date.now() + 3600000; // expire in 1 hour
+            //user.passwordLessTokenExpires = Date.now() + 3600000; // expire in 1 hour
             user.save(function(err) {
               done(err, token, user)
             })
@@ -155,7 +155,7 @@ module.exports = function(app, db) {
               if (err)
                 req.flash("error", { msg: req.t("UnableToSendEmail", user) })
               else
-								req.flash("info", { msg: req.t("emailSentWithMagicLink", user) })
+                req.flash("info", { msg: req.t("emailSentWithMagicLink", user) })
 
               done(err)
             })
@@ -173,17 +173,17 @@ module.exports = function(app, db) {
 
   })
 
-	/**
-	 * Google authentication routes
-	 *
-	 * Available scopes: https://developers.google.com/+/web/api/rest/oauth#authorization-scopes
-	 */
+  /**
+   * Google authentication routes
+   *
+   * Available scopes: https://developers.google.com/+/web/api/rest/oauth#authorization-scopes
+   */
   authRouter.get("/google", passport.authenticate("google", {
     scope: "profile email"
-		/*scope: [
-			'https://www.googleapis.com/auth/plus.login',
-			'https://www.googleapis.com/auth/plus.profile.emails.read'
-		]*/
+    /*scope: [
+      'https://www.googleapis.com/auth/plus.login',
+      'https://www.googleapis.com/auth/plus.profile.emails.read'
+    ]*/
   }))
 
   authRouter.get("/google/callback", passport.authenticate("google", {
@@ -192,9 +192,9 @@ module.exports = function(app, db) {
     res.redirect("/")
   })
 
-	/**
-	 * Facebook authentication routes
-	 */
+  /**
+   * Facebook authentication routes
+   */
   authRouter.get("/facebook", passport.authenticate("facebook", {
     scope: ["email", "user_location"]
   }))
@@ -205,9 +205,9 @@ module.exports = function(app, db) {
     res.redirect("/")
   })
 
-	/**
-	 * Twitter authentication routes
-	 */
+  /**
+   * Twitter authentication routes
+   */
   authRouter.get("/twitter", passport.authenticate("twitter"))
 
   authRouter.get("/twitter/callback", passport.authenticate("twitter", {
@@ -216,9 +216,9 @@ module.exports = function(app, db) {
     res.redirect("/")
   })
 
-	/**
-	 * Github authentication routes
-	 */
+  /**
+   * Github authentication routes
+   */
   authRouter.get("/github", passport.authenticate("github", {
     scope: "user:email"
   }))
@@ -229,6 +229,6 @@ module.exports = function(app, db) {
     res.redirect("/")
   })
 
-	// Add router to app
+  // Add router to app
   app.use("/auth", authRouter)
 }

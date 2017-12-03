@@ -113,6 +113,6 @@
   "Dutch": "Néerlandais",
   "Hungarian": "Hongrois",
 
-  "Actions": "Menu"
-
+  "Actions": "Menu",
+    "updetedUserLang": "La langue de l'utilisateur est changée!"
 }

@@ -30,17 +30,22 @@
     methods :{
       changelanguage(language) {
        // send the change to vuex store, changinglang is one of the possible actions
-        this.changinglang(language)
+        console.log("lang-box change language: " + language)
+        let userprofile = this.profile
+        userprofile.locale = language
+        this.setLang(userprofile)
       },
- 			...mapActions("session", [
-        "changinglang"
-      ])
+      ...mapActions("profile", [
+        "setLang"])
 
     },
     computed: {
       ...mapGetters("session", [
         "lang"
-			])
+			]),
+      ...mapGetters("profile", [
+        "profile"
+      ])
     }
 
 	}

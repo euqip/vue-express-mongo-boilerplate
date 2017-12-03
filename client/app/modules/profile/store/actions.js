@@ -1,6 +1,6 @@
 "use strict"
 
-import Vue from "vue"
+//import Vue from "vue"
 import toastr from "../../../core/toastr"
 
 //export const NAMESPACE = "/api/profile"
@@ -17,10 +17,14 @@ export const getProfile = function ({ commit }) {
   })
 }
 
-export const setLang = function ({ commit }) {
-  service.rest("post").then((data) => {
-    commit("UPDATE", data)
+export const setLang = function (store, model) {
+  service.rest("setlang", model).then((data) => {
+    updated(store, data)
+    toastr.success(data.msg)
   }).catch((err) => {
     toastr.error(err.message)
   })
+}
+export const updated = ({ commit }, data) => {
+  //commit(UPDATE, row)
 }

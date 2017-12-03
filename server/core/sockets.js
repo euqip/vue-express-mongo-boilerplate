@@ -15,55 +15,55 @@ let MongoStore   = require("connect-mongo")(session)
 let Services // circular references
 
 let self = {
-	/**
-	 * IO server instance
-	 * We will assign it in `init`
-	 */
+  /**
+   * IO server instance
+   * We will assign it in `init`
+   */
   IO: null,
 
-	/**
-	 * Mongo store instance.
-	 * We will assign it in `init`
-	 */
+  /**
+   * Mongo store instance.
+   * We will assign it in `init`
+   */
   mongoStore: null,
 
-	/**
-	 * IO namespaces
-	 * @type {Object}
-	 */
+  /**
+   * IO namespaces
+   * @type {Object}
+   */
   namespaces: {},
 
-	/**
-	 * List of logged in online users/sockets
-	 * @type {Array}
-	 */
+  /**
+   * List of logged in online users/sockets
+   * @type {Array}
+   */
   userSockets: [],
 
-	/**
-	 * Init Socket.IO module and load socket handlers
-	 * from applogic
-	 *
-	 * @param  {Object} app Express App
-	 * @param  {Object} db  MongoDB connection
-	 */
+  /**
+   * Init Socket.IO module and load socket handlers
+   * from applogic
+   *
+   * @param  {Object} app Express App
+   * @param  {Object} db  MongoDB connection
+   */
   init(app, db) {
-		// Create a MongoDB storage object
+    // Create a MongoDB storage object
     self.mongoStore = new MongoStore({
       mongooseConnection: db.connection,
       collection        : config.sessions.collection,
       autoReconnect     : true
     })
 
-		// Create a new HTTP server
+    // Create a new HTTP server
     let server = http.createServer(app)
 
-		// Create a new Socket.io server
+    // Create a new Socket.io server
     let IO = socketio(server)
 
     app.io  = self
     self.IO = IO
 
-		// Add common handler to the root namespace
+    // Add common handler to the root namespace
     self.initNameSpace("/", IO, self.mongoStore)
     IO.on("connection", function (socket) {
       socket.on("welcome", function(msg) {
@@ -77,13 +77,13 @@ let self = {
     return server
   },
 
-	/**
-	 * Create a new Socket.IO namespace
-	 *
-	 * @param {any} ns		name of namespace
-	 * @param {any} role	required role for namespace
-	 * @returns
-	 */
+  /**
+   * Create a new Socket.IO namespace
+   *
+   * @param {any} ns		name of namespace
+   * @param {any} role	required role for namespace
+   * @returns
+   */
   addNameSpace(ns, role) {
     let io = self.namespaces[ns]
     if (io == null) {
@@ -94,21 +94,21 @@ let self = {
     return io
   },
 
-	/**
-	 * Initialize IO namespace. Apply authentication middleware
-	 *
-	 * @param  {String} ns         		Name of namespace
-	 * @param  {Object} io         		IO instance
-	 * @param  {Object} mongoStore 		Mongo Session store
-	 * @param  {Object} roleRequired 	required role
-	 */
+  /**
+   * Initialize IO namespace. Apply authentication middleware
+   *
+   * @param  {String} ns         		Name of namespace
+   * @param  {Object} io         		IO instance
+   * @param  {Object} mongoStore 		Mongo Session store
+   * @param  {Object} roleRequired 	required role
+   */
   initNameSpace(ns, io, mongoStore, roleRequired) {
 
-		// Intercept Socket.io's handshake request
+    // Intercept Socket.io's handshake request
     io.use(function (socket, next) {
-			// Use the 'cookie-parser' module to parse the request cookies
+      // Use the 'cookie-parser' module to parse the request cookies
       cookieParser(config.sessionSecret)(socket.request, {}, function (err) {
-				// Get the session id from the request cookies
+        // Get the session id from the request cookies
         let sessionId = socket.request.signedCookies ? socket.request.signedCookies[config.sessions.name] : undefined
 
         if (!sessionId) {
@@ -116,19 +116,19 @@ let self = {
           return next(new Error("sessionId was not found in socket.request"), false)
         }
 
-				// Use the mongoStorage instance to get the Express session information
+        // Use the mongoStorage instance to get the Express session information
         mongoStore.get(sessionId, function (err, session) {
           if (err) return next(err, false)
           if (!session) return next(new Error("session was not found for " + sessionId), false)
 
-					// Set the Socket.io session information
+          // Set the Socket.io session information
           socket.request.session = session
 
-					// Set the socketID to session
+          // Set the socketID to session
           session.socket = socket.id
           mongoStore.set(sessionId, session)
 
-					// Use Passport to populate the user details
+          // Use Passport to populate the user details
           passport.initialize()(socket.request, {}, function () {
             passport.session()(socket.request, {}, function () {
               if (socket.request.user) {
@@ -143,7 +143,7 @@ let self = {
                   }
                 }
                 else
-									next(null, true)
+                  next(null, true)
 
               } else {
                 logger.warn("Websocket user is not authenticated!")
@@ -155,7 +155,7 @@ let self = {
       })
     })
 
-		// Add an event listener to the 'connection' event
+    // Add an event listener to the 'connection' event
     io.on("connection", function (socket) {
       if (!Services)
         Services = require("./services")
@@ -174,14 +174,14 @@ let self = {
     self.namespaces[ns] = io
   },
 
-	/**
-	 * Emit a message to a namespace
-	 *
-	 * @param {any} namespace
-	 * @param {any} command
-	 * @param {any} data
-	 * @returns
-	 */
+  /**
+   * Emit a message to a namespace
+   *
+   * @param {any} namespace
+   * @param {any} command
+   * @param {any} data
+   * @returns
+   */
   nsEmit(namespace, command, data) {
     if (self.namespaces[namespace]) {
       self.namespaces[namespace].emit(command, data)
@@ -189,30 +189,30 @@ let self = {
     }
   },
 
-	/**
-	 * Add a socket to the online users list
-	 *
-	 * @param {any} socket
-	 */
+  /**
+   * Add a socket to the online users list
+   *
+   * @param {any} socket
+   */
   addOnlineUser(socket) {
     self.removeOnlineUser(socket)
     self.userSockets.push(socket)
   },
 
-	/**
-	 * Remove a socket from the online users
-	 *
-	 * @param {any} socket
-	 */
+  /**
+   * Remove a socket from the online users
+   *
+   * @param {any} socket
+   */
   removeSocket(socket) {
     _.remove(self.userSockets, function(s) { return s == socket })
   },
 
-	/**
-	 * Remove sockets of user from the online users
-	 *
-	 * @param {any} socket
-	 */
+  /**
+   * Remove sockets of user from the online users
+   *
+   * @param {any} socket
+   */
   removeOnlineUser(socket) {
     _.remove(self.userSockets, function(s) { return s.request.user._id == socket.request.user._id })
   }
