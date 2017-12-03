@@ -49,6 +49,8 @@ module.exports = {
           } else {
             logger.warn(ctx.t("server:langalreadyset"))
             logger.warn(doc.locale)
+            ctx.throwError = ctx.t("server:langalreadyset")
+            return this.toJSON(doc)
           }
         })
           .then((json) => {

@@ -78,6 +78,7 @@ class Context {
     ctx.user = req.user
     ctx.params = _.defaults({}, req.query, req.params, req.body)
     ctx.action = action
+    // prepare to work and respond with user
     req.i18n.changeLanguage(req.user.locale)
 
     return ctx
@@ -211,6 +212,9 @@ class Context {
       throw this.errorBadRequest(C.ERR_MODEL_NOT_FOUND, errorMessage)
 
     return true
+  }
+  throwError(errorMessage) {
+    throw this.errorBadRequest(C.ALREADY_SET, errorMessage)
   }
 	/**
 	 * Use the ctx.t to translate keys

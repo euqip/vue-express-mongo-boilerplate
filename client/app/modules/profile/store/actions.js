@@ -3,7 +3,6 @@
 //import Vue from "vue"
 import toastr from "../../../core/toastr"
 
-//export const NAMESPACE = "/api/profile"
 let NAMESPACE = "/api/profile"
 
 import Service from "../../../core/service"
@@ -26,5 +25,5 @@ export const setLang = function (store, model) {
   })
 }
 export const updated = ({ commit }, data) => {
-  //commit(UPDATE, row)
+  commit("UPDATE", data)
 }

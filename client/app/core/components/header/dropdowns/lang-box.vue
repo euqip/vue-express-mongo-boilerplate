@@ -33,10 +33,15 @@
         console.log("lang-box change language: " + language)
         let userprofile = this.profile
         userprofile.locale = language
+        // update user profile to new language
         this.setLang(userprofile)
+        // Align UI and session to the new language
+        this.changinglang(language)
       },
       ...mapActions("profile", [
-        "setLang"])
+        "setLang"]),
+      ...mapActions("session", [
+        "changinglang"])
 
     },
     computed: {

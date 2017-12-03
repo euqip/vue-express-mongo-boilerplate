@@ -67,12 +67,13 @@ module.exports = {
   json(res, data, err, errMessage) {
     let response = {}
     let errmsg =""
+    if (errMessage) {
+      errmsg = errMessage.message || errMessage
+      response.error.message = ctx.responseTranslation(errmsg)
+    }
     if (err) {
       response.error  = err
       response.status = err.status || 500
-      if (errMessage)
-        errmsg = errMessage.message || errMessage
-      response.error.message = ctx.responseTranslation (errmsg)
 
       response.data = data
 
@@ -81,7 +82,6 @@ module.exports = {
 
     response.status = 200
     response.data   = data
-    //response.msg = i18next.t("updetedUserLang")
 
     return res ? res.json(response): response
   }
