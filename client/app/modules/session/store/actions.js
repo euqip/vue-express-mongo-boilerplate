@@ -3,6 +3,7 @@
 import Vue from "vue"
 import axios from "axios"
 import i18next from "i18next"
+import moment from "moment"
 
 import { ADD_MESSAGE, ADD_NOTIFICATION, SET_USER, SEARCH, LANG } from "./types"
 import Vuex from "vuex"
@@ -27,6 +28,7 @@ export const getSessionUser = ({ commit }) => {
       if (lng !== undefined) {
         commit(LANG,lng)
         i18next.changeLanguage (lng)
+        moment.locale(lng)
       }
     }
     else

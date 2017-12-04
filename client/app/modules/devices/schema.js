@@ -6,11 +6,12 @@ import { validators } from "vue-form-generator"
 import { find } from "lodash"
 
 let _ = Vue.prototype._
-
+//moment.locale("en")
 module.exports = {
   // these translations are not dynamic
+  // they are reported to the vue component instead of the schema
   id: "devices",
-  title: _("devices:Devices"),
+  title: "devices:Devices",
 
   table: {
     multiSelect: true,
@@ -163,10 +164,10 @@ module.exports = {
   },
 
   resources: {
-    addCaption: _("devices:AddNewDevice"),
-    saveCaption: _("Save"),
-    cloneCaption: _("Clone"),
-    deleteCaption: _("Delete")
+    addCaption: "devices:AddNewDevice",
+    saveCaption: "Save",
+    cloneCaption: "Clone",
+    deleteCaption: "Delete"
   }
 
 }

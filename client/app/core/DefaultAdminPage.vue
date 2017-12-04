@@ -16,23 +16,23 @@
             .btn-group
               button.btn.btn-primary(@click="saveModel", :disabled="!enabledSave")
                 i.px-1.fa.fa-save
-                | {{ schema.resources.saveCaption || _("Save") }}
+                | {{ _(schema.resources.saveCaption) || _("Save") }}
               button.btn.btn-outline-secondary(@click="cloneModel", :disabled="!enabledClone")
                 i.px-1.fa.fa-copy
-                | {{ schema.resources.cloneCaption || _("Clone") }}
+                | {{ _(schema.resources.cloneCaption) || _("Clone") }}
               button.btn.btn-danger(@click="deleteModel", :disabled="!enabledDelete")
                 i.px-1.fa.fa-trash
-                | {{ schema.resources.deleteCaption || _("Delete") }}
+                | {{ _(schema.resources.deleteCaption) || _("Delete") }}
               button.btn.btn-primary(@click="cancelEdit")
                 i.px-1.fa.fa-save
-                | {{ schema.resources.cancelCaption || _("Cancel") }}
+                | {{ _(schema.resources.cancelCaption) || _("Cancel") }}
     .card-header
-      h1 {{ schema.title }}
+      h1 {{ schema.title | i18n }}
       .d-flex.justify-content-end
         .mr-auto.p-2(v-if="enabledNew")
           button.btn.btn.outline.secondary(@click="newModel")
             i.px-1.fa.fa-plus
-            | {{ schema.resources.addCaption || _("devices:Add") }}
+            | {{ _(schema.resources.addCaption) || _("devices:Add") }}
         .p-2 {{ _("devices:SelectedOfAll", { selected: selected.length, all: rows.length } ) }}
     .card-body
       data-table(:schema="schema.table", :rows="rows", :order="order", :search="search", :selected="selected", :select="select", :select-all="selectAll")
