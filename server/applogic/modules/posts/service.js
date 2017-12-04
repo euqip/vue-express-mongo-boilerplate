@@ -56,7 +56,7 @@ module.exports = {
       cache: true, // if true, we don't increment the views!
       permission: C.PERM_PUBLIC,
       handler(ctx) {
-        ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
+        ctx.assertModelIsExist(ctx.t("posts:PostNotFound"))
 
         return Post.findByIdAndUpdate(ctx.modelID, { $inc: { views: 1 } }).exec().then( (doc) => {
           return this.toJSON(doc)
@@ -85,7 +85,7 @@ module.exports = {
           return this.populateModels(json)
         })
         .then((json) => {
-          this.notifyModelChanges(ctx, "created", json)
+          this.notifyModelChanges(ctx, "app:created", json)
           return json
         })
       }
@@ -94,7 +94,7 @@ module.exports = {
     update: {
       permission: C.PERM_OWNER,
       handler(ctx) {
-        ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
+        ctx.assertModelIsExist(ctx.t("posts:PostNotFound"))
         this.validateParams(ctx)
 
         return this.collection.findById(ctx.modelID).exec()
@@ -115,7 +115,7 @@ module.exports = {
           return this.populateModels(json)
         })
         .then((json) => {
-          this.notifyModelChanges(ctx, "updated", json)
+          this.notifyModelChanges(ctx, "app:updated", json)
           return json
         })
       }
@@ -124,27 +124,27 @@ module.exports = {
     remove: {
       permission: C.PERM_OWNER,
       handler(ctx) {
-        ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
+        ctx.assertModelIsExist(ctx.t("posts:PostNotFound"))
 
         return Post.remove({ _id: ctx.modelID })
         .then(() => {
           return ctx.model
         })
         .then((json) => {
-          this.notifyModelChanges(ctx, "removed", json)
+          this.notifyModelChanges(ctx, "app:removed", json)
           return json
         })
       }
     },
 
     vote(ctx) {
-      ctx.assertModelIsExist(ctx.t("app:PostNotFound"))
+      ctx.assertModelIsExist(ctx.t("posts:PostNotFound"))
 
       return this.collection.findById(ctx.modelID).exec()
       .then((doc) => {
         // Check user is on voters
         if (doc.voters.indexOf(ctx.user.id) !== -1)
-          throw ctx.errorBadRequest(C.ERR_ALREADY_VOTED, ctx.t("app:YouHaveAlreadyVotedThisPost"))
+          throw ctx.errorBadRequest(C.ERR_ALREADY_VOTED, ctx.t("posts:YouHaveAlreadyVotedThisPost"))
         return doc
       })
       .then((doc) => {
@@ -158,7 +158,7 @@ module.exports = {
         return this.populateModels(json)
       })
       .then((json) => {
-        this.notifyModelChanges(ctx, "voted", json)
+        this.notifyModelChanges(ctx, ctx.t("voted"), json)
         return json
       })
     },

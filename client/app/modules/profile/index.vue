@@ -37,12 +37,12 @@
                 i.btn.fa.fa-envelope(:title="_('profile:Email')")
                 span.caption.text-muted.w-25 {{"profile:Email" | i18n}}:
                 span.value {{ profile.email }}
-            div.d-flex.flex-row.nav-item.dropdown
-              .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            div.d-flex.flex-row
                 i.btn.fa.fa-language(:title="_('profile:locale')")
                 span.caption.text-muted.w-25 {{"profile:locale" | i18n}}:
+                .noarrow(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                  span.value {{ profile.locale }}
                   langBox.dropdown-menu
-                span.value {{ profile.locale }}
 
             hr.full
             .row

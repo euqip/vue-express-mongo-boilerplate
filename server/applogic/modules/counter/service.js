@@ -70,7 +70,7 @@ module.exports = {
       if (ctx.params.value) {
         return this.changeCounter(ctx, parseInt(ctx.params.value))
       } else {
-        throw new Error("Missing value from request!")
+        throw new Error(ctx.t("Missingvaluefromrequest"))
       }
     },
 
@@ -139,8 +139,8 @@ module.exports = {
 		 */
     changeCounter(ctx, value) {
       store.counter = value
-      logger.info(ctx.user.username + " changed the counter to ", store.counter)
-      this.notifyModelChanges(ctx, "changed", store.counter)
+      logger.info(ctx.user.username + ctx.t("counter:changedcounterto"), store.counter)
+      this.notifyModelChanges(ctx, ctx.t("counter:changed"), store.counter)
 
       return Promise.resolve(store.counter)
     }
