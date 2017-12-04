@@ -55,7 +55,6 @@ export const changinglang = ({ commit }, text) => {
 }
 
 export const loadingns = ({ commit }, text) => {
-  commit(LANG, text)
   i18next.loadNamespaces (text)
 }
 

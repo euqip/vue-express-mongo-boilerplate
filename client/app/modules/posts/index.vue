@@ -68,7 +68,6 @@
   //import postvotes from "./postvotes"
   import { cloneDeep } from "lodash"
   import { validators, schema as schemaUtils } from "vue-form-generator"
-  //i18next.loadNamespaces('posts', (err, t) => { /* ... */ })
 
 
   import { mapGetters, mapActions } from "vuex"
@@ -192,6 +191,9 @@
         "removeRow",
         "updated",
         "removed"
+      ]),
+      ...mapActions("session", [
+        "loadingns"
       ]),
 
       markdown(content) {

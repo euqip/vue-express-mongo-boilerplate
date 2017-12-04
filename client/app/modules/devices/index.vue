@@ -17,10 +17,12 @@
       AdminPage: AdminPage
     },
 
-    computed: mapGetters("devices", [
+    computed: {
+      ...mapGetters("devices", [
       "devices",
       "selected"
-    ]),
+    ])
+    },
 
     /**
      * Set page schema as data property

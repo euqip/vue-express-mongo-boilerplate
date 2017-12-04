@@ -4,7 +4,7 @@
       tr
         th(v-if="schema.multiSelect", @click="selectAll")
           i.px-1.fa.fa-square-o
-        th.sortable(v-for="col in schema.columns", :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field === order.field, 'desc': col.field === order.field && order.direction === -1 }") {{ col.title }}
+        th.sortable(v-for="col in schema.columns", :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field === order.field, 'desc': col.field === order.field && order.direction === -1 }") {{ col.title | i18n}}
 
     tbody
       tr(v-for="row in filteredOrderedRows", @click="select($event, row)", :class="{'text-muted': getRowClasses(row).inactive}")

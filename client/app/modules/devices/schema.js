@@ -8,15 +8,15 @@ import { find } from "lodash"
 let _ = Vue.prototype._
 
 module.exports = {
-
+  // these translations are not dynamic
   id: "devices",
-  title: _("Devices"),
+  title: _("devices:Devices"),
 
   table: {
     multiSelect: true,
     columns: [
       {
-        title: _("devices:ID"),
+        title: "devices:ID",
         field: "code",
         align: "left",
         formatter(value, model) {
@@ -24,7 +24,7 @@ module.exports = {
         }
       },
       {
-        title: _("devices:Type"),
+        title: "devices:Type",
         field: "type",
         formatter(value) {
           let type = find(deviceTypes, (type) => type.id == value)
@@ -32,15 +32,15 @@ module.exports = {
         }
       },
       {
-        title: _("devices:Address"),
+        title: "devices:Address",
         field: "address"
       },
       {
-        title: _("devices:Owner"),
+        title: "devices:Owner",
         field: "name"
       },
       {
-        title: _("devices:Status"),
+        title: "devices:Status",
         field: "status",
         formatter(value, model, col) {
           return value ? "<i class='fa fa-check'/>" : "<i class='fa fa-ban'/>"
@@ -48,7 +48,7 @@ module.exports = {
         align: "center"
       },
       {
-        title: _("devices:LastCommunication"),
+        title: "devices:LastCommunication",
         field: "lastCommunication",
         formatter(value) {
           return moment(value).fromNow()
@@ -68,7 +68,7 @@ module.exports = {
     fields: [
       {
         type: "label",
-        label: _("devices:ID"),
+        label: "devices:ID",
         model: "code",
         readonly: true,
         disabled: true,
@@ -77,12 +77,12 @@ module.exports = {
           if (model.code)
             return model.code
           else
-            return _("devices:willBeGenerated")
+            return "devices:willBeGenerated"
         }
       },
       {
         type: "select",
-        label: _("devices:Type"),
+        label: "devices:Type",
         model: "type",
         required: true,
         values: deviceTypes,
@@ -92,16 +92,16 @@ module.exports = {
       },
       {
         type: "input",
-        label: _("devices:Name"),
+        label: "devices:Name",
         model: "name",
         featured: true,
         required: true,
-        placeholder: _("devices:DeviceName"),
+        placeholder: "devices:DeviceName",
         validator: validators.string
       },
       {
         type: "input",
-        label: _("devices:Description"),
+        label: "devices:Description",
         model: "description",
         featured: false,
         required: false,
@@ -109,14 +109,14 @@ module.exports = {
       },
       {
         type: "input",
-        label: _("devices:Address"),
+        label: "devices:Address",
         model: "address",
-        placeholder: _("devices:AddressOfDevice"),
+        placeholder: "devices:AddressOfDevice",
         validator: validators.string,
       },
       {
         type: "label",
-        label: _("devices:LastCommunication"),
+        label: "devices:LastCommunication",
         model: "lastCommunication",
         get(model) {
           return model && model.lastCommunication ? moment(model.lastCommunication).fromNow() : "-"
@@ -124,12 +124,12 @@ module.exports = {
       },
       {
         type: "switch",
-        label: _("devices:Status"),
+        label: "devices:Status",
         model: "status",
         multi: true,
         default: 1,
-        textOn: _("devices:Active"),
-        textOff: _("devices:Inactive"),
+        textOn: "devices:Active",
+        textOff: "devices:Inactive",
         valueOn: 1,
         valueOff: 0
       }
