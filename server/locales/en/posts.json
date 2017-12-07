@@ -31,9 +31,9 @@
   "EditPost": "EditPost",
   "DeletePost": "DeletePost",
   "Voters": "Voters",
-  "Title": "Titre",
-  "TitleOfPost": "Titre du message",
-  "Content": "Contenu",
-  "ContentOfPost": "Conteu du message"
+  "Title": "Title",
+  "TitleOfPost": "Post title",
+  "Content": "Content",
+  "ContentOfPost": "Write here post content"
 
 }

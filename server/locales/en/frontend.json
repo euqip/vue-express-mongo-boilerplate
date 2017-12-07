@@ -9,7 +9,7 @@
 	"with": "with",
 
 	"GoBackTo": "Go back to",
-	"homepage": "homepage",
+	"homepage": "home page",
 
 	"UsernameOrEmail": "Username or e-mail:",
 	"YourUsernameOrEmailAddress": "Your username or e-mail address",
@@ -85,6 +85,8 @@
 	"mailSubjectPasswordChanged": "✔ Your password has been changed on {{app.title}}",
 	"emailSentWithMagicLink": "An email has been sent to {{email}} with magic link. Please check your spam folder if it does not arrive.",
 	"emailSentVerifyLink": "Please check your email to verify your account. Thanks for signing up!",
-	"emailSentPasswordResetLink": "An email has been sent to {{email}} with further instructions."
-	
+	"emailSentPasswordResetLink": "An email has been sent to {{email}} with further instructions.",
+
+
+  "voted": "voted"
 }

@@ -14,7 +14,7 @@
   "Title": "Titre",
   "TitleOfPost": "Titre du message",
   "Content": "Contenu",
-  "ContentOfPost": "Conteu du message",
+  "ContentOfPost": "Contenu du message",
   "LoadMore": "Lire plus...",
 
   "PostAdded": "Article ajouté",
@@ -28,5 +28,7 @@
   "PostNameUnvoted": "Article '{{data.title}}' unvoted par {{user.fullName}}!",
   "PostNotFound": "Article non trouvé",
 
-  "reachedend": "Fin de la liste."
+  "reachedend": "Fin de la liste.",
+    "PostTitleCannotBeEmpty": "Le titre doit être présent",
+    "PostContentCannotBeEmpty": "PostCoLe contenu ne peut être vide"
 }

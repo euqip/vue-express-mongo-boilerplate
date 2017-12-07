@@ -1,7 +1,7 @@
 <template lang="pug">
   .container-fluid.mr-5.px-0
 
-    h1 {{ _('posts:Posts') }}
+    h1 {{ 'posts:Posts' | i18n }}
 
     .text-center
       div( role = "group" style= "position: relative")
@@ -106,7 +106,7 @@
         schema: {
           fields: [
             {
-              type: "text",
+              type: "input",
               label: this._("posts:Title"),
               model: "title",
               featured: true,

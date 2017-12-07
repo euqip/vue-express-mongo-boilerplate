@@ -1,6 +1,7 @@
 {
-	"Save": "Save",
-	"Cancel": "Cancel",
+  "Add": "Add",
+  "Save": "Save",
+  "Cancel": "Cancel",
 	"Clone": "Clone",
 	"Delete": "Delete",
 	"CreatedAgoByName": "Created {{ago}} by {{name}}",
@@ -16,21 +17,6 @@
 
 	"Search3dots": "Search...",
 
-	"Hot": "Hot",
-	"MostViewed": "Most viewed",
-	"New": "New",
-	"NewPost": "New post",
-	"AllPosts": "All posts",
-	"MyPosts": "My posts",
-	"ViewsCount": " Views: {{count}}",
-	"EditPost": "Edit post",
-	"DeletePost": "Delete post",
-	"Title": "Title",
-	"TitleOfPost": "Title of post",
-	"Content": "Content",
-	"ContentOfPost": "Content of post",
-    "Voters": "Voters",
-    "LoadMore": "Load more...",
 
 	"InvalidCode": "Invalid code!",
 

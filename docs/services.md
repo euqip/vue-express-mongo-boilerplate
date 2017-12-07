@@ -245,10 +245,10 @@ Example service to handle `posts` collection from DB.
 		 */
 		validateParams(ctx, strictMode) {
 			if (strictMode || ctx.hasParam("title"))
-				ctx.validateParam("title").trim().notEmpty(ctx.t("app:PostTitleCannotBeEmpty")).end();
+				ctx.validateParam("title").trim().notEmpty(ctx.t("posts:PostTitleCannotBeEmpty")).end();
 
 			if (strictMode || ctx.hasParam("content"))
-				ctx.validateParam("content").trim().notEmpty(ctx.t("app:PostContentCannotBeEmpty")).end();
+				ctx.validateParam("content").trim().notEmpty(ctx.t("posts:PostContentCannotBeEmpty")).end();
 
 			if (ctx.hasValidationErrors())
 				throw ctx.errorBadRequest(C.ERR_VALIDATION_ERROR, ctx.validationErrors);
@@ -264,7 +264,7 @@ Example service to handle `posts` collection from DB.
 	 */
 	ownerChecker(ctx) {
 		return new Promise((resolve, reject) => {
-			ctx.assertModelIsExist(ctx.t("app:PostNotFound"));
+			ctx.assertModelIsExist(ctx.t("posts:PostNotFound"));
 
 			if (ctx.model.author.code == ctx.user.code || ctx.isAdmin())
 				resolve();

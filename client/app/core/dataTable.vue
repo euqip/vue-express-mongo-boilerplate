@@ -14,7 +14,7 @@
         td(v-for="col in schema.columns", :class="getCellClasses(row, col)")
           span(v-html="getCellValue(row, col)")
           span.labels(v-if="col.labels != null")
-            .label(v-for="label in col.labels(row)", :class="'label-' + label.type") {{ label.caption | i18n }}
+            .label(v-for="label in col.labels(row)", :class="'label-' + label.type") {{ label.caption }}
     tfoot
         tr
           td

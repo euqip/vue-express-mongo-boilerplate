@@ -1,5 +1,6 @@
 {
-  "devices":"Devices",
+  "Devices": "Devices",
+  "devices": "Devices",
   "DeviceAdded": "Device added",
 	"DeviceUpdated": "Device updated",
 	"DeviceDeleted": "Device deleted",

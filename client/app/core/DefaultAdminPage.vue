@@ -32,8 +32,8 @@
         .mr-auto.p-2(v-if="enabledNew")
           button.btn.btn.outline.secondary(@click="newModel")
             i.px-1.fa.fa-plus
-            | {{ _(schema.resources.addCaption) || _("devices:Add") }}
-        .p-2 {{ _("devices:SelectedOfAll", { selected: selected.length, all: rows.length } ) }}
+            | {{ _(schema.resources.addCaption) || _("Add") }}
+        .p-2 {{ _("SelectedOfAll", { selected: selected.length, all: rows.length } ) }}
     .card-body
       data-table(:schema="schema.table", :rows="rows", :order="order", :search="search", :selected="selected", :select="select", :select-all="selectAll")
       // modal tut: https://adamwathan.me/2016/01/04/composing-reusable-modal-dialogs-with-vuejs/

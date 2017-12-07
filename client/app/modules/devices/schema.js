@@ -69,7 +69,7 @@ module.exports = {
     fields: [
       {
         type: "label",
-        label: "devices:ID",
+        label: _("devices:ID"),
         model: "code",
         readonly: true,
         disabled: true,
@@ -83,7 +83,7 @@ module.exports = {
       },
       {
         type: "select",
-        label: "devices:Type",
+        label: _("devices:Type"),
         model: "type",
         required: true,
         values: deviceTypes,
@@ -93,7 +93,7 @@ module.exports = {
       },
       {
         type: "input",
-        label: "devices:Name",
+        label: _("devices:Name"),
         model: "name",
         featured: true,
         required: true,
@@ -102,7 +102,7 @@ module.exports = {
       },
       {
         type: "input",
-        label: "devices:Description",
+        label: _("devices:Description"),
         model: "description",
         featured: false,
         required: false,
@@ -110,14 +110,14 @@ module.exports = {
       },
       {
         type: "input",
-        label: "devices:Address",
+        label: _("devices:Address"),
         model: "address",
         placeholder: "devices:AddressOfDevice",
         validator: validators.string,
       },
       {
         type: "label",
-        label: "devices:LastCommunication",
+        label: _("devices:LastCommunication"),
         model: "lastCommunication",
         get(model) {
           return model && model.lastCommunication ? moment(model.lastCommunication).fromNow() : "-"
@@ -125,12 +125,12 @@ module.exports = {
       },
       {
         type: "switch",
-        label: "devices:Status",
+        label: _("devices:Status"),
         model: "status",
         multi: true,
         default: 1,
-        textOn: "devices:Active",
-        textOff: "devices:Inactive",
+        textOn: _("devices:Active"),
+        textOff: _("devices:Inactive"),
         valueOn: 1,
         valueOff: 0
       }
