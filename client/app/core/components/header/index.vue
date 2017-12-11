@@ -24,7 +24,7 @@
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-    i18nextNamespace: "header",
+    // i18nextNamespace: "header",
 		computed: mapGetters("session", [
 			"me",
 			"notifications",

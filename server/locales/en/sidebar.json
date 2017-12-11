@@ -9,5 +9,7 @@
   "profile": "profile",
   "Main": "Main",
   "PROFILE": "Profile",
-  "Settings": "Settings"
+  "Settings": "Settings",
+    "Users": "Users",
+    "login": "login"
 }

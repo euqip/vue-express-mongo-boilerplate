@@ -5,20 +5,23 @@
 
 module.exports = {
   "sidebarmenu": [
-    { "id": 0, "itype": "title", "txt": "sidebar:Main", "icon": "", "uri": "" },
-    { "id": 1, "itype": "route", "txt": "sidebar:Home", "icon": "fa-home", "uri": "/" },
-    { "id": 2, "itype": "route", "txt": "sidebar:Counter", "icon": "fa-tasks", "uri": "/counter" },
-    { "id": 3, "itype": "route", "txt": "sidebar:Devices", "icon": "fa-tablet", "uri": "/devices" },
-    { "id": 4, "itype": "route", "txt": "sidebar:Posts", "icon": "fa-comments", "uri": "/posts" },
-    { "id": 5, "itype": "route", "txt": "sidebar:Profile", "icon": "fa-user", "uri": "/profile" },
-    { "id": 6, "itype": "title", "txt": "sidebar:Profile", "icon": "", "uri": "" },
-    { "id": 7, "itype": "link" , "txt": "sidebar:Logout", "icon": "fa-sign-out", "uri": "/logout" },
+    { "id": 0, "itype": "title", "txt": "sidebar:Main", "icon": "", "role": "user", "uri": "" },
+    { "id": 1, "itype": "route", "txt": "sidebar:Home", "icon": "fa-home", "role": "user", "uri": "/" },
+    { "id": 2, "itype": "route", "txt": "sidebar:Counter", "icon": "fa-tasks", "role": "user", "uri": "/counter" },
+    { "id": 3, "itype": "route", "txt": "sidebar:Devices", "icon": "fa-tablet", "role": "user", "uri": "/devices" },
+    { "id": 4, "itype": "route", "txt": "sidebar:Posts", "icon": "fa-comments", "role": "user", "uri": "/posts" },
+    { "id": 5, "itype": "route", "txt": "sidebar:Profile", "icon": "fa-user", "role": "user", "uri": "/profile" },
+    { "id": 6, "itype": "title", "txt": "sidebar:Profile", "icon": "", "role": "user", "uri": "" },
+    { "id": 7, "itype": "route", "txt": "sidebar:Users", "icon": "fa-users", "role": "admin", "uri": "/users" },
+    { "id": 8, "itype": "link", "txt": "sidebar:Logout", "icon": "fa-sign-out", "role": "user", "uri": "/logout" },
+    { "id": 9, "itype": "link", "txt": "sidebar:login", "icon": "fa-sign-in", "role": "guest", "uri": "/login" },
+
   ],
   "usermenu": [
-    { "id": 1, "itype": "route", "txt": "sidebar:Profile", "icon": "fa-user", "uri": "/profile" },
-    { "id": 2, "itype": "route", "txt": "sidebar:Settings", "icon": "fa-cog", "uri": "/settings" },
-    { "id": 3, "itype": "devider", "txt": "not displayed", "icon": "", "uri": "" },
-    { "id": 3, "itype": "link", "txt": "sidebar:Logout", "icon": "fa-power-off", "uri": "/logout" }
+    { "id": 1, "itype": "route", "txt": "sidebar:Profile", "icon": "fa-user", "role": "user", "uri": "/profile" },
+    { "id": 2, "itype": "route", "txt": "sidebar:Settings", "icon": "fa-cog", "role": "user", "uri": "/settings" },
+    { "id": 3, "itype": "devider", "txt": "not displayed", "icon": "", "role": "user", "uri": "" },
+    { "id": 3, "itype": "link", "txt": "sidebar:Logout", "icon": "fa-power-off", "role": "user", "uri": "/logout" }
   ],
   // notifications and massages dropdon use same component
   // the UI text is defined her

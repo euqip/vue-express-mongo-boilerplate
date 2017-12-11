@@ -1,57 +1,70 @@
 import Vue from "vue"
 import moment from "moment"
-import { deviceTypes } from "./types"
+import { usersRoles } from "./types"
 import { validators } from "vue-form-generator"
 
 import { find } from "lodash"
 
 let _ = Vue.prototype._
-//moment.locale("en")
 module.exports = {
   // these translations are not dynamic
   // they are reported to the vue component instead of the schema
-  id: "devices",
-  title: "devices:Devices",
+  id: "users",
+  title: "users:Users",
 
   table: {
     multiSelect: false,
     columns: [
       {
-        title: "devices:ID",
+        title: "users:id",
+        tip: "users:id_longtip",
+        visible : false,
         field: "code",
-        visible: false,
         align: "left",
-        formatter(value, model) {
-          return model ? model.code : ""
-        }
       },
       {
-        title: "devices:Type",
-        field: "type",
-        formatter(value) {
-          let type = find(deviceTypes, (type) => type.id == value)
-          return type ? type.name : value
-        }
+        title: "users:fullname",
+        tip: "users:fullname_longtip",
+
+        field: "fullName",
       },
       {
-        title: "devices:Address",
-        field: "address"
+        title: "users:username",
+        tip: "users:username_longtip",
+
+        field: "username"
       },
       {
-        title: "devices:Owner",
-        field: "name"
+        title: "users:email",
+        tip: "users:email_longtip",
+
+        field: "email"
       },
       {
-        title: "devices:Status",
-        field: "status",
+        title: "users:verified",
+        tip: "users:verified_longtip",
+
+        field: "verified",
         formatter(value, model, col) {
-          return value ? "<i class='fa fa-check'/>" : "<i class='fa fa-ban'/>"
+          return value ? "<i class='fa fa-check-square-o'/>" : "<i class='fa fa-square-o'/>"
         },
         align: "center"
       },
       {
-        title: "devices:LastCommunication",
-        field: "lastCommunication",
+        title: "users:passwordless",
+        tip: "users:passwordless_longtip",
+
+        field: "passwordLess",
+        formatter(value, model, col) {
+          return value ? "<i class='fa fa-check-square-o'/>" : "<i class='fa fa-square-o'/>"
+        },
+        align: "center"
+      },
+      {
+        title: "users:lastLogin",
+        tip: "users:lastLogin_longtip",
+
+        field: "lastLogin",
         formatter(value) {
           return moment(value).fromNow()
         }
@@ -70,8 +83,8 @@ module.exports = {
     fields: [
       {
         type: "label",
-        label: _("devices:ID"),
-        model: "code",
+        label: _("users:id"),
+        model: "id",
         readonly: true,
         disabled: true,
         multi: false,
@@ -79,59 +92,62 @@ module.exports = {
           if (model.code)
             return model.code
           else
-            return "devices:willBeGenerated"
+            return _("willBeGenerated")
         }
       },
       {
         type: "select",
-        label: _("devices:Type"),
-        model: "type",
+        label: _("users:roles"),
+        model: "roles",
         required: true,
-        values: deviceTypes,
-        default: "rasperry",
+        values: usersRoles,
+        default: "user",  //C.ROLE_USER,
         validator: validators.required
 
       },
       {
         type: "input",
-        label: _("devices:Name"),
-        model: "name",
+        label: _("users:lg_fullname"),
+        model: "fullName",
         featured: true,
         required: true,
-        placeholder: "devices:DeviceName",
+        placeholder: "users:fullname",
         validator: validators.string
       },
       {
         type: "input",
-        label: _("devices:Description"),
-        model: "description",
+        label: _("users:lg_email"),
+        model: "email",
         featured: false,
         required: false,
+        placeholder: "users:email",
         validator: validators.string
-      },
-      {
-        type: "input",
-        label: _("devices:Address"),
-        model: "address",
-        placeholder: "devices:AddressOfDevice",
-        validator: validators.string,
       },
       {
         type: "label",
-        label: _("devices:LastCommunication"),
-        model: "lastCommunication",
+        label: _("users:lg_lastLogin"),
+        model: "lastLogin",
         get(model) {
-          return model && model.lastCommunication ? moment(model.lastCommunication).fromNow() : "-"
+          return model && model.lastLogin ? moment(model.lastLogin).fromNow() : "-"
         }
       },
       {
         type: "switch",
-        label: _("devices:Status"),
-        model: "status",
-        multi: true,
-        default: 1,
-        textOn: _("devices:Active"),
-        textOff: _("devices:Inactive"),
+        label: _("users:lg_verified"),
+        model: "verified",
+        multi: false,
+        default: 0,
+        textOn: _("users:Active"),
+        textOff: _("users:Inactive"),
+        valueOn: 1,
+        valueOff: 0
+      },
+      {
+        type: "switch",
+        label: _("users:lg_passwordLess"),
+        model: "passwordLess",
+        multi: false,
+        default: 0,
         valueOn: 1,
         valueOff: 0
       }
@@ -165,7 +181,7 @@ module.exports = {
   },
 
   resources: {
-    addCaption: "devices:AddNewDevice",
+    addCaption: "users:AddNewuser",
     saveCaption: "Save",
     cloneCaption: "Clone",
     deleteCaption: "Delete"

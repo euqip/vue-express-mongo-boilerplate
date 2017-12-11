@@ -6,7 +6,7 @@
 	"Delete": "Supprimer",
   "LoadMore": "La suite ...",
   "Close": "Fermer",
-  
+  "SelectedOfAll": "{{ selected }} parmi {{ all }}",
 	"UserNotFound": "Utilisateur non trouvé!",
   "CreatedAgoByName": "Créé {{ago}} par {{name}}",
   "EditedAgo": "Modifié {{ago}}",
@@ -114,5 +114,9 @@
   "Hungarian": "Hongrois",
 
   "Actions": "Menu",
-    "updetedUserLang": "La langue de l'utilisateur est changée!"
+    "updetedUserLang": "La langue de l'utilisateur est changée!",
+    "guest": "Invité",
+    "user": "Utilisateur",
+    "admin": "Administrateur",
+    "willBeGenerated": "Sera généré"
 }

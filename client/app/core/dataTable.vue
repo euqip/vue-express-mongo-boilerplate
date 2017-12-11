@@ -4,14 +4,14 @@
       tr
         th(v-if="schema.multiSelect", @click="selectAll")
           i.px-1.fa.fa-square-o
-        th.sortable(v-for="col in schema.columns", :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field === order.field, 'desc': col.field === order.field && order.direction === -1 }") {{ col.title | i18n}}
+        th.sortable(v-for="col in schema.columns", v-if="isVisible(col)"  :width="col.width || 'auto'", @click="changeSort(col)", :class="{ sorted: col.field === order.field, 'desc': col.field === order.field && order.direction === -1 }" :title="_(col.tip)") {{ col.title | i18n}}
 
     tbody
       tr(v-for="row in filteredOrderedRows", @click="select($event, row)", :class="{'text-muted': getRowClasses(row).inactive}")
         th(v-if="schema.multiSelect", @click.stop.prevent="select($event, row, true)", scope = "row")
           i.px-1.fa.fa-check-square-o(v-if="getRowClasses(row).selected")
           i.px-1.fa.fa-square-o(v-else)
-        td(v-for="col in schema.columns", :class="getCellClasses(row, col)")
+        td(v-for="col in schema.columns", v-if="isVisible(col)", :class="getCellClasses(row, col)")
           span(v-html="getCellValue(row, col)")
           span.labels(v-if="col.labels != null")
             .label(v-for="label in col.labels(row)", :class="'label-' + label.type") {{ label.caption }}
@@ -171,6 +171,14 @@
        */
       isSelected(row) {
         return this.selected.indexOf(row) != -1;
+      },
+      /**
+       * Get the col.visible state, defaults to true
+       * @param  {Object}  col Row object
+       * @return {Boolean}     Is visible?
+       */
+      isVisible(col) {
+        return (col.visible !== undefined) ? col.visible : true
       }
 
     }

@@ -56,7 +56,6 @@
   import Service from "../../core/service";
   import langBox from "../../core/components/header/dropdowns/lang-box"
   import { mapGetters, mapActions } from "vuex";
-  //i18next.loadNamespaces('profile', (err, t) => { /* ... */ })
 
   export default {
     //i18nextNamespace: "profile",

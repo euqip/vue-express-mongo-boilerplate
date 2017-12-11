@@ -7,7 +7,8 @@
 	"CreatedAgoByName": "Created {{ago}} by {{name}}",
 	"EditedAgo": "Edited {{ago}}",
 
-
+  "SelectedOfAll": "Selected {{ selected }} of {{ all }}",
+  
 
 
 	"DeviceNameCannotBeBlank": "Device name cannot be blank!",
@@ -134,6 +135,12 @@
     "NumberBadges": "Number Badges",
 
 
-    "updetedUserLang": "User language is changed"
+    "updetedUserLang": "User language is changed",
+
+  "guest": "guest",
+  "user": "user",
+  "admin": "admin",
+  "LoadMore": "Load More",
+  "willBeGenerated": "willBeGenerated"
 
 }

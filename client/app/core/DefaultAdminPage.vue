@@ -1,10 +1,11 @@
 <template lang="pug">
   .card
-    .modal.fade(id = "deviceedit" )
+    .modal.fade(id = "itemedit" )
       .modal-dialog(role = "document")
         .modal-content
           .modal-header
-            h5 {{"devices:editdevice" | i18n}}
+            //h5 {{"devices:editdevice" | i18n}}
+            h5 {{ _(schema.title) || _("itemEdit") }}
           .modal-body
             .px-2.form(v-if="model")
               vue-form-generator(:schema='schema.form', :model='model', :options='options', :multiple="selected.length > 1", ref="form", :is-new-model="isNewModel")
@@ -52,7 +53,7 @@
 
   export default {
     // i18nextNamespace seems not working, NS must be set at app level, within i18next module
-    i18nextNamespace: "devices",
+    // i18nextNamespace: "devices",
     components: {
       DataTable
     },
@@ -119,7 +120,7 @@
         this.modalShown = !this.modalShown
         console.log ("Toggle modal")
         // use the jQuery method
-        $('#deviceedit').modal('toggle')
+        $('#itemedit').modal('toggle')
         if (!this.modalShown) {
           // remove device selection
           this.$parent.clearSelection();
