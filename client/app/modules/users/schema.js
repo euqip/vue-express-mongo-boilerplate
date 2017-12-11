@@ -80,6 +80,7 @@ module.exports = {
   },
 
   form: {
+    title: _("users:EditUser"),
     fields: [
       {
         type: "label",
@@ -96,7 +97,7 @@ module.exports = {
         }
       },
       {
-        type: "select",
+        type: "checklist",
         label: _("users:roles"),
         model: "roles",
         required: true,

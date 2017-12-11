@@ -7,9 +7,9 @@ let _ = Vue.prototype._
 module.exports = {
 
   usersRoles: [
-    { id: "0", name: "guest", "label": "users:guest" },
-		{ id: "1", name: "user", "label": "users:user" },
-		{ id: "2", name: "admin", "label": "users:admin" },
+    { id: "0", value: "guest", "name": _("users:guest") },
+		{ id: "1", value: "user", "name": _("users:user") },
+		{ id: "2", value: "admin", "name": _("users:admin") },
   ]
 
 }

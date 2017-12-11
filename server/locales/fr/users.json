@@ -25,5 +25,11 @@
   "lg_email": "Adresse courriel",
   "lg_verified": "Verifié",
   "lg_lastLogin": "Dernière connexion",
-  "lg_passwordLess": "Connexion sans mot de passe"
+  "lg_passwordLess": "Connexion sans mot de passe",
+  "EditUser": "Modifier ou créer un utilisateur",
+
+
+    "guest": "Invité",
+    "user": "Utilisateur",
+    "admin": "Administrateur"
 }

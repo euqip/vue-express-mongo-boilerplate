@@ -67,6 +67,7 @@ module.exports = {
   },
 
   form: {
+    title: _("devices:EditDevice"),
     fields: [
       {
         type: "label",

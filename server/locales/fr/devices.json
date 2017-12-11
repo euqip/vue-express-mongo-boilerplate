@@ -17,7 +17,8 @@
   "AddressOfDevice": "Adresse",
   "AddNewDevice": "Nouvel appareil",
   "Owner": "Utilisateur",
-  "editdevice": "Modifier ou créer un appareil",
+  "EditDevice": "Modifier ou créer un appareil",
+  
   
 	"SelectedOfAll": "{{ selected }} parmi {{ all }} sélectionné"
 }

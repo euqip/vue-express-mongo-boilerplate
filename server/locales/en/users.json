@@ -26,5 +26,9 @@
   "lg_email": "Email",
   "lg_verified": "Verified",
   "lg_lastLogin": "Last Login",
-  "lg_passwordLess": "Passwordless"
+  "lg_passwordLess": "Passwordless",
+
+    "guest": "Guest",
+    "user": "User",
+    "admin": "Administrator"
 }

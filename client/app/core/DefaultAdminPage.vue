@@ -4,8 +4,7 @@
       .modal-dialog(role = "document")
         .modal-content
           .modal-header
-            //h5 {{"devices:editdevice" | i18n}}
-            h5 {{ _(schema.title) || _("itemEdit") }}
+            h5 {{ _(schema.form.title) || _("itemEdit") }}
           .modal-body
             .px-2.form(v-if="model")
               vue-form-generator(:schema='schema.form', :model='model', :options='options', :multiple="selected.length > 1", ref="form", :is-new-model="isNewModel")
